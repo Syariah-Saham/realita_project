@@ -1,0 +1,5 @@
+text = #60686d
+
+color
+
+green = #76c23a
