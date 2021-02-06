@@ -7,6 +7,8 @@
 
 	<link rel="stylesheet" href="{{ asset('/css/app.css') }}">
 	<link rel="shorcut icon" href="{{ asset('/asset/logo_warna_bulat.png') }}">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 
 	<style>
 		html {
@@ -645,8 +647,9 @@
 	<script>
 		const btnSidebar = document.getElementById('btnSidebar');
 		const sidebar = document.querySelector('aside');
+		const menus = document.querySelectorAll('aside a');
 
-		btnSidebar.addEventListener('click' , (e) => {
+		const handleSidebar = () => {
 			if(!btnSidebar.classList.contains('active')) {
 				btnSidebar.innerHTML = `<svg class="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 				  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -662,6 +665,16 @@
 				btnSidebar.classList.remove('active');
 				sidebar.classList.remove('appear');
 			}
+		} 
+
+		btnSidebar.addEventListener('click' , (e) => {
+			handleSidebar();
+		})
+
+		menus.forEach(btn => {
+			btn.addEventListener('click' , () => {
+				handleSidebar();
+			})
 		})
 
 		window.addEventListener('scroll' , () => {
