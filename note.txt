@@ -1,0 +1,59 @@
+** Palet **
+text = #60686d
+
+color
+
+green = #76c23a
+yellow_dark = #c8c900
+
+
+email : admin@email.com
+pass : admin123
+
+email : member@email.com
+pass : member123
+
+** Build css **
+npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dist/tailwind.css
+
+
+** upload **
+modified:   app/Http/Kernel.php
+modified:   app/Models/User.php
+modified:   config/jetstream.php
+modified:   database/migrations/2014_10_12_000000_create_users_table.php
+modified:   package.json
+
+modified:   public/asset/landing/bg-banner.svg
+modified:   public/asset/landing/bg-section.svg
+modified:   resources/views/dashboard.blade.php
+modified:   resources/views/landing.blade.php
+modified:   resources/views/layouts/app.blade.php
+modified:   resources/views/navigation-dropdown.blade.php
+modified:   resources/views/profile/show.blade.php
+
+modified:   resources/views/vendor/jetstream/components/button.blade.php
+modified:   resources/views/vendor/jetstream/components/welcome.blade.php
+modified:   routes/console.php
+modified:   routes/web.php
+
+
+** add
+app/Console/Commands/
+app/Http/Controllers/Admin/
+app/Http/Controllers/Member/
+app/Http/Middleware/RoleAdmin.php
+app/Http/Middleware/RoleMember.php
+app/Http/Middleware/StatusMember.php
+app/Models/Role.php
+database/migrations/2014_10_11_130410_create_roles_table.php
+note.txt
+public/css/dashboard.css
+public/vendor/
+resources/css/dashboard.css
+resources/views/layouts/admin.blade.php
+resources/views/vendor/admin/
+resources/views/vendor/components/
+resources/views/vendor/member/
+routes/admin/
+routes/member/

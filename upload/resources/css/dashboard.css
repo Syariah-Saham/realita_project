@@ -1,0 +1,119 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+.bg-red {
+	@apply bg-red-400 transition duration-300;
+}
+
+.bg-red:hover {
+	@apply bg-red-500;
+}
+
+.bg-blue {
+	@apply bg-blue-400 transition duration-300;
+}
+
+.bg-blue:hover {
+	@apply bg-blue-500;
+}
+
+.bg-green {
+	@apply bg-green-400 transition duration-300;
+}
+
+.bg-green:hover {
+	@apply bg-green-500;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  width: 6px;
+  background: #F9F9F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #76c23a;
+  border-radius: 10px;
+}
+
+body {
+	font-family: 'Nunito' , 'Arial' , 'Helvetica' , sans-serif;
+	color: #60686d;
+}
+
+button {
+	outline: none;
+}
+
+.bg-gr {
+	background-image: linear-gradient(130deg, #47a200, #b6ff3e);
+}
+
+.btn {
+	@apply uppercase font-semibold text-white bg-gr px-4 py-1 rounded-full my-2 inline-block cursor-pointer shadow-md transition duration-300;
+	background-image: linear-gradient(45deg, #47a200 40%, #b6ff3e);
+}
+
+.btn:hover {
+	@apply shadow-sm;
+}
+
+
+.form-group {
+	@apply my-2;
+}
+
+input {
+	@apply border-2 border-gray-300;
+	margin: 6px auto;
+	width: 100%;
+	display: block;
+	outline: none;
+}
+
+input.is-invalid {
+	@apply border-2 border-red-400;
+}
+
+aside {
+	@apply fixed left-0 shadow-md hidden md:block w-1/4 h-screen bg-white text-white;
+}
+
+aside .brand {
+	@apply my-6;
+}
+
+aside .list-menu {
+	@apply h-full py-6;
+	background-image: linear-gradient(130deg, #47a200 40% , #b6ff3e);
+}
+
+aside .list-menu a {
+	@apply flex flex-row items-center px-6 py-2 uppercase rounded-tl-full rounded-bl-full  font-semibold  ml-5 transition duration-500 transform font-semibold mb-3;
+}
+
+aside .list-menu a:hover , aside .list-menu a.active {
+	@apply bg-white text-green-500 shadow-md -translate-y-1.5 translate-x-0.5;
+}
+
+aside .list-menu a svg {
+	@apply h-8 w-8 mr-3;
+}
+
+.col-badge {
+	@apply text-white flex flex-row justify-center items-center py-1;
+}
+
+.badge {
+	@apply block mx-2 text-white p-2 rounded-full outline-none;
+}
+
+.badge svg {
+	@apply h-5 w-5;
+}
