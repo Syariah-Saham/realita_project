@@ -69,6 +69,10 @@ button {
 	@apply my-2;
 }
 
+.form-input {
+	@apply border-2 border-gray-300 outline-none block px-4 py-2 rounded;
+}
+
 input {
 	@apply border-2 border-gray-300;
 	margin: 6px auto;
@@ -117,3 +121,10 @@ aside .list-menu a svg {
 .badge svg {
 	@apply h-5 w-5;
 }
+
+
+table tbody tr {
+	@apply bg-white;
+}
+
+

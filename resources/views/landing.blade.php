@@ -278,17 +278,17 @@
 			</div>
 			<div class="flex flex-col md:flex-row gap-12 my-8 w-full md:w-4/5 justify-center mx-auto">
 				<div class="md:w-1/3 bg-white p-8 rounded shadow-lg">
-					<img src="{{ asset('asset/landing/fitur-1.jpg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
+					<img src="{{ asset('asset/landing/laporan_keuangan.svg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
 					<h3 class="font-bold text-lg md:text-2xl text-second">Laporan Keuangan</h3>
 					<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
 				</div>
 				<div class="md:w-1/3 bg-white p-8 rounded shadow-lg">
-					<img src="{{ asset('asset/landing/fitur-2.jpg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
-					<h3 class="font-bold text-lg md:text-2xl text-second">Screener Fundamental</h3>
+					<img src="{{ asset('asset/landing/screening_saham.svg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
+					<h3 class="font-bold text-lg md:text-2xl text-second">Screening Fundamental</h3>
 					<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
 				</div>
 				<div class="md:w-1/3 bg-white p-8 rounded shadow-lg">
-					<img src="{{ asset('asset/landing/fitur-3.jpg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
+					<img src="{{ asset('asset/landing/comparasi.svg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
 					<h3 class="font-bold text-lg md:text-2xl text-second">Comparasion</h3>
 					<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
 				</div>

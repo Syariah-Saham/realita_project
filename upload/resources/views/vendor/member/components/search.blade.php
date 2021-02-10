@@ -1,1 +1,0 @@
-<input type="text" placeholder="Cari Saham ..." class="block h-10 px-8 outline-none rounded-full shadow-sm mt-4 ml-4 w-1/2">

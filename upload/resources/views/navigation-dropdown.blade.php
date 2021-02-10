@@ -103,14 +103,25 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+            <x-jet-responsive-nav-link href="{{ url('member/dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
+            @if(Auth::user()->role_id === 2)
+                <x-jet-responsive-nav-link href="{{ url('member/report') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Laporan Keuangan') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ url('member/screening') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Screening Fundamental') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ url('member/compare') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Coparison Emiten') }}
+                </x-jet-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="flex items-center px-4">
+            <div class="flex items-center px-4  hidden md:block">
                 <div class="flex-shrink-0">
                     <img class="h-10 w-10 rounded-full" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                 </div>

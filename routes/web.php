@@ -28,7 +28,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::middleware(['auth:sanctum'] , 'verified')->group(function() {
+Route::middleware(['auth:sanctum', 'verified'])->group(function() {
 
 	// Administrator
 	Route::name('admin')->middleware('role_admin')->prefix('admin')->group(function() {
@@ -47,5 +47,14 @@ Route::middleware(['auth:sanctum'] , 'verified')->group(function() {
 	Route::name('member')->middleware('role_member' , 'status_member' )->prefix('member')->group(function() {
 		include
 		__DIR__.'/member/dashboard.php';
+
+		include
+		__DIR__.'/member/report.php';
+
+		include
+		__DIR__.'/member/compare.php';
+
+		include
+		__DIR__.'/member/screening.php';
 	});
 });
