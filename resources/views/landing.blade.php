@@ -105,9 +105,6 @@
 			background-color: #76c23a;
 		}
 
-		.cost h2 {
-			color: #c8c900;
-		}
 
 		.title-section span {
 			color: #76c23a;
@@ -431,7 +428,7 @@
 					<div class="text-center">
 						<h3 class="font-bold text-lg md:text-2xl text-second">Paket Gratis</h3>
 						<h2 class="text-sm md:text-lg">Lorem, ipsum dolor sit amet.</h2>
-						<div class="cost flex flex-row justify-center items-center gap-2">
+						<div class="cost flex flex-row justify-center bg-teal-400 text-white px-2 rounded my-2 items-center gap-2 rounded-l-full pl-6 relative -mr-10">
 							<p>Rp</p>
 							<h2 class="font-bold text-3xl md:text-5xl">1.000.000</h2>
 						</div>
@@ -466,12 +463,13 @@
 							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
 						</li>
 					</ul>
+					<button class="w-1/2 py-2 px-6 uppercase text-white text-lg font-bold rounded mx-auto block mt-3 outline-none bg-gray-400">Beli</button>
 				</div>
 				<div class="md:w-1/3 bg-white p-4 md:p-8 rounded shadow-lg">
 					<div class="text-center">
-						<h3 class="font-bold text-lg md:text-2xl text-second">Paket Gratis</h3>
+						<h3 class="font-bold text-lg md:text-2xl text-second">Paket Personal</h3>
 						<h2 class="text-sm md:text-lg">Lorem, ipsum dolor sit amet.</h2>
-						<div class="cost flex flex-row justify-center items-center gap-2">
+						<div class="cost flex flex-row justify-center bg-purple-400 text-white px-2 rounded my-2 items-center gap-2 rounded-l-full pl-6 relative -mr-10">
 							<p>Rp</p>
 							<h2 class="font-bold text-3xl md:text-5xl">1.000.000</h2>
 						</div>
@@ -506,12 +504,13 @@
 							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
 						</li>
 					</ul>
+					<button class="w-1/2 py-2 px-6 uppercase text-white text-lg font-bold rounded mx-auto block mt-3 outline-none bg-gray-400">Beli</button>
 				</div>
 				<div class="md:w-1/3 bg-white p-4 md:p-8 rounded shadow-lg">
 					<div class="text-center">
-						<h3 class="font-bold text-lg md:text-2xl text-second">Paket Gratis</h3>
+						<h3 class="font-bold text-lg md:text-2xl text-second">Paket Exper</h3>
 						<h2 class="text-sm md:text-lg">Lorem, ipsum dolor sit amet.</h2>
-						<div class="cost flex flex-row justify-center items-center gap-2">
+						<div class="cost flex flex-row justify-center bg-indigo-400 text-white px-2 rounded my-2 items-center gap-2 rounded-l-full pl-6 relative -mr-10">
 							<p>Rp</p>
 							<h2 class="font-bold text-3xl md:text-5xl">1.000.000</h2>
 						</div>
@@ -546,6 +545,7 @@
 							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
 						</li>
 					</ul>
+					<button class="w-1/2 py-2 px-6 uppercase text-white text-lg font-bold rounded mx-auto block mt-3 outline-none bg-gray-400">Beli</button>
 				</div>
 			</div>
 		</div>

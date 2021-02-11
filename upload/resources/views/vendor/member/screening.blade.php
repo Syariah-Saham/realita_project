@@ -1,153 +1,155 @@
 <x-app-layout>
 	<div class="py-4 px-4 pb-12">
         <div class="max-w-7xl px-4 sm:px-6 lg:px-8 pb-10">
-			<h1 class="text-2xl font-bold text-gray-600">Screening Fundamental</h1>
-
-			<div class="card-filter flex flex-col md:flex-row gap-4 bg-white shadow-lg rounded-lg p-4 mt-6">
+        	<div class="text-center">
+	            <img src="{{ asset('asset/landing/screening_saham.svg') }}" alt="illustrasi" class="w-1/2 mb-4 mx-auto">
+				<h1 class="text-2xl font-bold text-gray-600">Screening Fundamental</h1>
+        	</div>
+			<div class="card-filter text-xs flex flex-col md:flex-row gap-4 bg-white shadow-lg rounded-lg p-4 mt-6">
 				<div class="w-1/2">
-					<div class="filter-item flex flex-col md:flex-row gap-3 items-w-full md:center">
+					<div class="filter-item flex flex-col md:flex-row gap-3 items-center w-full md:center">
 						<div class="w-full md:w-2/5">Current Ratio</div>
-						<select name="option" id="option" class="w-1/5 form-input">
+						<select name="option" id="option" class="w-1/5 text-xs form-input">
 							<option value="">Dibawah</option>
 							<option value="">Diatas</option>
 						</select>
 						<div class="w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
-							<input type="number" class="form-input" >
+							<input type="number" class="form-input text-xs" >
 						</div>
 					</div>
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Dividen Saham (Rp)</div>
-						<select name="option" id="option" class="w-1/5 form-input">
+						<select name="option" id="option" class="w-1/5 text-xs form-input">
 							<option value="">Dibawah</option>
 							<option value="">Diatas</option>
 						</select>
 						<div class="w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
-							<input type="number" class="form-input" >
+							<input type="number" class="form-input text-xs" >
 						</div>
 					</div>
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Dividen Yield</div>
-						<select name="option" id="option" class="w-1/5 form-input">
+						<select name="option" id="option" class="w-1/5 text-xs form-input">
 							<option value="">Dibawah</option>
 							<option value="">Diatas</option>
 						</select>
 						<div class="w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
-							<input type="number" class="form-input" >
+							<input type="number" class="form-input text-xs" >
 						</div>
 					</div>
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Dividen Payout</div>
-						<select name="option" id="option" class="w-1/5 form-input">
+						<select name="option" id="option" class="w-1/5 text-xs form-input">
 							<option value="">Dibawah</option>
 							<option value="">Diatas</option>
 						</select>
 						<div class="w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
-							<input type="number" class="form-input" >
+							<input type="number" class="form-input text-xs" >
 						</div>
 					</div>
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Laba bersih / saham</div>
-						<select name="option" id="option" class="w-1/5 form-input">
+						<select name="option" id="option" class="w-1/5 text-xs form-input">
 							<option value="">Dibawah</option>
 							<option value="">Diatas</option>
 						</select>
 						<div class="w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
-							<input type="number" class="form-input" >
+							<input type="number" class="form-input text-xs" >
 						</div>
 					</div>
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Nilai Buku</div>
-						<select name="option" id="option" class="w-1/5 form-input">
+						<select name="option" id="option" class="w-1/5 text-xs form-input">
 							<option value="">Dibawah</option>
 							<option value="">Diatas</option>
 						</select>
 						<div class="w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
-							<input type="number" class="form-input" >
+							<input type="number" class="form-input text-xs" >
 						</div>
 					</div>
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Debt to Asset Ratio (%)</div>
-						<select name="option" id="option" class="w-1/5 form-input">
+						<select name="option" id="option" class="w-1/5 text-xs form-input">
 							<option value="">Dibawah</option>
 							<option value="">Diatas</option>
 						</select>
 						<div class="w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
-							<input type="number" class="form-input" >
+							<input type="number" class="form-input text-xs" >
 						</div>
 					</div>
 				</div>
 				<div class="w-1/2">
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Debt to Equity Ratio (%)</div>
-						<select name="option" id="option" class="w-1/5 form-input">
+						<select name="option" id="option" class="w-1/5 text-xs form-input">
 							<option value="">Dibawah</option>
 							<option value="">Diatas</option>
 						</select>
 						<div class="w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
-							<input type="number" class="form-input" >
+							<input type="number" class="form-input text-xs" >
 						</div>
 					</div>
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Return of Assets (%)</div>
-						<select name="option" id="option" class="w-1/5 form-input">
+						<select name="option" id="option" class="w-1/5 text-xs form-input">
 							<option value="">Dibawah</option>
 							<option value="">Diatas</option>
 						</select>
 						<div class="w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
-							<input type="number" class="form-input" >
+							<input type="number" class="form-input text-xs" >
 						</div>
 					</div>
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Return of Equity (%)</div>
-						<select name="option" id="option" class="w-1/5 form-input">
+						<select name="option" id="option" class="w-1/5 text-xs form-input">
 							<option value="">Dibawah</option>
 							<option value="">Diatas</option>
 						</select>
 						<div class="w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
-							<input type="number" class="form-input" >
+							<input type="number" class="form-input text-xs" >
 						</div>
 					</div>
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Net Profit Margin (%)</div>
-						<select name="option" id="option" class="w-1/5 form-input">
+						<select name="option" id="option" class="w-1/5 text-xs form-input">
 							<option value="">Dibawah</option>
 							<option value="">Diatas</option>
 						</select>
 						<div class="w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
-							<input type="number" class="form-input" >
+							<input type="number" class="form-input text-xs" >
 						</div>
 					</div>
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Price to Earning Ratio (%)</div>
-						<select name="option" id="option" class="w-1/5 form-input">
+						<select name="option" id="option" class="w-1/5 text-xs form-input">
 							<option value="">Dibawah</option>
 							<option value="">Diatas</option>
 						</select>
 						<div class="w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
-							<input type="number" class="form-input" >
+							<input type="number" class="form-input text-xs" >
 						</div>
 					</div>
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Price to Book Value (%)</div>
-						<select name="option" id="option" class="w-1/5 form-input">
+						<select name="option" id="option" class="w-1/5 text-xs form-input">
 							<option value="">Dibawah</option>
 							<option value="">Diatas</option>
 						</select>
 						<div class="w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
-							<input type="number" class="form-input" >
+							<input type="number" class="form-input text-xs" >
 						</div>
 					</div>
 					<div class="text-center mt-2">

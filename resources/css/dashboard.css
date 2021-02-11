@@ -87,6 +87,12 @@ input.is-invalid {
 
 aside {
 	@apply fixed left-0 shadow-md hidden md:block w-1/4 h-screen bg-white text-white;
+	transition: 1.2s ease-in-out;
+	transform: translateX(0);
+}
+
+aside.invisible {
+	transform: translateX(-100%);
 }
 
 aside .brand {

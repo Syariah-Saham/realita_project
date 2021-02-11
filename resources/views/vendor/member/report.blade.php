@@ -2,7 +2,7 @@
 
     <div class="py-6 pb-12 px-3 lg:px-8">
         <form action="" class="flex flex-col items-center justify-center">
-            <img src="{{ asset('asset/dashboard/illustrasi.svg') }}" alt="illustrasi" class="w-1/3">
+            <img src="{{ asset('asset/landing/laporan_keuangan.svg') }}" alt="illustrasi" class="w-1/3">
             <h1  class="text-2xl font-bold text-gray-600">Cari Laporan Keuangan</h1>
             <div class="w-54">
                 <input type="text" class="form-input rounded-full px-8" placeholder="Ketik kode emiten...">
@@ -12,9 +12,9 @@
 
 
         <div class="result-report border-t-2 border-gray-300 my-6 pt-6">
-            <h1 class="text-center font-black text-center text-4xl">Kode Saham <span>BBRI</span></h1>
-            <div class="flex flex-row gap-2 shadow-md bg-white p-4 mt-4">
-                <div class="w-1/2">
+            <h1 class="text-center font-bold text-center text-2xl bg-white p-2 rounded shadow-lg block w-48 mx-auto">Kode Saham <span class="text-white bg-green-400 block w-full rounded mt-2 text-4xl py-2 font-black">BBRI</span></h1>
+            <div class="flex flex-col md:flex-row gap-2 shadow-md bg-white p-4 mt-4">
+                <div class="md:w-1/2">
                     <div class="flex flex-row gap-2">
                         <div class="w-2/5">Nama Emiten</div>
                         <div class="w-3/5 text-green-400 font-bold">PT Bank Rakyat Indonesia Tbk</div>
@@ -32,7 +32,7 @@
                         <div class="w-3/5  text-green-400 ">15.049.02910</div>
                     </div>
                 </div>
-                <div class="w-1/2">
+                <div class="md:w-1/2">
                     <div class="flex flex-row gap-2">
                         <div class="w-2/5">Sektor</div>
                         <div class="w-3/5  text-green-400 ">Keuangan</div>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 grid-rows-7 lg:grid-rows-6 mt-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 grid-rows-7 lg:grid-rows-6 mt-6 text-xs md:text-sm">
                     <table class="col-span-3 md:col-span-2 lg:h-full row-span-2 rounded-lg shadow-md overflow-auto md:overflow-hidden bg-white p-2">
                         <thead class="bg-green-500 text-white">
                             <tr>
