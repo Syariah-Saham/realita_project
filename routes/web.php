@@ -40,6 +40,21 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
 
 		include
 		__DIR__.'/admin/admin.php';
+
+		include
+		__DIR__.'/admin/stock.php';
+
+		include
+		__DIR__.'/admin/report.php';
+
+		include 
+		__DIR__.'/admin/sector.php';
+
+		include
+		__DIR__.'/admin/industry.php';
+
+		include
+		__DIR__.'/admin/periode.php';
 	});
 
 
