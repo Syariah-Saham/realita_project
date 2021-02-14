@@ -19,7 +19,7 @@ class CreateAssetsTable extends Migration
             $table->bigInteger('current');
             $table->bigInteger('n_current');
             $table->bigInteger('total');
-            $table->decimal('growth' , $precision = 4 , $scale = 2);
+            $table->decimal('growth' , $precision = 10 , $scale = 2);
             $table->timestamps();
 
             $table->foreign('balance_id')->references('id')->on('balance_sheets')->onDelete('cascade');

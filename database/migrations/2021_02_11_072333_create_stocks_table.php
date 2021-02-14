@@ -17,7 +17,7 @@ class CreateStocksTable extends Migration
             $table->id();
             $table->foreignId('sector_id');
             $table->foreignId('industry_id');
-            $table->char('code_issuers',4);
+            $table->char('code_issuers',5);
             $table->string('name');
             $table->timestamp('ipo_date');
             $table->unsignedBigInteger('total_stock');

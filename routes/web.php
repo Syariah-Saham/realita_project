@@ -55,6 +55,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
 
 		include
 		__DIR__.'/admin/periode.php';
+
+		include
+		__DIR__.'/admin/import.php';
 	});
 
 

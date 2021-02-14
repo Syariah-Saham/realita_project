@@ -10,8 +10,8 @@
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center w-full md:center">
 						<div class="w-full md:w-2/5">Current Ratio</div>
 						<select name="option" id="option" class="w-full md:w-1/5 text-xs form-input">
-							<option value="">Dibawah</option>
-							<option value="">Diatas</option>
+							<option value="">di bawah</option>
+							<option value="">di atas</option>
 						</select>
 						<div class="w-full md:w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
@@ -21,8 +21,8 @@
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Dividen Saham (Rp)</div>
 						<select name="option" id="option" class="w-full md:w-1/5 text-xs form-input">
-							<option value="">Dibawah</option>
-							<option value="">Diatas</option>
+							<option value="">di bawah</option>
+							<option value="">di atas</option>
 						</select>
 						<div class="w-full md:w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
@@ -32,8 +32,8 @@
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Dividen Yield</div>
 						<select name="option" id="option" class="w-full md:w-1/5 text-xs form-input">
-							<option value="">Dibawah</option>
-							<option value="">Diatas</option>
+							<option value="">di bawah</option>
+							<option value="">di atas</option>
 						</select>
 						<div class="w-full md:w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
@@ -43,8 +43,8 @@
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Dividen Payout</div>
 						<select name="option" id="option" class="w-full md:w-1/5 text-xs form-input">
-							<option value="">Dibawah</option>
-							<option value="">Diatas</option>
+							<option value="">di bawah</option>
+							<option value="">di atas</option>
 						</select>
 						<div class="w-full md:w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
@@ -54,8 +54,8 @@
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Laba bersih / saham</div>
 						<select name="option" id="option" class="w-full md:w-1/5 text-xs form-input">
-							<option value="">Dibawah</option>
-							<option value="">Diatas</option>
+							<option value="">di bawah</option>
+							<option value="">di atas</option>
 						</select>
 						<div class="w-full md:w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
@@ -65,8 +65,8 @@
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Nilai Buku</div>
 						<select name="option" id="option" class="w-full md:w-1/5 text-xs form-input">
-							<option value="">Dibawah</option>
-							<option value="">Diatas</option>
+							<option value="">di bawah</option>
+							<option value="">di atas</option>
 						</select>
 						<div class="w-full md:w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
@@ -76,8 +76,8 @@
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Debt to Asset Ratio (%)</div>
 						<select name="option" id="option" class="w-full md:w-1/5 text-xs form-input">
-							<option value="">Dibawah</option>
-							<option value="">Diatas</option>
+							<option value="">di bawah</option>
+							<option value="">di atas</option>
 						</select>
 						<div class="w-full md:w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
@@ -89,8 +89,8 @@
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Debt to Equity Ratio (%)</div>
 						<select name="option" id="option" class="w-full md:w-1/5 text-xs form-input">
-							<option value="">Dibawah</option>
-							<option value="">Diatas</option>
+							<option value="">di bawah</option>
+							<option value="">di atas</option>
 						</select>
 						<div class="w-full md:w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
@@ -100,8 +100,8 @@
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Return of Assets (%)</div>
 						<select name="option" id="option" class="w-full md:w-1/5 text-xs form-input">
-							<option value="">Dibawah</option>
-							<option value="">Diatas</option>
+							<option value="">di bawah</option>
+							<option value="">di atas</option>
 						</select>
 						<div class="w-full md:w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
@@ -111,8 +111,8 @@
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Return of Equity (%)</div>
 						<select name="option" id="option" class="w-full md:w-1/5 text-xs form-input">
-							<option value="">Dibawah</option>
-							<option value="">Diatas</option>
+							<option value="">di bawah</option>
+							<option value="">di atas</option>
 						</select>
 						<div class="w-full md:w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
@@ -122,8 +122,8 @@
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Net Profit Margin (%)</div>
 						<select name="option" id="option" class="w-full md:w-1/5 text-xs form-input">
-							<option value="">Dibawah</option>
-							<option value="">Diatas</option>
+							<option value="">di bawah</option>
+							<option value="">di atas</option>
 						</select>
 						<div class="w-full md:w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
@@ -133,8 +133,8 @@
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Price to Earning Ratio (%)</div>
 						<select name="option" id="option" class="w-full md:w-1/5 text-xs form-input">
-							<option value="">Dibawah</option>
-							<option value="">Diatas</option>
+							<option value="">di bawah</option>
+							<option value="">di atas</option>
 						</select>
 						<div class="w-full md:w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>
@@ -144,8 +144,8 @@
 					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Price to Book Value (%)</div>
 						<select name="option" id="option" class="w-full md:w-1/5 text-xs form-input">
-							<option value="">Dibawah</option>
-							<option value="">Diatas</option>
+							<option value="">di bawah</option>
+							<option value="">di atas</option>
 						</select>
 						<div class="w-full md:w-2/5 flex items-center gap-1">
 							<label for="value">Value</label>

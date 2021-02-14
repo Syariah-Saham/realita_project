@@ -16,10 +16,10 @@ class CreateProfitLossesTable extends Migration
         Schema::create('profit_losses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('report_id');
-            $table->unsignedBigInteger('revenue');
-            $table->decimal('revenue_growth' , $precision = 4 , $scale = 2);
-            $table->unsignedBigInteger('net_profit');
-            $table->decimal('net_profit_growth' , $precision = 4 , $scale = 2);
+            $table->bigInteger('revenue');
+            $table->decimal('revenue_growth' , $precision = 10 , $scale = 2);
+            $table->bigInteger('net_profit');
+            $table->decimal('net_profit_growth' , $precision = 10 , $scale = 2);
             $table->timestamps();
 
             $table->foreign('report_id')->references('id')->on('finance_reports')->onDelete('cascade');

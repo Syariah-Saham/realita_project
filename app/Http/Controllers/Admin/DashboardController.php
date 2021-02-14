@@ -33,7 +33,6 @@ class DashboardController extends Controller
     public function index () 
     {
       $members = User::where('role_id',2)->orderBy('status' , 'asc')->get();
-      
     	return view($this->view.'dashboard' , ['members' => $members]);
     }
 }

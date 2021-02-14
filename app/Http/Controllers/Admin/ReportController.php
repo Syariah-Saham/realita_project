@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Resources\Admin\ListReportResource;
 use App\Models\PeriodeReport;
 use App\Models\Stock;
 use App\Models\FinanceReport;
@@ -30,7 +31,10 @@ class ReportController extends Controller
     */
     public function index () 
     {
-    	return view('vendor.admin.report');
+      $reports = FinanceReport::latest()->paginate(50);
+    	return view('vendor.admin.report' , [
+        'reports' => $reports,
+      ]);
     }
 
 

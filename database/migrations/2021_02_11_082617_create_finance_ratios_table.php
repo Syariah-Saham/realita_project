@@ -16,19 +16,19 @@ class CreateFinanceRatiosTable extends Migration
         Schema::create('finance_ratios', function (Blueprint $table) {
             $table->id();
             $table->foreignId('report_id');
-            $table->decimal('current_ratio' , $precision = 4 , $scale = 2);
-            $table->decimal('dividend_nominal' , $precision = 5 , $scale = 2);
-            $table->decimal('dividend_yield' , $precision = 4 , $scale = 2);
-            $table->decimal('dividend_payout' , $precision = 4 , $scale = 2);
-            $table->decimal('net_profit' , $precision = 6 , $scale = 2);
-            $table->decimal('book_value' , $precision = 8 , $scale = 2);
-            $table->decimal('debt_asset_ratio' , $precision = 4 , $scale = 2);
-            $table->decimal('debt_equity_ratio' , $precision = 4 , $scale = 2);
-            $table->decimal('return_of_assets' , $precision = 4 , $scale = 2);
-            $table->decimal('return_of_equity' , $precision = 4 , $scale = 2);
-            $table->decimal('net_profit_margin' , $precision = 4 , $scale = 2);
-            $table->decimal('price_to_earning_ratio' , $precision = 4 , $scale = 2);
-            $table->decimal('price_to_book_value' , $precision = 4 , $scale = 2);
+            $table->decimal('current_ratio' , $precision = 10 , $scale = 2);
+            $table->decimal('dividend_nominal' , $precision = 10 , $scale = 2);
+            $table->decimal('dividend_yield' , $precision = 10 , $scale = 2);
+            $table->decimal('dividend_payout' , $precision = 10 , $scale = 2);
+            $table->decimal('net_profit' , $precision = 10 , $scale = 2);
+            $table->decimal('book_value' , $precision = 10 , $scale = 2);
+            $table->decimal('debt_asset_ratio' , $precision = 10 , $scale = 2);
+            $table->decimal('debt_equity_ratio' , $precision = 10 , $scale = 2);
+            $table->decimal('return_of_assets' , $precision = 10 , $scale = 2);
+            $table->decimal('return_of_equity' , $precision = 10 , $scale = 2);
+            $table->decimal('net_profit_margin' , $precision = 10 , $scale = 2);
+            $table->decimal('price_to_earning_ratio' , $precision = 10 , $scale = 2);
+            $table->decimal('price_to_book_value' , $precision = 10 , $scale = 2);
             $table->timestamps();
 
             $table->foreign('report_id')->references('id')->on('finance_reports')->onDelete('cascade');

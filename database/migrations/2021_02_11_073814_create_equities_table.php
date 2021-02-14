@@ -16,9 +16,9 @@ class CreateEquitiesTable extends Migration
         Schema::create('equities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('balance_id');
-            $table->unsignedBigInteger('parent');
-            $table->unsignedInteger('not_controller');
-            $table->unsignedInteger('total');
+            $table->bigInteger('parent');
+            $table->integer('not_controller');
+            $table->integer('total');
             $table->decimal('growth' , $precision = 4 , $scale = 2);
             $table->timestamps();
 

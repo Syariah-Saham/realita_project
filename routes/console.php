@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Hash;
 
 use App\Models\Role;
 use App\Models\User;
+use App\Models\PeriodeReport;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,10 @@ Artisan::command('generate' , function() {
 		'password' => Hash::make('admin123'),
 		'status'   => 'confirmed',
 	]);
+
+	PeriodeReport::create(['year' => '2015']);
+	PeriodeReport::create(['year' => '2016']);
+	PeriodeReport::create(['year' => '2017']);
+	PeriodeReport::create(['year' => '2018']);
+	PeriodeReport::create(['year' => '2019']);
 });

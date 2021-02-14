@@ -23,7 +23,7 @@ class StockController extends Controller
     */
     public function index () 
     {
-      $stocks = Stock::get();
+      $stocks = Stock::paginate(50);
     	return view('vendor.admin.stock' , [
               'stocks' => $stocks,
       ]);
