@@ -229,6 +229,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'Number' => App\Helpers\Number::class,
+        'Carbon' => \Carbon\Carbon::class,
+
     ],
 
 ];

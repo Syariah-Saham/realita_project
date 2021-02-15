@@ -20,56 +20,34 @@ npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dist/tailwind.css
 
 
 ** upload **
-modified:   public/css/dashboard.css
-modified:   resources/css/dashboard.css
+modified:   app/Http/Controllers/Member/CompareController.php
+modified:   app/Http/Controllers/Member/ReportController.php
+modified:   app/Models/BalanceSheet.php
+modified:   app/Models/FinanceReport.php
+modified:   app/Models/Stock.php
+modified:   config/app.php
+modified:   resources/views/layouts/admin.blade.php
+modified:   resources/views/navigation-dropdown.blade.php
 modified:   resources/views/vendor/admin/components/sidebar.blade.php
-modified:   routes/web.php
+modified:   resources/views/vendor/admin/report.blade.php
+modified:   resources/views/vendor/admin/stock-create.blade.php
+modified:   resources/views/vendor/admin/stock.blade.php
+modified:   resources/views/vendor/jetstream/components/input.blade.php
+modified:   resources/views/vendor/member/compare.blade.php
+modified:   resources/views/vendor/member/components/sidebar.blade.php
+modified:   resources/views/vendor/member/report.blade.php
+modified:   routes/member/compare.php
+modified:   routes/member/report.php
+
 
 
 
 
 ** add
-app/Http/Controllers/Admin/IndustryController.php
-app/Http/Controllers/Admin/PeriodeController.php
-app/Http/Controllers/Admin/ReportController.php
-app/Http/Controllers/Admin/SectorController.php
-app/Http/Controllers/Admin/StockController.php
-app/Models/Asset.php
-app/Models/BalanceSheet.php
-app/Models/CostStock.php
-app/Models/Equity.php
-app/Models/FinanceRatio.php
-app/Models/FinanceReport.php
-app/Models/Industry.php
-app/Models/Liability.php
-app/Models/PeriodeReport.php
-app/Models/ProfitLoss.php
-app/Models/Sector.php
-app/Models/Stock.php
-database/migrations/2021_02_11_072306_create_sectors_table.php
-database/migrations/2021_02_11_072323_create_industries_table.php
-database/migrations/2021_02_11_072333_create_stocks_table.php
-database/migrations/2021_02_11_073246_create_periode_reports_table.php
-database/migrations/2021_02_11_073255_create_finance_reports_table.php
-database/migrations/2021_02_11_073747_create_balance_sheets_table.php
-database/migrations/2021_02_11_073757_create_assets_table.php
-database/migrations/2021_02_11_073806_create_liabilities_table.php
-database/migrations/2021_02_11_073814_create_equities_table.php
-database/migrations/2021_02_11_082609_create_profit_losses_table.php
-database/migrations/2021_02_11_082617_create_finance_ratios_table.php
-database/migrations/2021_02_11_082625_create_cost_stocks_table.php
-resources/views/vendor/admin/industry-create.blade.php
-resources/views/vendor/admin/periode-create.blade.php
-resources/views/vendor/admin/report-create.blade.php
-resources/views/vendor/admin/report.blade.php
-resources/views/vendor/admin/sector-create.blade.php
-resources/views/vendor/admin/stock-create.blade.php
-resources/views/vendor/admin/stock.blade.php
-routes/admin/industry.php
-routes/admin/periode.php
-routes/admin/report.php
-routes/admin/sector.php
-routes/admin/stock.php
+app/Helpers/Number.php
+resources/views/vendor/components/iteration.blade.php
+
+
 
 
 

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Industry;
 use App\Models\Sector;
+use App\Models\FinanceReport;
 
 class Stock extends Model
 {
@@ -20,5 +21,10 @@ class Stock extends Model
     public function sector () 
     {
     	return $this->belongsTo(Sector::class , 'sector_id');
+    }
+
+    public function report () 
+    {
+        return $this->hasMany(FinanceReport::class , 'stock_id');
     }
 }

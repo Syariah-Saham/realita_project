@@ -116,6 +116,22 @@
                 <x-jet-responsive-nav-link href="{{ url('member/compare') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Coparison Emiten') }}
                 </x-jet-responsive-nav-link>
+            @elseif(Auth::user()->role_id === 1)
+                <x-jet-responsive-nav-link href="{{ url('member/report') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Daftar Saham') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ url('member/report') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Laporan Keuangan') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ url('member/report') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Import Data') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ url('member/report') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Admin') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ url('member/report') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Member') }}
+                </x-jet-responsive-nav-link>
             @endif
         </div>
 

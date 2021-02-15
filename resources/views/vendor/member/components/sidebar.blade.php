@@ -88,32 +88,32 @@
 <aside class="w-12 fixed z-30 small-sidebar invisible" style="transition: .5s">
 
 	<div class="bg-gr h-screen pt-20 flex flex-col gap-4">
-		<a href="{{ url('dashboard') }}" class="px-2 @if(isset($dashboard)) active @endif">
+		<a href="{{ url('dashboard') }}" class="p-2 @if(isset($dashboard)) bg-white text-green-400 @endif">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
 			</svg>
 		</a>
-		<a href="{{ url('member/report') }}" class="px-2 @if(isset($report)) active @endif">
+		<a href="{{ url('member/report') }}" class="p-2 @if(isset($report)) bg-white text-green-400 @endif">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
 			</svg>
 		</a>
-		<a href="{{ url('member/screening') }}" class="px-2 @if(isset($screening)) active @endif">
+		<a href="{{ url('member/screening') }}" class="p-2 @if(isset($screening)) bg-white text-green-400 @endif">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
 			</svg>
 		</a>
-		<a href="{{ url('member/compare') }}" class="px-2 @if(isset($compare)) active @endif">
+		<a href="{{ url('member/compare') }}" class="p-2 @if(isset($compare)) bg-white text-green-400 @endif">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
 			</svg>
 		</a>
-		<a href="{{ url('user/profile') }}" class="px-2 @if(isset($profile)) active @endif">
+		<a href="{{ url('user/profile') }}" class="p-2 @if(isset($profile)) bg-white text-green-400 @endif">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
 			</svg>
 		</a>
-		<form method="POST" class="px-2" action="{{ route('logout') }}">
+		<form method="POST" class="p-2" action="{{ route('logout') }}">
 		    @csrf
 		    <a href="{{ route('logout') }}"
 		                        onclick="event.preventDefault();
