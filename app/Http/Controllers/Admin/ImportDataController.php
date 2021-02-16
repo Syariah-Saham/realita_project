@@ -104,7 +104,7 @@ class ImportDataController extends Controller
       $industry = trim(explode('.', $stock->industry)[1]);
       $industry_id = Industry::where('industry' , $industry)->get()->first()->id;
 
-      $sharia = ($stock->sharia === 'yes') ? 'true' : 'false';
+      $sharia = ($stock->sharia === 'Yes') ? 'true' : 'false';
 
       $status  = Stock::where('code_issuers' , $stock->code)->get()->count();
       if($status === 0) {
@@ -153,7 +153,7 @@ class ImportDataController extends Controller
     */
     public function stock () 
     {
-      $response = file_get_contents('https://script.googleusercontent.com/macros/echo?user_content_key=bWjZ8r4nMgJ_z_Etoj5HPoSWFy0MlZGASDQvsbVJskHT-jSNem_VJFyePGeqyKVuofGJ1tl91pq4tfw53WVnEyQtw93QvNZym5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnMCDl0xavnYPouZJrfBMKXVRwqVAYmOVvZqbmqP8xYxvM-ED8JwGqroyMhCraF5MTqCvbuHrKtbOpF1AuSET__ZDx-O8l86yHg&lib=MTT_G-6P_TeeXHK2lekWiEBJS-FelNKUK');
+      $response = file_get_contents('https://script.googleusercontent.com/macros/echo?user_content_key=DQCj7M-8vhvir9CwxCHSxzmpJpBRI4WHUDifuYpn-fhItrJCoIUcd3uVLZI5-Vbh5WYodDXIjvPJ_s7I3MukYzg-2BB43sbAm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNRPRDWCFEUPUCAvv5zCSIUaSC79J_nQZRP62EpFUWzOk31tQAom9XS_oaFYNXVtNTI4M6Joi2cBOcojD0Vgt6GwPrhXE4h8vQ&lib=MTT_G-6P_TeeXHK2lekWiEBJS-FelNKUK');
       $data = json_decode($response)->records;
       dump('Jumlah Data diinput => ' . count($data));
       $this->stocks = $data;
@@ -289,7 +289,7 @@ class ImportDataController extends Controller
     */
     public function financeReport () 
     {
-      $response = file_get_contents('https://script.googleusercontent.com/macros/echo?user_content_key=bWjZ8r4nMgJ_z_Etoj5HPoSWFy0MlZGASDQvsbVJskHT-jSNem_VJFyePGeqyKVuofGJ1tl91pq4tfw53WVnEyQtw93QvNZym5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnMCDl0xavnYPouZJrfBMKXVRwqVAYmOVvZqbmqP8xYxvM-ED8JwGqroyMhCraF5MTqCvbuHrKtbOpF1AuSET__ZDx-O8l86yHg&lib=MTT_G-6P_TeeXHK2lekWiEBJS-FelNKUK');
+      $response = file_get_contents('https://script.googleusercontent.com/macros/echo?user_content_key=D6odqG8L-xzq9YJ0UPU2aWAp9xXBp0mLQmE6754OvEoMHxs1nJe9JjAtxumLe88pyU_16mo-GLFq0E7T6XMvU5zhRf6rxvSZm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNRPRDWCFEUPUCAvv5zCSIUaSC79J_nQZRP62EpFUWzOk31tQAom9XS_oaFYNXVtNTI4M6Joi2cBOcojD0Vgt6GwPrhXE4h8vQ&lib=MTT_G-6P_TeeXHK2lekWiEBJS-FelNKUK');
       $data = json_decode($response)->records;
       dump('Sedang Mengambil Data. Proses ini memerlukan waktu beberapa saat. Mohon tunggu sebentar.');
       dump('Loading ....');

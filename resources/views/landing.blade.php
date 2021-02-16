@@ -201,7 +201,7 @@
 
 
 	{{-- Banner --}}
-	<div class="banner text-white">
+	<div class="banner text-white pb-40 lg:pb-20">
 		<header class="h-20 hidden px-10 md:flex flex-row justify-between items-center">
 			<div class="w-1/3">
 				<img class="h-16" src="{{ asset('/asset/logo_putih.png') }}" alt="logo syariah saham">

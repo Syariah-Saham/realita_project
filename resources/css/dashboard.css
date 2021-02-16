@@ -52,12 +52,12 @@ button {
 }
 
 .bg-gr {
-	background-image: linear-gradient(130deg, #47a200, #b6ff3e);
+	background-image: linear-gradient(136deg, #2af598 0%, #009efd 100%);
 }
 
 .btn {
 	@apply uppercase font-semibold text-white bg-gr px-4 py-1 rounded-full my-2 inline-block cursor-pointer shadow-md transition duration-300 outline-none;
-	background-image: linear-gradient(45deg, #47a200 40%, #b6ff3e);
+	background-image: linear-gradient(136deg, #2af598 0%, #009efd 100%);
 }
 
 .btn:hover {
@@ -101,7 +101,7 @@ aside .brand {
 
 aside .list-menu {
 	@apply h-full py-6;
-	background-image: linear-gradient(130deg, #47a200 40% , #b6ff3e);
+	background-image: linear-gradient(136deg, #24e8a8 0%, #0ebbdb 100%);
 }
 
 aside .list-menu a {

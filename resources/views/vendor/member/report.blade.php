@@ -10,7 +10,11 @@
                 <div class="inline-block">
                     <input autocomplete="off" autofocus="true" type="text" id="inputKeyword" name="keyword" class="form-input rounded-full px-8" placeholder="Ketik kode emiten...">
                 </div>
-                <button class="bg-green-400 text-white py-2 px-4 rounded ">Cari</button>
+                <button style="background-image: linear-gradient(136deg, #2af598 0%, #009efd 100%);" class="text-white py-2 px-4 rounded relative transform translate-y-2">
+                    <svg class="h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z" />
+                    </svg>
+                </button>
             </div>
             <ul id="listKeyword" class="relative z-10 bg-white transform translate-y-3 rounded shadow-sm">
             </ul>
@@ -48,7 +52,7 @@
 
         @if(isset($data))
         <div class="result-report border-t-2 border-gray-300 my-6 pt-6">
-            <h1 class="text-center font-bold text-center text-2xl bg-white p-2 rounded shadow-lg block w-48 mx-auto">Kode Saham <span class="text-white bg-green-400 block w-full rounded mt-2 text-4xl py-2 font-black">{{ $stock->code_issuers }}</span></h1>
+            <h1 class="text-center font-bold text-center text-2xl bg-white p-2 rounded shadow-lg block w-48 mx-auto">Kode Saham <span class="text-white block w-full rounded mt-2 text-4xl py-2 font-black" style="background-image: linear-gradient(136deg, #2af598 0%, #009efd 100%);">{{ $stock->code_issuers }}</span></h1>
             <div id="dataJson" data-json="{{ $json }}"></div>
             <div class="flex flex-col md:flex-row gap-2 shadow-md bg-white p-4 mt-4">
                 <div class="md:w-1/2">
@@ -84,7 +88,7 @@
                     </div>
                      <div class="flex flex-row gap-2">
                         <div class="w-2/5">Emiten Syariah</div>
-                        <div class="w-3/5  text-green-400 ">{{
+                        <div class="w-3/5  @if($stock->sharia === 'true') text-green-400 @else text-red-400 @endif ">{{
                             ($stock->sharia === 'true') ? 'Ya' : 'Bukan'
                         }}</div>
                     </div>
@@ -92,7 +96,7 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 grid-rows-7 lg:grid-rows-6 mt-6 text-xs md:text-sm">
                     <table class="col-span-3 md:col-span-2 lg:h-full row-span-2 rounded-lg shadow-md overflow-auto md:overflow-hidden bg-white p-2">
-                        <thead class="bg-green-500 text-white">
+                        <thead class="text-white" style="background-image: linear-gradient(136deg, #009efd 0%, #f900fd 100%);">
                             <tr>
                                 <th class="p-2">Neraca</th>
                                 @foreach($periodes as $periode)
@@ -182,7 +186,7 @@
                         <canvas style="height: 250px" id="chartEquity"></canvas>
                     </div>
                     <table class="col-span-3 md:col-span-2 lg:h-full rounded-lg shadow-md overflow-auto md:overflow-hidden bg-white p-2">
-                        <thead class="bg-green-500 text-white">
+                        <thead class="text-white" style="background-image: linear-gradient(136deg, #009efd 0%, #f900fd 100%);">
                             <tr>
                                 <th class="p-2">Laba Rugi</th>
                                 @foreach($periodes as $periode)
@@ -228,7 +232,7 @@
                         <canvas style="height: 250px" id="chartProfit"></canvas>
                     </div>
                     <table class="col-span-3 md:col-span-2 lg:h-full row-span-2 rounded-lg shadow-md overflow-auto md:overflow-hidden bg-white p-2">
-                        <thead class="bg-green-500 text-white">
+                        <thead class="text-white" style="background-image: linear-gradient(136deg, #009efd 0%, #f900fd 100%);">
                             <tr>
                                 <th class="p-2">Rasio Keuangan</th>
                                 @foreach($periodes as $periode)
@@ -324,7 +328,7 @@
                         <canvas style="height: 250px" id="chartPERPBV" ></canvas>
                     </div>
                     <table class="col-span-3 md:col-span-2 rounded-lg shadow-md overflow-auto md:overflow-hidden bg-white p-2">
-                        <thead class="bg-green-500 text-white">
+                        <thead class="text-white" style="background-image: linear-gradient(136deg, #009efd 0%, #f900fd 100%);">
                             <tr>
                                 <th class="p-2">Harga & Jumlah Saham</th>
                                 @foreach($periodes as $periode)
@@ -364,12 +368,12 @@
                             datasets: [{
                                 label: 'Asset',
                                 data: data.asset,
-                                backgroundColor: '#76c23a',
+                                backgroundColor: '#35e49c',
                             },
                             {
                                 label: 'Liabilitas',
                                 data: data.liability,
-                                backgroundColor: 'salmon',
+                                backgroundColor: '#ee609c',
                             }],
                         },
                         options: {
@@ -407,7 +411,7 @@
                             labels: data.periodes,
                             datasets: [{
                                 data: data.equity,
-                                backgroundColor: 'skyblue',
+                                backgroundColor: '#009efd',
                             }],
                         },
                         options: {
@@ -445,7 +449,7 @@
                             labels: data.periodes,
                             datasets: [{
                                 data: data.revenue,
-                                backgroundColor: 'lightgreen',
+                                backgroundColor: '#18d0c5',
                             }],
                         },
                         options: {
@@ -483,7 +487,7 @@
                             labels: data.periodes,
                             datasets: [{
                                 data: data.netProfit,
-                                backgroundColor: 'indigo',
+                                backgroundColor: '#7c50fd',
                             }],
                         },
                         options: {

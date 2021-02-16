@@ -31,7 +31,11 @@
 		<img src="{{ asset('asset/logo_warna.png') }}" alt="logo syariah saham" class="h-15 mt-8 mx-auto">
 	</div>
 
-	<div class="list-menu">
+	<div class="list-menu" style="
+    background-image: linear-gradient(
+136deg
+, #24e8a8 0%, #0ebbdb 100%);
+">
 		<a href="{{ url('dashboard') }}" class="@if(isset($dashboard)) active @endif">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
@@ -87,7 +91,11 @@
 
 <aside class="w-12 fixed z-30 small-sidebar invisible" style="transition: .5s">
 
-	<div class="bg-gr h-screen pt-20 flex flex-col gap-4">
+	<div class="h-screen pt-20 flex flex-col gap-4" style="
+    background-image: linear-gradient(
+136deg
+, #24e8a8 0%, #0ebbdb 100%);
+">
 		<a href="{{ url('dashboard') }}" class="p-2 @if(isset($dashboard)) bg-white text-green-400 @endif">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />

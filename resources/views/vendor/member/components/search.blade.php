@@ -9,6 +9,14 @@
 		$title = "Laporan Keuangan";
 	} else if(strpos(url()->current() ,'member/compare')) {
 		$title = 'Comparasi Emiten';
+	} else if(strpos(url()->current() ,'admin/dashboard')) {
+		$title = 'Dashboard Admin';
+	}else if(strpos(url()->current() ,'admin/stock')) {
+		$title = 'Daftar Saham';
+	}else if(strpos(url()->current() ,'admin/import')) {
+		$title = 'Import Data';
+	}else if(strpos(url()->current() ,'admin/dashboard')) {
+		$title = 'Dashboard Admin';
 	} else {
 		$title = 'Judul Halaman';
 	}
