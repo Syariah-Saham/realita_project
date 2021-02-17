@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\FinanceRatio;
+use App\Models\FinanceReport;
 
 class FinanceRatio extends Model
 {
@@ -13,6 +13,6 @@ class FinanceRatio extends Model
 
     public function report () 
     {
-    	return $this->belongsTo(FinanceRatio::class , 'report_id');
+    	return $this->belongsTo(FinanceReport::class , 'report_id');
     }
 }

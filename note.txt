@@ -20,18 +20,14 @@ npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dist/tailwind.css
 
 
 ** upload **
- modified:   app/Http/Controllers/Admin/ImportDataController.php
+modified:   app/Http/Controllers/Member/ScreeningController.php
+modified:   app/Models/FinanceRatio.php
 modified:   public/css/dashboard.css
 modified:   resources/css/dashboard.css
-modified:   resources/views/dashboard.blade.php
-modified:   resources/views/landing.blade.php
-modified:   resources/views/layouts/admin.blade.php
-modified:   resources/views/navigation-dropdown.blade.php
-modified:   resources/views/vendor/jetstream/components/responsive-nav-link.blade.php
-modified:   resources/views/vendor/member/components/search.blade.php
-modified:   resources/views/vendor/member/components/sidebar.blade.php
 modified:   resources/views/vendor/member/report.blade.php
-modified:   upload/upload.zip
+modified:   resources/views/vendor/member/screening.blade.php
+modified:   routes/member/screening.php
+
 
 
 
@@ -39,8 +35,7 @@ modified:   upload/upload.zip
 
 
 ** add
-app/Helpers/Number.php
-resources/views/vendor/components/iteration.blade.php
+
 
 
 

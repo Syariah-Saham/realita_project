@@ -50,6 +50,9 @@ body {
 button {
 	outline: none;
 }
+button::focus {
+	@apply outline-none;
+}
 
 .bg-gr {
 	background-image: linear-gradient(136deg, #2af598 0%, #009efd 100%);
