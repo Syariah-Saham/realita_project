@@ -46,7 +46,7 @@ class CompareController extends Controller
     public function compare (Request $request) 
     {
       $length = json_decode($request->list_data);
-      if(count($length) > 3) {
+      if(count($length) > 5) {
         return redirect(url()->previous())->with('failed' , 'Kamu harus upgrade untuk mendapatkan layanan lebih');
       }
 

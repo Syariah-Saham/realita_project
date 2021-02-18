@@ -66,6 +66,13 @@ class ScreeningController extends Controller
         $query = collect(json_decode($request->data_query));
       }
 
+      $ratios = collect([]);
+      foreach ($query as $key => $value) {
+        if(!Str::contains($key , 'option') && $key !== '_token' && $value !== 0) {
+          $ratios->push($key);
+        }  
+      }
+
       $periode_id = PeriodeReport::get()->last()->id;
       $data_ratio = FinanceRatio::where('current_ratio' , $query['option_cr'] , $query['cr'])
                                 ->where('dividend_nominal' , $query['option_ds'] , $query['ds'])
@@ -94,14 +101,13 @@ class ScreeningController extends Controller
       }
       $items  = $collections->forPage($_GET['page'] , 15);
       $pages = ceil($collections->count() / 15);
-      /*dump($pages);
-      dump($items->count() . ' of ' . $collections->count());
-      dump(json_encode($query));*/
+
       return view('vendor.member.screening' , [
-        'items' => $items,
-        'pages' => $pages,
-        'total_items' => $collections->count(),
-        'query' => json_encode($query),
+            'items'       => $items,
+            'pages'       => $pages,
+            'total_items' => $collections->count(),
+            'query'       => json_encode($query),
+            'ratios'      => $ratios,
       ]);
     }
       

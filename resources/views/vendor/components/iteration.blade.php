@@ -6,4 +6,4 @@
 	}
 @endphp
 
-<th class="p-2 text-center text-green-400">{{ $page * $paginate  + $loop->iteration }}</th>
+<th class="w-5 md:w-10 md:p-2 text-center text-green-400">{{ $page * $paginate  + $loop->iteration }}</th>

@@ -3,7 +3,7 @@
     <div class="py-6 pb-12 px-3 lg:px-8">
         <form id="form" action="{{ url('member/report/search') }}" class="flex flex-col items-center justify-center">
             <div id="listStocks" data-json="{{ $codes }}"></div>
-            <img src="{{ asset('asset/landing/laporan_keuangan.svg') }}" alt="illustrasi" class="w-1/3">
+            <img src="{{ asset('asset/landing/laporan_keuangan.svg') }}" alt="illustrasi" class="w-4/5 md:w-1/2 mx-auto">
             <h1 class="text-2xl font-bold text-gray-600">Cari Laporan Keuangan</h1>
             <div class="w-54">
                 <div class="inline-block">

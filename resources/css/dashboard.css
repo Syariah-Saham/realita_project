@@ -124,11 +124,11 @@ aside .list-menu a svg {
 }
 
 .badge {
-	@apply block mx-2 text-white p-2 rounded-full outline-none;
+	@apply block mx-2 text-white md:p-2 rounded-full outline-none;
 }
 
 .badge svg {
-	@apply h-5 w-5;
+	@apply h-4 w-4 m-1 md:m-0 md:h-5 md:w-5;
 }
 
 

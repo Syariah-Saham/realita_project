@@ -20,13 +20,12 @@ npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dist/tailwind.css
 
 
 ** upload **
+modified:   app/Http/Controllers/Member/CompareController.php
 modified:   app/Http/Controllers/Member/ScreeningController.php
-modified:   app/Models/FinanceRatio.php
-modified:   public/css/dashboard.css
-modified:   resources/css/dashboard.css
+modified:   resources/views/vendor/member/compare.blade.php
 modified:   resources/views/vendor/member/report.blade.php
 modified:   resources/views/vendor/member/screening.blade.php
-modified:   routes/member/screening.php
+
 
 
 
