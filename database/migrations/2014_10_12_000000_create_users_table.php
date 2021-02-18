@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
-            $table->enum('status' , ['waiting' , 'confirmed' , 'rejected'])->default('waiting');
             $table->timestamps();
 
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');

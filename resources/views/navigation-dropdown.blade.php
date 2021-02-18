@@ -114,7 +114,7 @@
                     {{ __('Screening Fundamental') }}
                 </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ url('member/compare') }}" :active="request()->routeIs('compare')">
-                    {{ __('Coparison Emiten') }}
+                    {{ __('Comparasi Emiten') }}
                 </x-jet-responsive-nav-link>
             @elseif(Auth::user()->role_id === 1)
                 <x-jet-responsive-nav-link href="{{ url('member/report') }}" :active="request()->routeIs('dashboard')">

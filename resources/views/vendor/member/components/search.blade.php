@@ -17,6 +17,8 @@
 		$title = 'Import Data';
 	}else if(strpos(url()->current() ,'admin/dashboard')) {
 		$title = 'Dashboard Admin';
+	}else if(strpos(url()->current() ,'admin/package')) {
+		$title = 'Paket Member';
 	} else {
 		$title = 'Judul Halaman';
 	}

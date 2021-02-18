@@ -28,7 +28,7 @@
 	    @livewire('navigation-dropdown')
 
 	    <!-- Page Content -->
-	    <main class="overflow-y-auto h-screen px-4 pt-4 pb-20">
+	    <main class="overflow-y-auto h-screen px-1 md:px-4 pt-4 pb-20">
 			@yield('body')
 	    </main>
 	</div>

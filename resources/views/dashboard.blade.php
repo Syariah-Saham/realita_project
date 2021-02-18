@@ -31,69 +31,39 @@
         		</a>
         	</div>
 
-        	<h1 class="text-2xl font-bold text-gray-600 mb-2">Laporan</h1>
-        	<div class="flex flex-col md:flex-row gap-6">
-        		<div class="w-full p-3 md:w-1/3 bg-white rounded-lg shadow-lg">
-		        	<canvas id="chartDonught" class="w-full"></canvas>
-        		</div>
-        		<div class="w-full p-3 md:w-2/3 bg-white rounded-lg shadow-lg">
-					<canvas id="chartBar"></canvas>
-        		</div>
+        	<h1 class="text-2xl font-bold text-gray-600 mb-2">Upgrade Premium</h1>
+        	<div class="flex flex-col md:flex-row gap-4">
+        		@forelse($packages as $package)
+                    @php $status = Auth::user()->member->package_id === $package->id; @endphp
+                    <div class="w-full md:w-1/3 @if(!$status) bg-white @else bg-purple-500 text-white @endif rounded-lg shadow-lg text-center p-4 py-6">
+                        <h2 class="text-3xl font-bold @if(!$status) text-teal-400 @endif">{{ $package->name }}</h2>
+                        <p class="text-sm md:text-lg">{{ $package->description }}</p>
+                        <div class="my-3">
+                            <h1 class="text-2xl md:text-4xl mt-2 font-bold @if(!$status)text-indigo-500 @endif">Rp{{ number_format($package->current_price , 0,',','.') }}</h1>
+                            <s class="text-xl text-gray-300">Rp{{ number_format($package->original_price , 0,',','.') }}</s>
+                        </div>
+                        <ul class="text-left text-sm md:text-lg my-2">
+                            <li class="my-1">{{ $package->report }} periode laporan keuangan</li>
+                            <li class="my-1">{{ $package->screening }} screening fundamental</li>
+                            <li class="my-1">{{ $package->compare }} comparasi emiten</li>
+                        </ul>
+                        .<div class="flex-row mt-2">
+                            @if(!$status)
+                                <a href="{{ url('admin/package/'.$package->id.'/edit') }}" class="btn mx-3">Beli</a>
+                            @else
+                                <span class="btn mx-3">Paket Anda</span>
+                            @endif
+                        </div>
+                    </div>
+                @empty
+                    <h1>Tidak ada paket</h1>
+                @endforelse
+                    
         	</div>
         </div>
     </div>
 
 
-
-    @section('script')
-
-    <script>
-    		var ctx = document.getElementById('chartBar').getContext('2d');
-    		new Chart(ctx, {
-    		    type: 'line',
-    		    data: {
-    		        labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni'],
-    		        datasets: [{
-    		            label: 'Diagram Batang',
-    		            data: [12, 19, 3, 5, 2, 3],
-    		            backgroundColor: '#76c23a82',
-    		        }]
-    		    },
-    		    options: {
-    		        scales: {
-    		            yAxes: [{
-    		                ticks: {
-    		                    beginAtZero: true
-    		                }
-    		            }]
-    		        }
-    		    }
-    		});
-
-
-    		var ctx2 = document.getElementById('chartDonught').getContext('2d');
-    		new Chart(ctx2, {
-    		    type: 'doughnut',
-    		    data: {
-    		        labels: ['nilai 1', 'nilai 2'],
-    		        datasets: [{
-    		            label: 'Diagram Lingkaran',
-    		            data: [70, 30],
-    		            backgroundColor: [
-    		                '#76c23a',
-    		                'white',
-    		            ],
-                        borderWidth: 0,
-    		        }]
-    		    },
-    		    options: {
-                    responsive : true,
-                    maintainAspectRatio: false,
-    		    }
-    		});
-    </script>
-
-    @endsection
 
 </x-app-layout>
 

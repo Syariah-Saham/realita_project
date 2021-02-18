@@ -1,0 +1,42 @@
+@extends('layouts.admin')
+@section('title'  , 'Paket')
+@section('body')
+
+
+<div class="px-1 md:px-6 lg:px-8 my-4 mb-8">
+	<h1 class="font-bold text-3xl">Paket</h1>
+	<a href="{{ url('/admin/package/create') }}" class="btn">Buat Paket</a>
+	<a href="{{ url('admin/bank/') }}" class="btn">Daftar Bank</a>
+	<div class="mt-4 flex flex-col md:flex-row gap-4">
+		@forelse($packages as $package)
+			<div class="w-full md:w-1/3 bg-white rounded-lg shadow-lg text-center p-4">
+				<h2 class="text-3xl font-bold text-teal-400">{{ $package->name }}</h2>
+				<p class="text-sm md:text-lg">{{ $package->description }}</p>
+				<div class="my-3">
+					<h1 class="text-2xl md:text-4xl mt-2 font-bold text-indigo-500">Rp{{ number_format($package->current_price , 0,',','.') }}</h1>
+					<s class="text-xl text-gray-300">Rp{{ number_format($package->original_price , 0,',','.') }}</s>
+				</div>
+				<ul class="text-left text-sm md:text-lg my-2">
+					<li class="my-1">{{ $package->report }} periode laporan keuangan</li>
+					<li class="my-1">{{ $package->screening }} screening fundamental</li>
+					<li class="my-1">{{ $package->compare }} comparasi emiten</li>
+				</ul>
+				.<div class="flex-row mt-2">
+					<form class="inline-block" action="{{ url('admin/package/'.$package->id) }}" method="post">
+						@csrf
+						@method('delete')
+						<button class="btn mx-3">Hapus</button>
+					</form>
+					<a href="{{ url('admin/package/'.$package->id.'/edit') }}" class="btn mx-3">Edit</a>
+				</div>
+			</div>	
+		@empty
+			<h1>Belum ada paket</h1>
+		@endforelse
+	</div>
+	
+</div>
+
+
+@endsection
+	

@@ -54,6 +54,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
 		__DIR__.'/admin/industry.php';
 
 		include
+		__DIR__.'/admin/package.php';
+
+		include
+		__DIR__.'/admin/bank.php';
+
+		include
 		__DIR__.'/admin/periode.php';
 
 		include
@@ -62,7 +68,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
 
 
 	// member
-	Route::name('member')->middleware('role_member' , 'status_member' )->prefix('member')->group(function() {
+	Route::name('member')->middleware('role_member')->prefix('member')->group(function() {
 		include
 		__DIR__.'/member/dashboard.php';
 

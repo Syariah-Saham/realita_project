@@ -508,7 +508,7 @@
 				</div>
 				<div class="md:w-1/3 bg-white p-4 md:p-8 rounded shadow-lg">
 					<div class="text-center">
-						<h3 class="font-bold text-lg md:text-2xl text-second">Paket Exper</h3>
+						<h3 class="font-bold text-lg md:text-2xl text-second">Paket Expert</h3>
 						<h2 class="text-sm md:text-lg">Lorem, ipsum dolor sit amet.</h2>
 						<div class="cost flex flex-row justify-center bg-indigo-400 text-white px-2 rounded my-2 items-center gap-2 rounded-l-full pl-6 relative -mr-10">
 							<p>Rp</p>
