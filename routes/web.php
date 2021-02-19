@@ -24,7 +24,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 	} else {
 	    return redirect('member/dashboard');
 	}
-	    // return view('dashboard');
 })->name('dashboard');
 
 
@@ -57,6 +56,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
 		__DIR__.'/admin/package.php';
 
 		include
+		__DIR__.'/admin/payment.php';
+
+		include
 		__DIR__.'/admin/bank.php';
 
 		include
@@ -80,5 +82,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
 
 		include
 		__DIR__.'/member/screening.php';
+
+		include 
+		__DIR__.'/member/package.php';
 	});
 });

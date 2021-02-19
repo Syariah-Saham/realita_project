@@ -58,6 +58,10 @@ button::focus {
 	background-image: linear-gradient(136deg, #2af598 0%, #009efd 100%);
 }
 
+.bg-gr2 {
+	background-image: linear-gradient(136deg, #009efd 0%, #f900fd 100%);;
+}
+
 .btn {
 	@apply uppercase font-semibold text-white bg-gr px-4 py-1 rounded-full my-2 inline-block cursor-pointer shadow-md transition duration-300 outline-none;
 	background-image: linear-gradient(136deg, #2af598 0%, #009efd 100%);

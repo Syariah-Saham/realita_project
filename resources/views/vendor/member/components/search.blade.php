@@ -9,6 +9,8 @@
 		$title = "Laporan Keuangan";
 	} else if(strpos(url()->current() ,'member/compare')) {
 		$title = 'Comparasi Emiten';
+	}else if(strpos(url()->current() ,'member/package')) {
+		$title = 'Paket Premium';
 	} else if(strpos(url()->current() ,'admin/dashboard')) {
 		$title = 'Dashboard Admin';
 	}else if(strpos(url()->current() ,'admin/stock')) {
@@ -19,6 +21,8 @@
 		$title = 'Dashboard Admin';
 	}else if(strpos(url()->current() ,'admin/package')) {
 		$title = 'Paket Member';
+	}else if(strpos(url()->current() ,'admin/payment')) {
+		$title = 'Pembayaran Member';
 	} else {
 		$title = 'Judul Halaman';
 	}

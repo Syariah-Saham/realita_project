@@ -117,19 +117,22 @@
                     {{ __('Comparasi Emiten') }}
                 </x-jet-responsive-nav-link>
             @elseif(Auth::user()->role_id === 1)
-                <x-jet-responsive-nav-link href="{{ url('member/report') }}" :active="request()->routeIs('dashboard')">
+                <x-jet-responsive-nav-link href="{{ url('admin/stock') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Daftar Saham') }}
                 </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link href="{{ url('member/report') }}" :active="request()->routeIs('dashboard')">
+                <x-jet-responsive-nav-link href="{{ url('admin/report') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Laporan Keuangan') }}
                 </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link href="{{ url('member/report') }}" :active="request()->routeIs('dashboard')">
+                <x-jet-responsive-nav-link href="{{ url('admin/import') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Import Data') }}
                 </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link href="{{ url('member/report') }}" :active="request()->routeIs('dashboard')">
+                <x-jet-responsive-nav-link href="{{ url('admin/package') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Paket dan Pembayaran') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ url('admin/admin') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Admin') }}
                 </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link href="{{ url('member/report') }}" :active="request()->routeIs('dashboard')">
+                <x-jet-responsive-nav-link href="{{ url('admin/member') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Member') }}
                 </x-jet-responsive-nav-link>
             @endif

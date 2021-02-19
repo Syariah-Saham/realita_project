@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Package;
+use App\Models\Payment;
 
 class PackageController extends Controller
 {
@@ -23,7 +24,11 @@ class PackageController extends Controller
     public function index () 
     {
     	$packages = Package::get();
-    	return view('vendor.admin.package' , ['packages' => $packages]);
+      $payments = Payment::WHERE('status' , 'pending')->get();
+    	return view('vendor.admin.package' , [
+            'packages' => $packages,
+            'payments' => $payments,
+          ]);
     }
 
 
