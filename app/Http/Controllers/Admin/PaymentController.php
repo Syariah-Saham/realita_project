@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use App\Models\Payment;
 use App\Models\Member;
+use App\Helpers\StatisticDate;
 
 class PaymentController extends Controller
 {
@@ -76,8 +78,21 @@ class PaymentController extends Controller
     {
     	$payment->update(['status' => $request->status]);
     	if($request->status === 'confirmed') {
-	    	$payment->member->update(['package_id' => $payment->package_id]);
-    	}
+        $package = $payment->package;
+        $statistic = StatisticDate::get();
+        StatisticDate::member($payment->member_id);
+        if(Str::contains($package->name , 'Personal')) {
+          $statistic->update([
+            'personal' => $statistic->personal + 1,
+          ]);
+        } else if(Str::contains($package->name , 'Expert')) {
+          $statistic->update([
+            'expert' => $statistic->expert + 1,
+          ]);
+        }
+
+        $payment->member->update(['package_id' => $payment->package_id]);
+    	} 
 
     	return redirect(url()->previous())->with('update' , 'Status berhasil diupdate');
     }

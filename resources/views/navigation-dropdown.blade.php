@@ -116,6 +116,9 @@
                 <x-jet-responsive-nav-link href="{{ url('member/compare') }}" :active="request()->routeIs('compare')">
                     {{ __('Comparasi Emiten') }}
                 </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ url('member/package') }}" :active="request()->routeIs('package')">
+                    {{ __('Paket & Pembayaran') }}
+                </x-jet-responsive-nav-link>
             @elseif(Auth::user()->role_id === 1)
                 <x-jet-responsive-nav-link href="{{ url('admin/stock') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Daftar Saham') }}

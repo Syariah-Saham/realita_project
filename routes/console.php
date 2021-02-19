@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\PeriodeReport;
+use App\Models\Statistic;
+use App\Models\Package;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +42,21 @@ Artisan::command('generate' , function() {
 	PeriodeReport::create(['year' => '2017']);
 	PeriodeReport::create(['year' => '2018']);
 	PeriodeReport::create(['year' => '2019']);
+});
+
+Artisan::command('statistic' , function() {
+	$packages = Package::get();
+	$data = [];
+	foreach($packages as $package) {
+		array_push($data, $package->member->count());
+	}
+	
+	Statistic::create([
+		'day'      => date('d'),
+		'month'    => date('m'),
+		'year'     => date('Y'),
+		'free'     => $data[0],
+		'personal' => $data[1],
+		'expert'   => $data[2],
+	]);
 });

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Member;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Stock;
+use App\Models\Member;
+use Auth;
 
 class CompareController extends Controller
 {
@@ -46,8 +48,12 @@ class CompareController extends Controller
     public function compare (Request $request) 
     {
       $length = json_decode($request->list_data);
+      $maxCompare = Member::where('user_id' , Auth::id())->first()->package->compare;
+
       if(count($length) > 5) {
-        return redirect(url()->previous())->with('failed' , 'Kamu harus upgrade untuk mendapatkan layanan lebih');
+        return redirect(url()->previous())->with('failed' , 'Sudah mencapai jumlah maksimal');
+      } else if(count($length) > $maxCompare) {
+        return redirect('member/package');
       }
 
       $data   = Stock::select('code_issuers')->get();

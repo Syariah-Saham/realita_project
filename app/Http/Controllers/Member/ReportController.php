@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Member;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Stock;
+use App\Models\Member;
+use Auth;
 
 class ReportController extends Controller
 {
@@ -246,7 +248,9 @@ class ReportController extends Controller
           return redirect(url()->previous())->with('failed' , 'Data tidak ditemukan!');
         }
 
-        $reports = $stock->report->take(5);
+        $maxReport = Member::where('user_id' , Auth::id())->first()->package->report;
+        $reports = $stock->report->reverse()->take($maxReport);
+        $reports = $reports->reverse();
 
         $assets      = collect([]);
         $liabilities = collect([]);

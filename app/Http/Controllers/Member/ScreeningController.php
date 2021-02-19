@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\FinanceRatio;
 use App\Models\PeriodeReport;
+use Auth;
 
 class ScreeningController extends Controller
 {
@@ -90,11 +91,14 @@ class ScreeningController extends Controller
                     ->get();
 
       $collections = collect([]);
+      $maxScreening = Auth::user()->member->package->screening;
+
       foreach($data_ratio as $data) {
-        if($data->report->periode_id === $periode_id) {
+        if($data->report->periode_id === $periode_id && $collections->count() < $maxScreening) {
           $collections->push($data->report->stock);
         }
       } 
+      
       $collections = $collections->sortBy('code_issuers');
       if(!isset($_GET['page'])) {
         $_GET['page'] = 1;

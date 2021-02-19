@@ -28,7 +28,7 @@ class PackageController extends Controller
     public function index () 
     {
     	$packages = Package::get();
-      $payments = Payment::latest()->get();
+      $payments = Payment::where('member_id' , Auth::user()->member->id)->latest()->get();
     	return view('vendor.member.package' , [
             'packages' => $packages,
             'payments' => $payments,

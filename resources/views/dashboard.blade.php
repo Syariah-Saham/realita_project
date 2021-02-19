@@ -49,7 +49,7 @@
                         </ul>
                         .<div class="flex-row mt-2">
                             @if(!$status)
-                                <a href="{{ url('admin/package/'.$package->id.'/edit') }}" class="btn mx-3">Beli</a>
+                                <a href="{{ url('member/package/'.$package->id.'/buy') }}" class="btn mx-3">Beli</a>
                             @else
                                 <span class="btn mx-3">Paket Anda</span>
                             @endif
