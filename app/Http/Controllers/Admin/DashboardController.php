@@ -53,15 +53,11 @@ class DashboardController extends Controller
       $syears = Statistic::get()->groupBy('year')->sort()->reverse();
       foreach ($syears as $data) {
         foreach($data->groupBy('month')->sort()->reverse() as $value) {
-          $free     = 0;
-          $personal = 0;
-          $expert   = 0;
-          foreach($value as $v) {
-            $free     += $v->free;
-            $personal += $v->personal;
-            $expert   += $v->expert;
-          }
-
+          $v = $value->reverse()->last();
+          $free     = $v->free;
+          $personal = $v->personal;
+          $expert   = $v->expert;
+          
           $month = $this->month($value[0]->month);
           $package = [
             'free'     => $free,
@@ -72,7 +68,6 @@ class DashboardController extends Controller
         }
       }
       $chart = $chart->take(5)->reverse();
-
     	return view($this->view.'dashboard' , [
           'members'      => $members,
           'dataPackages' => $dataPackages,

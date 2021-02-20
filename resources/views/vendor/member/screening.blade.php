@@ -1,6 +1,7 @@
 <x-app-layout>
 	<div class="py-4 px-4 pb-12">
         <div class="max-w-7xl md:px-4 sm:px-6 lg:px-8 pb-20">
+        	<div id="package" user-package="{{ Auth::user()->member->package->name }}"></div>
         	<div class="text-center">
 	            <img src="{{ asset('asset/landing/screening_saham.svg') }}" alt="illustrasi" class="w-4/5 md:w-1/2 mb-4 mx-auto">
 				<h1 class="text-2xl font-bold text-gray-600">Screening Fundamental</h1>
@@ -9,7 +10,7 @@
 			<form action="{{ url('member/screening/search') }}" class="card-filter text-xs flex flex-col md:flex-row gap-4 bg-white shadow-lg rounded-lg p-4 mt-6">
 				@csrf
 				<div class="md:w-1/2">
-					<div class="filter-item flex flex-col md:flex-row gap-3 items-center w-full md:center">
+					<div data-ratio="cr" class="ratio filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Current Ratio</div>
 						<select name="option_cr" id="option" class="w-full md:w-1/5 text-xs form-input">
 							<option value="">- pilih -</option>
@@ -21,7 +22,7 @@
 							<input name="cr" type="number" step="0.01"  class="form-input text-xs" >
 						</div>
 					</div>
-					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
+					<div data-ratio="ds" class="ratio filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Dividen Saham (Rp)</div>
 						<select name="option_ds" id="option" class="w-full md:w-1/5 text-xs form-input">
 							<option value="">- pilih -</option>
@@ -33,7 +34,7 @@
 							<input name="ds" type="number" step="0.01"  class="form-input text-xs" >
 						</div>
 					</div>
-					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
+					<div data-ratio="dy" class="ratio filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Dividen Yield</div>
 						<select name="option_dy" id="option" class="w-full md:w-1/5 text-xs form-input">
 							<option value="">- pilih -</option>
@@ -45,7 +46,7 @@
 							<input name="dy" type="number" step="0.01"  class="form-input text-xs" >
 						</div>
 					</div>
-					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
+					<div  data-ratio="dp" class="ratio filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Dividen Payout</div>
 						<select name="option_dp" id="option" class="w-full md:w-1/5 text-xs form-input">
 							<option value="">- pilih -</option>
@@ -57,7 +58,7 @@
 							<input name="dp" type="number" step="0.01"  class="form-input text-xs" >
 						</div>
 					</div>
-					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
+					<div data-ratio="np" class="ratio filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Laba bersih / saham</div>
 						<select name="option_np" id="option" class="w-full md:w-1/5 text-xs form-input">
 							<option value="">- pilih -</option>
@@ -69,7 +70,7 @@
 							<input name="np" type="number" step="0.01"  class="form-input text-xs" >
 						</div>
 					</div>
-					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
+					<div  data-ratio="bv" class="ratio filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Nilai Buku</div>
 						<select name="option_bv" id="option" class="w-full md:w-1/5 text-xs form-input">
 							<option value="">- pilih -</option>
@@ -81,7 +82,7 @@
 							<input name="bv" type="number" step="0.01"  class="form-input text-xs" >
 						</div>
 					</div>
-					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
+					<div  data-ratio="dar" class="ratio filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Debt to Asset Ratio</div>
 						<select name="option_dar" id="option" class="w-full md:w-1/5 text-xs form-input">
 							<option value="">- pilih -</option>
@@ -95,7 +96,7 @@
 					</div>
 				</div>
 				<div class="md:w-1/2">
-					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
+					<div data-ratio="der" class="ratio filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Debt to Equity Ratio</div>
 						<select name="option_der" id="option" class="w-full md:w-1/5 text-xs form-input">
 							<option value="">- pilih -</option>
@@ -107,7 +108,7 @@
 							<input name="der" type="number" step="0.01"  class="form-input text-xs" >
 						</div>
 					</div>
-					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
+					<div  data-ratio="roa" class="ratio filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Return of Assets</div>
 						<select name="option_roa" id="option" class="w-full md:w-1/5 text-xs form-input">
 							<option value="">- pilih -</option>
@@ -119,7 +120,7 @@
 							<input name="roa" type="number" step="0.01"  class="form-input text-xs" >
 						</div>
 					</div>
-					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
+					<div  data-ratio="roe" class="ratio filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Return of Equity</div>
 						<select name="option_roe" id="option" class="w-full md:w-1/5 text-xs form-input">
 							<option value="">- pilih -</option>
@@ -131,7 +132,7 @@
 							<input name="roe" type="number" step="0.01"  class="form-input text-xs" >
 						</div>
 					</div>
-					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
+					<div  data-ratio="npm" class="ratio filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Net Profit Margin</div>
 						<select name="option_npm" id="option" class="w-full md:w-1/5 text-xs form-input">
 							<option value="">- pilih -</option>
@@ -143,7 +144,7 @@
 							<input name="npm" type="number" step="0.01"  class="form-input text-xs" >
 						</div>
 					</div>
-					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
+					<div  data-ratio="per" class="ratio filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Price to Earning Ratio</div>
 						<select name="option_per" id="option" class="w-full md:w-1/5 text-xs form-input">
 							<option value="">- pilih -</option>
@@ -155,7 +156,7 @@
 							<input name="per" type="number" step="0.01"  class="form-input text-xs" >
 						</div>
 					</div>
-					<div class="filter-item flex flex-col md:flex-row gap-3 items-center">
+					<div  data-ratio="pbv" class="ratio filter-item flex flex-col md:flex-row gap-3 items-center">
 						<div class="w-full md:w-2/5">Price to Book Value</div>
 						<select name="option_pbv" id="option" class="w-full md:w-1/5 text-xs form-input">
 							<option value="">- pilih -</option>
@@ -348,6 +349,48 @@
 			
 		</div>
 	</div>
+
+	<script>
+		const package = document.getElementById('package').getAttribute('user-package');
+		const ratios  = document.querySelectorAll('.ratio');
+		const inputs  = document.querySelectorAll('input[type="number"]');
+
+		if(package.includes('Gratis')) {
+			ratios.forEach(element => {
+				let attr = element.getAttribute('data-ratio');
+				if(attr !== 'per' && attr !== 'pbv') {
+					let children = element.children;
+					children[1].disabled = true;
+					children[2].lastElementChild.disabled = true;
+				}
+			})
+		} else if(package.includes('Personal')) {
+			let storeRatio = [];
+			ratios.forEach(element => {
+				let attr = element.getAttribute('data-ratio');
+				let input = element.children[2].lastElementChild;
+				input.addEventListener('keyup' , () => {
+					inputs.forEach(i => {
+						if(input.value === '') {
+							storeRatio = storeRatio.filter(item => item !== input.name);
+						}
+
+						if(i.value !== '' && !storeRatio.includes(i.name)) {
+							storeRatio.push(i.name);
+						};
+
+						if(storeRatio.length >= 5 && i.value === '') {
+							i.disabled = true;
+							i.parentElement.parentElement.children[1].disabled = true;
+						} else if(storeRatio.length < 5) {
+							i.disabled = false;
+							i.parentElement.parentElement.children[1].disabled = false;
+						}
+					})
+				})
+			})
+		}
+	</script>
 
 </x-app-layout>
 

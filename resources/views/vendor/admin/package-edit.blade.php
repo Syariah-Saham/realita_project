@@ -1,12 +1,12 @@
 @extends('layouts.admin')
-@section('title'  , 'Buat Paket')
+@section('title'  , 'Edit Paket')
 @section('body')
 
 <div class="px-1 md:px-6 lg:px-8 my-4 mb-8">
 	<form action="{{ url('admin/package/'.$package->id) }}" method="post" class="bg-white rounded-lg shadow-lg mx-4 p-4 lg:w-2/3">
 		@csrf
 		@method('put')
-		<h1 class="font-bold text-2xl">Buat Paket</h1>
+		<h1 class="font-bold text-2xl">Edit Paket</h1>
 		<div class="flex flex-col md:flex-row gap-2">
 			<div class="w-2/3">
 				<div class="form-group">
@@ -52,7 +52,7 @@
 		</div>
 		<div class="flex flex-row justify-between">
 			<a href="{{ url('admin/package') }}" class="btn">Daftar Paket</a>
-			<button class="btn">Buat Paket</button>
+			<button class="btn">Edit Paket</button>
 		</div>
 	</form>
 </div>

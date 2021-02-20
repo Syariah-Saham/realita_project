@@ -43,11 +43,17 @@
                             <s class="text-xl text-gray-300">Rp{{ number_format($package->original_price , 0,',','.') }}</s>
                         </div>
                         <ul class="text-left text-sm md:text-lg my-2">
-                            <li class="my-1">{{ $package->report }} periode laporan keuangan</li>
-                            <li class="my-1">{{ $package->screening }} screening fundamental</li>
-                            <li class="my-1">{{ $package->compare }} comparasi emiten</li>
+                            <li class="my-1">Free akses laporan keuangan maksimal {{ $package->report }} emiten / bulan</li>
+                            @if(Str::contains($package->name , 'Gratis'))
+                                <li class="my-1">Free screening ratio PBV dan PER Emiten</li>
+                            @elseif(Str::contains($package->name , 'Expert'))
+                                <li class="my-1">Free screening fundamental (All ratio)</li>
+                            @else
+                                <li class="my-1">Free screening fundamental (Maksimal {{ $package->screening }} ratio)</li>
+                            @endif
+                            <li class="my-1">Free fitur comparasi emiten up to {{ $package->compare }} emiten</li>
                         </ul>
-                        .<div class="flex-row mt-2">
+                        <div class="flex-row mt-2">
                             @if(!$status)
                                 <a href="{{ url('member/package/'.$package->id.'/buy') }}" class="btn mx-3">Beli</a>
                             @else

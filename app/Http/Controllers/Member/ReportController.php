@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Stock;
 use App\Models\Member;
+use App\Models\HistoryReport;
+use App\Models\HistoryItem;
 use Auth;
 
 class ReportController extends Controller
@@ -248,8 +250,43 @@ class ReportController extends Controller
           return redirect(url()->previous())->with('failed' , 'Data tidak ditemukan!');
         }
 
-        $maxReport = Member::where('user_id' , Auth::id())->first()->package->report;
-        $reports = $stock->report->reverse()->take($maxReport);
+        $memberId = Auth::user()->member->id;
+
+        $findHistory = HistoryReport::where('member_id' , $memberId)
+                                    ->where('month' , date('m'))
+                                    ->where('year' , date('Y'))
+                                    ->count();
+        if(!$findHistory) {
+          HistoryReport::create([
+            'member_id' => $memberId,
+            'month'     => date('m'),
+            'year'      => date('Y'),
+          ]);
+        }
+
+        $history = HistoryReport::where('member_id' , $memberId)
+                                  ->where('month' , date('m'))
+                                  ->where('year' , date('Y'))
+                                  ->first();
+
+        $maxEmiten   = Auth::user()->member->package->report;
+        $historyItem = $history->item->count();
+        $checkItem = $history->item->where('stock_id' , $stock->id)->count();
+        if($historyItem < $maxEmiten) {
+          if(!$checkItem) {
+            HistoryItem::create([
+              'history_id' => $history->id,
+              'stock_id'   => $stock->id,
+            ]);
+          }
+        } else {
+          if(!$checkItem) {
+            return redirect('member/package');
+          } 
+        }
+
+
+        $reports = $stock->report->reverse()->take(5);
         $reports = $reports->reverse();
 
         $assets      = collect([]);

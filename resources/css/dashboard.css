@@ -80,6 +80,11 @@ button::focus {
 	@apply border-2 border-gray-300 outline-none block px-4 py-2 rounded;
 }
 
+.form-input[disabled] {
+    background: #e8e7f3;
+    border: 2px solid #c5cbef;
+}
+
 input {
 	@apply border-2 border-gray-300;
 	margin: 6px auto;

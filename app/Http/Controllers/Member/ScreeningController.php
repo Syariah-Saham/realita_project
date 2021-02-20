@@ -91,10 +91,9 @@ class ScreeningController extends Controller
                     ->get();
 
       $collections = collect([]);
-      $maxScreening = Auth::user()->member->package->screening;
 
       foreach($data_ratio as $data) {
-        if($data->report->periode_id === $periode_id && $collections->count() < $maxScreening) {
+        if($data->report->periode_id === $periode_id) {
           $collections->push($data->report->stock);
         }
       } 
