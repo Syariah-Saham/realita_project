@@ -35,19 +35,24 @@
 		</div>
 		<div class="flex flex-col md:flex-row gap-2">
 			<div class="form-group w-1/3">
-				<label for="">Max. Laporan Keuangan</label>
+				<label for="" class="text-sm">Laporan Keuangan</label>
 				<input type="number" name="report" value="{{ $package->report }}" class="form-input @error('report') is-invalid @enderror ">
 				@include('vendor.components.error' , ['name' => 'report'])
 			</div>
 			<div class="form-group w-1/3">
-				<label for="">Max. Screening Fundamental</label>
+				<label for="" class="text-sm">Screening Fundamental</label>
 				<input type="number" name="screening" value="{{ $package->screening }}" class="form-input @error('screening') is-invalid @enderror ">
 				@include('vendor.components.error' , ['name' => 'screening'])
 			</div>
 			<div class="form-group w-1/3">
-				<label for="">Max. Comparasi Emiten</label>
+				<label for="" class="text-sm">Comparasi Emiten</label>
 				<input type="number" name="compare" value="{{ $package->compare }}" class="form-input @error('compare') is-invalid @enderror ">
 				@include('vendor.components.error' , ['name' => 'compare'])
+			</div>
+			<div class="form-group w-full md:w-1/4">
+				<label for="" class="text-xs">Watchlist Emiten</label>
+				<input type="number" name="watchlist" value="{{ $package->watchlist }}" class="form-input @error('watchlist') is-invalid @enderror ">
+				@include('vendor.components.error' , ['name' => 'watchlist'])
 			</div>
 		</div>
 		<div class="flex flex-row justify-between">

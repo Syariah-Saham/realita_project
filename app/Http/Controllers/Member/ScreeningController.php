@@ -91,19 +91,43 @@ class ScreeningController extends Controller
                     ->get();
 
       $collections = collect([]);
-
       foreach($data_ratio as $data) {
         if($data->report->periode_id === $periode_id) {
-          $collections->push($data->report->stock);
+          $data2 = collect([
+              'code_issuers'                 => $data->report->stock->code_issuers,
+              'name'                 => $data->report->stock->name,
+              'current_ratio'          => $data->current_ratio,
+              'dividend_nominal'       => $data->dividend_nominal,
+              'dividend_yield'         => $data->dividend_yield,
+              'dividend_payout'        => $data->dividend_payout,
+              'net_profit'             => $data->net_profit,
+              'book_value'             => $data->book_value,
+              'debt_asset_ratio'       => $data->debt_asset_ratio,
+              'debt_equity_ratio'      => $data->debt_equity_ratio,
+              'return_of_assets'       => $data->return_of_assets,
+              'return_of_equity'       => $data->return_of_equity,
+              'net_profit_margin'      => $data->net_profit_margin,
+              'price_to_earning_ratio' => $data->price_to_earning_ratio,
+              'price_to_book_value'    => $data->price_to_book_value
+          ]);
+          $collections->push($data2);
         }
       } 
       
-      $collections = $collections->sortBy('code_issuers');
+      $sortKey = (isset($_GET['sortKey'])) ? $_GET['sortKey'] : 'code_issuers';
+      $sortStatus = (isset($_GET['sortStatus'])) ? $_GET['sortStatus'] : 'asc';
+
+      $_GET['sortKey'] = $sortKey;
+      $_GET['sortStatus'] = $sortStatus;
+
+      $collections = ($sortStatus === 'asc') ? $collections->sortBy($sortKey) : $collections->sortByDesc($sortKey);
+
       if(!isset($_GET['page'])) {
         $_GET['page'] = 1;
       }
       $items  = $collections->forPage($_GET['page'] , 15);
       $pages = ceil($collections->count() / 15);
+
 
       return view('vendor.member.screening' , [
             'items'       => $items,

@@ -61,13 +61,14 @@ class PackageController extends Controller
    	public function store (Request $request) 
    	{
    		$request->validate([
-				'name'           => 'required|min:2|max:25|string',
-				'description'    => 'required|min:3|max:50|string',
-				'original_price' => 'nullable',
-				'current_price'  => 'required|min:0',
-				'report'         => 'required|min:1|numeric',
-				'screening'      => 'required|min:1|numeric',
-				'compare'        => 'required|min:1|max:5|numeric',
+        'name'           => 'required|min:2|max:25|string',
+        'description'    => 'required|min:3|max:50|string',
+        'original_price' => 'nullable',
+        'current_price'  => 'required|min:0',
+        'report'         => 'required|min:1|numeric',
+        'screening'      => 'required|min:1|numeric',
+        'compare'        => 'required|min:1|max:5|numeric',
+        'watchlist'      => 'required|min:1|numeric',
    		]);
    		$data = collect($request->all())->map(function($value,  $key) {
    			if(Str::contains($key , 'price')) {

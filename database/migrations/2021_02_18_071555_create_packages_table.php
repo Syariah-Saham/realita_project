@@ -22,6 +22,7 @@ class CreatePackagesTable extends Migration
             $table->unsignedInteger('report');
             $table->unsignedInteger('screening');
             $table->unsignedInteger('compare');
+            $table->smallInteger('watchlist');
             $table->timestamps();
         });
     }

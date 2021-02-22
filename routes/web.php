@@ -53,6 +53,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
 		__DIR__.'/admin/industry.php';
 
 		include
+		__DIR__.'/admin/dictionary.php';
+
+		include
 		__DIR__.'/admin/package.php';
 
 		include
@@ -82,6 +85,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
 
 		include
 		__DIR__.'/member/screening.php';
+
+		include
+		__DIR__.'/member/dictionary.php';
 
 		include 
 		__DIR__.'/member/package.php';

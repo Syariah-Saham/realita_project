@@ -23,11 +23,11 @@
 					@elseif(Str::contains($package->name , 'Expert'))
                         <li class="my-1">Free screening fundamental (All ratio)</li>
 					@else
-						<li class="my-1">Free screening fundamental (Maksimal {{ $package->screening }} ratio)</li>
+						<li class="my-1">Free screening fundamental (Max. {{ $package->screening }} ratio)</li>
 					@endif
 					<li class="my-1">Free fitur comparasi emiten up to {{ $package->compare }} emiten</li>
 				</ul>
-				.<div class="flex-row mt-2">
+				<div class="flex-row mt-2">
 					<form class="inline-block" action="{{ url('admin/package/'.$package->id) }}" method="post">
 						@csrf
 						@method('delete')

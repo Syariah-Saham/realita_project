@@ -114,7 +114,10 @@
                     {{ __('Screening Fundamental') }}
                 </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ url('member/compare') }}" :active="request()->routeIs('compare')">
-                    {{ __('Comparasi Emiten') }}
+                    {{ __('Komparasi Emiten') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ url('member/dictionary') }}" :active="request()->routeIs('dictionary')">
+                    {{ __('Kamus Fundamental') }}
                 </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ url('member/package') }}" :active="request()->routeIs('package')">
                     {{ __('Paket & Pembayaran') }}
@@ -125,6 +128,9 @@
                 </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ url('admin/report') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Laporan Keuangan') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ url('admin/dictionary') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Kamus Fundamental') }}
                 </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ url('admin/import') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Import Data') }}

@@ -9,7 +9,7 @@ use App\Models\Member;
 class Package extends Model
 {
     use HasFactory;
-    protected $fillable = ['name' , 'description' , 'original_price' , 'current_price' , 'report' , 'screening' , 'compare'];
+    protected $fillable = ['name' , 'description' , 'original_price' , 'current_price' , 'report' , 'screening' , 'compare' , 'watchlist'];
 
     public function member () 
     {

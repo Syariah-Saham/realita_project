@@ -7,6 +7,15 @@
                 <x-jet-section-border />
             @endif
 
+            @php 
+                $package = Auth::user()->member->package;
+            @endphp
+
+                <h2 class="text-lg font-semibold text-gray-800">Paket Anda</h2>
+                <p class="text-sm">Anda sedang berlangganan {{ $package->name }} sejak {{ $package->created_at->diffForHumans() }}</p>
+
+                <x-jet-section-border />
+
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
                 <div class="mt-10 sm:mt-0">
                     @livewire('profile.update-password-form')

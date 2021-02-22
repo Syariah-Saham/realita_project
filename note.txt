@@ -20,29 +20,113 @@ npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dist/tailwind.css
 
 
 ** upload **
-modified:   app/Http/Controllers/Admin/DashboardController.php
+new file:   app/Http/Controllers/Admin/DictionaryController.php
 modified:   app/Http/Controllers/Admin/PackageController.php
-modified:   app/Http/Controllers/Member/ReportController.php
+modified:   app/Http/Controllers/Member/CompareController.php
+modified:   app/Http/Controllers/Member/DashboardController.php
+new file:   app/Http/Controllers/Member/DictionaryController.php
 modified:   app/Http/Controllers/Member/ScreeningController.php
-new file:   app/Models/HistoryItem.php
-new file:   app/Models/HistoryReport.php
-new file:   database/migrations/2021_02_20_103915_create_history_reports_table.php
-new file:   database/migrations/2021_02_20_103957_create_history_items_table.php
-modified:   public/css/dashboard.css
-modified:   resources/css/dashboard.css
+new file:   app/Models/Dictionary.php
+modified:   app/Models/Member.php
+modified:   app/Models/Package.php
+new file:   app/Models/Watchlist.php
+modified:   database/migrations/2021_02_18_071555_create_packages_table.php
+new file:   database/migrations/2021_02_21_163110_create_watchlists_table.php
+new file:   database/migrations/2021_02_21_173527_create_dictionaries_table.php
+modified:   note.txt
 modified:   resources/views/dashboard.blade.php
+modified:   resources/views/navigation-dropdown.blade.php
+modified:   resources/views/profile/show.blade.php
+modified:   resources/views/vendor/admin/components/sidebar.blade.php
+new file:   resources/views/vendor/admin/dictionary.blade.php
+modified:   resources/views/vendor/admin/package-create.blade.php
 modified:   resources/views/vendor/admin/package-edit.blade.php
 modified:   resources/views/vendor/admin/package.blade.php
+modified:   resources/views/vendor/member/compare.blade.php
+modified:   resources/views/vendor/member/components/search.blade.php
+modified:   resources/views/vendor/member/components/sidebar.blade.php
+new file:   resources/views/vendor/member/dictionary.blade.php
 modified:   resources/views/vendor/member/package.blade.php
+modified:   resources/views/vendor/member/report.blade.php
 modified:   resources/views/vendor/member/screening.blade.php
+new file:   routes/admin/dictionary.php
+modified:   routes/member/dashboard.php
+new file:   routes/member/dictionary.php
+modified:   routes/web.php
 
 
+Volatilitas adalah jarak antara fluktuasi naik turunnya harga suatu produk efek. Volatilitas tinggi berarti harga bisa melonjak tinggi, dan segera turun drastis secara cepat. begitu pula sebaliknya
 
-
-
-
-
-
-git remote add syariah-saham https://github.com/Syariah-Saham/realita_project.git
-git branch -M main
-git push -u syariah-saham main
+<div class="hidden result-compare grid-cols-2 md:grid-cols-7 gap-2 mt-6">
+	<div class="col-span-2 rounded-lg shadow-md bg-white overflow-hidden">
+		<h1 class="font-bold text-3xl text-center uppercase py-2 bg-blue-400 text-white m-2 rounded mb-4">Indikator</h1>
+		<div class="list-value">
+			<p class="p-2">Current Ratio</p>
+			<p class="p-2 bg-gray-100">Dividen Saham (Rp)</p>
+			<p class="p-2">Dividen Yield</p>
+			<p class="p-2 bg-gray-100">Dividen Payout</p>
+			<p class="p-2">Laba bersih / saham</p>
+			<p class="p-2 bg-gray-100">Nilai Buku</p>
+			<p class="p-2">Debt to Asset Ratio (x)</p>
+			<p class="p-2 bg-gray-100">Debt to Equity Ratio (x)</p>
+			<p class="p-2">Return of Assets (%)</p>
+			<p class="p-2 bg-gray-100">Return of Equity (%)</p>
+            <p class="p-2">Net Profit Margin (%)</p>
+            <p class="p-2 bg-gray-100">Price to Earning Ratio (x)</p>
+            <p class="p-2">Price to Book Value (x)</p>
+            <p class="p-2 bg-gray-100">Syariah</p>
+		</div>
+	</div>
+    @if(isset($items))
+        @php
+            $bg = ['bg-green-400' , 'bg-indigo-400' , 'bg-purple-400' , 'bg-orange-400' , 'bg-teal-400'];
+        @endphp
+        @foreach($items as $stock)
+        	<div class="rounded-lg shadow-md bg-white">
+        		<h1 class="font-bold text-3xl text-center uppercase py-2 {{ $bg[$loop->iteration -1] }} text-white m-2 rounded mb-4">{{ $stock['ticker'] }}</h1>
+        		<div class="list-value text-center">
+        			<p class="p-2 text-right">{{ $stock['cr'] }}</p>
+        			<p class="p-2 text-right bg-gray-100">{{ $stock['dn'] }}</p>
+        			<p class="p-2 text-right">{{ $stock['dy'] }}</p>
+        			<p class="p-2 text-right bg-gray-100">{{ $stock['dp'] }}</p>
+        			<p class="p-2 text-right">{{ $stock['np'] }}</p>
+        			<p class="p-2 text-right bg-gray-100">{{ $stock['bv'] }}</p>
+        			<p class="p-2 text-right">{{ $stock['dar'] }}</p>
+        			<p class="p-2 text-right bg-gray-100">{{ $stock['der'] }}</p>
+        			<p class="p-2 text-right">{{ $stock['roa'] }}</p>
+        			<p class="p-2 text-right bg-gray-100">{{ $stock['roe'] }}</p>
+                    <p class="p-2 text-right">{{ $stock['npm'] }}</p>
+                    <p class="p-2 text-right bg-gray-100">{{ $stock['per'] }}</p>
+                    <p class="p-2 text-right">{{ $stock['pbv'] }}</p>
+                    <p class="p-2 flex justify-end bg-gray-100">
+                        @if($stock['sharia']==='true')
+                            <svg class="h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        @else
+                            <svg class="h-6 w-6 text-red-500"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        @endif
+                    </p>
+        		</div>
+        		<div class="text-center mt-4 flex justify-evenly pb-2">
+                    <form action="{{ url('member/report/search') }}">
+                        @csrf
+                        <input type="hidden" name="keyword" value="{{ $stock['ticker'] }}">
+                        <button class="font-bold text-md text-center uppercase py-1 px-4 bg-green text-white rounded inline-block">
+                            <svg class="h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </button>
+                    </form>
+	        		<button class="font-bold text-md text-center uppercase py-1 px-4 bg-red text-white rounded inline-block btn-delete">
+                        <svg class="h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                    </button>
+        		</div>
+        	</div>
+        @endforeach
+    @endif
+</div>

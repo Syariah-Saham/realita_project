@@ -1,44 +1,83 @@
 <x-app-layout>
 	<div class="py-4 px-1 md:px-4 pb-12">
         <div class="max-w-7xl md:px-4 sm:px-6 lg:px-8 pb-20">
+            @php $packageMember = Auth::user()->member->package->name;  @endphp
+            @if(!Str::contains($packageMember , 'Expert'))
         	<h1 class="text-2xl font-bold text-gray-600">Daftar Paket</h1>
         		<div class="flex flex-col md:flex-row gap-4 mt-4">
         			@forelse($packages as $package)
-        	            @php $status = Auth::user()->member->package_id === $package->id; @endphp
-        	            <div class="w-full md:w-1/3 @if(!$status) bg-white @else bg-purple-500 text-white @endif rounded-lg shadow-lg text-center p-4 py-6">
-        	                <h2 class="text-3xl font-bold @if(!$status) text-teal-400 @endif">{{ $package->name }}</h2>
-        	                <p class="text-sm md:text-lg">{{ $package->description }}</p>
-        	                <div class="my-3">
-        	                    <h1 class="text-2xl md:text-4xl mt-2 font-bold @if(!$status)text-indigo-500 @endif">Rp{{ number_format($package->current_price , 0,',','.') }}</h1>
-        	                    <s class="text-xl text-gray-300">Rp{{ number_format($package->original_price , 0,',','.') }}</s>
-        	                </div>
-        	                <ul class="text-left text-sm md:text-lg my-2">
-        	                    <li class="my-1">Free akses laporan keuangan maksimal {{ $package->report }} emiten / bulan</li>
-                                @if(Str::contains($package->name , 'Gratis'))
-                                    <li class="my-1">Free screening ratio PBV dan PER Emiten</li>
-                                @elseif(Str::contains($package->name , 'Expert'))
-                                    <li class="my-1">Free screening fundamental (All ratio)</li>
-                                @else
-                                    <li class="my-1">Free screening fundamental (Maksimal {{ $package->screening }} ratio)</li>
-                                @endif
-                                <li class="my-1">Free fitur comparasi emiten up to {{ $package->compare }} emiten</li>
-        	                </ul>
-        	                <div class="flex-row mt-2">
-        	                    @if(!$status && $package->current_price !== 0 )
-        	                        <a href="{{ url('member/package/'.$package->id.'/buy') }}" class="btn mx-3">Beli</a>
-        	                    @elseif($status)
-        	                        <span class="btn mx-3">Paket Anda</span>
-        	                    @endif
-        	                </div>
-        	            </div>
+        	            @php 
+                            $status = Auth::user()->member->package_id === $package->id; 
+                        @endphp
+
+                        @if(Str::contains($packageMember , 'Gratis'))
+                            @if(!Str::contains($package->name , 'Gratis'))
+                	            <div class="w-full md:w-1/3 @if(!$status) bg-white @else bg-purple-500 text-white @endif rounded-lg shadow-lg text-center p-4 py-6">
+                	                <h2 class="text-3xl font-bold @if(!$status) text-teal-400 @endif">{{ $package->name }}</h2>
+                	                <p class="text-sm md:text-lg">{{ $package->description }}</p>
+                	                <div class="my-3">
+                	                    <h1 class="text-2xl md:text-4xl mt-2 font-bold @if(!$status)text-indigo-500 @endif">Rp{{ number_format($package->current_price , 0,',','.') }}</h1>
+                	                    <s class="text-xl text-gray-300">Rp{{ number_format($package->original_price , 0,',','.') }}</s>
+                	                </div>
+                	                <ul class="text-left text-sm md:text-lg my-2">
+                	                    <li class="my-1">Free akses laporan keuangan maksimal {{ $package->report }} emiten / bulan</li>
+                                        @if(Str::contains($package->name , 'Gratis'))
+                                            <li class="my-1">Free screening ratio PBV dan PER Emiten</li>
+                                        @elseif(Str::contains($package->name , 'Expert'))
+                                            <li class="my-1">Free screening fundamental (All ratio)</li>
+                                        @else
+                                            <li class="my-1">Free screening fundamental (Maksimal {{ $package->screening }} ratio)</li>
+                                        @endif
+                                        <li class="my-1">Free fitur comparasi emiten up to {{ $package->compare }} emiten</li>
+                	                </ul>
+                	                <div class="flex-row mt-2">
+                	                    @if(!$status && $package->current_price !== 0 )
+                	                        <a href="{{ url('member/package/'.$package->id.'/buy') }}" class="btn mx-3">Beli</a>
+                	                    @elseif($status)
+                	                        <span class="btn mx-3">Paket Anda</span>
+                	                    @endif
+                	                </div>
+                	            </div>
+                            @endif
+                        @elseif(Str::contains($packageMember , 'Personal'))
+                            @if(Str::contains($package->name , 'Expert'))
+                                <div class="w-full md:w-1/3 @if(!$status) bg-white @else bg-purple-500 text-white @endif rounded-lg shadow-lg text-center p-4 py-6">
+                                    <h2 class="text-3xl font-bold @if(!$status) text-teal-400 @endif">{{ $package->name }}</h2>
+                                    <p class="text-sm md:text-lg">{{ $package->description }}</p>
+                                    <div class="my-3">
+                                        <h1 class="text-2xl md:text-4xl mt-2 font-bold @if(!$status)text-indigo-500 @endif">Rp{{ number_format($package->current_price , 0,',','.') }}</h1>
+                                        <s class="text-xl text-gray-300">Rp{{ number_format($package->original_price , 0,',','.') }}</s>
+                                    </div>
+                                    <ul class="text-left text-sm md:text-lg my-2">
+                                        <li class="my-1">Free akses laporan keuangan maksimal {{ $package->report }} emiten / bulan</li>
+                                        @if(Str::contains($package->name , 'Gratis'))
+                                            <li class="my-1">Free screening ratio PBV dan PER Emiten</li>
+                                        @elseif(Str::contains($package->name , 'Expert'))
+                                            <li class="my-1">Free screening fundamental (All ratio)</li>
+                                        @else
+                                            <li class="my-1">Free screening fundamental (Maksimal {{ $package->screening }} ratio)</li>
+                                        @endif
+                                        <li class="my-1">Free fitur comparasi emiten up to {{ $package->compare }} emiten</li>
+                                    </ul>
+                                    <div class="flex-row mt-2">
+                                        @if(!$status && $package->current_price !== 0 )
+                                            <a href="{{ url('member/package/'.$package->id.'/buy') }}" class="btn mx-3">Beli</a>
+                                        @elseif($status)
+                                            <span class="btn mx-3">Paket Anda</span>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endif
+                        @endif
+
         	        @empty
         	            <h1>Tidak ada paket</h1>
         	        @endforelse
         	            
         		</div>
-
+            @endif
         	<div class="my-6">
-	        	<h1 class="text-2xl font-bold text-gray-600 mb-2">Daftar Pembayaran</h1>
+	        	<h1 class="text-2xl font-bold text-gray-600 mb-2">History Pembayaran</h1>
 	        	<table class="w-full text-xs md:text-sm lg:text-lg bg-white rounded-xl overflow-hidden shadow-lg">
 	        		<thead class="bg-gr text-white">
 	        			<tr>

@@ -1,9 +1,10 @@
 <x-app-layout>
-
     <div class="py-6 pb-12 px-3 lg:px-8">
         <form id="form" action="{{ url('member/report/search') }}" class="flex flex-col items-center justify-center">
             <div id="listStocks" data-json="{{ $codes }}"></div>
+            @if(!isset($_GET['keyword']))
             <img src="{{ asset('asset/landing/laporan_keuangan.svg') }}" alt="illustrasi" class="w-4/5 md:w-1/2 mx-auto">
+            @endif
             <h1 class="text-2xl font-bold text-gray-600">Cari Laporan Keuangan</h1>
             <div class="w-54">
                 <div class="inline-block">
@@ -51,39 +52,42 @@
 
         @if(isset($data))
         <div class="result-report border-t-2 border-gray-300 my-6 pt-6">
-            <h1 class="text-center font-bold text-center text-2xl bg-white p-2 rounded shadow-lg block w-48 mx-auto">Kode Saham <span class="text-white block w-full rounded mt-2 text-4xl py-2 font-black" style="background-image: linear-gradient(136deg, #2af598 0%, #009efd 100%);">{{ $stock->code_issuers }}</span></h1>
+            @php
+                $style = ($stock->sharia === 'true')  ? ['text-green-400' , 'bg-gr'] : ['text-red-400' , 'bg-red-400'];
+            @endphp
+            <h1 class="text-center font-bold text-center text-2xl bg-white p-2 rounded shadow-lg block w-48 mx-auto">Kode Saham <span class="text-white block w-full rounded mt-2 text-4xl py-2 font-black {{ $style[1] }}">{{ $stock->code_issuers }}</span></h1>
             <div id="dataJson" data-json="{{ $json }}"></div>
             <div class="flex flex-col md:flex-row gap-2 shadow-md bg-white p-4 mt-4">
                 <div class="md:w-1/2">
                     <div class="flex flex-row gap-2">
                         <div class="w-2/5">Nama Emiten</div>
-                        <div class="w-3/5 text-green-400 font-bold">{{ $stock->name }}</div>
+                        <div class="w-3/5 {{ $style[0] }} font-bold">{{ $stock->name }}</div>
                     </div>
                     <div class="flex flex-row gap-2">
                         <div class="w-2/5">Tanggal IPO</div>
-                        <div class="w-3/5  text-green-400 ">{{ Carbon::parse($stock->ipo_date)->format('d F Y') }}</div>
+                        <div class="w-3/5  {{ $style[0] }} ">{{ Carbon::parse($stock->ipo_date)->format('d F Y') }}</div>
                     </div>
                     <div class="flex flex-row gap-2">
                         <div class="w-2/5">Jumlah Saham (Juta)</div>
-                        <div class="w-3/5  text-green-400 ">{{ number_format($stock->report->last()->coststock->total_stock , 0,',','.') }}</div>
+                        <div class="w-3/5  {{ $style[0] }} ">{{ number_format($stock->report->last()->coststock->total_stock , 0,',','.') }}</div>
                     </div>
                     <div class="flex flex-row gap-2">
                         <div class="w-2/5">Kapitalisasi (Rp. Juta)</div>
-                        <div class="w-3/5  text-green-400 ">{{ Number::format($stock->capitalization) }}</div>
+                        <div class="w-3/5  {{ $style[0] }} ">{{ Number::format($stock->capitalization) }}</div>
                     </div>
                 </div>
                 <div class="md:w-1/2">
                     <div class="flex flex-row gap-2">
                         <div class="w-2/5">Sektor</div>
-                        <div class="w-3/5  text-green-400 ">{{ $stock->sector->sector }}</div>
+                        <div class="w-3/5  {{ $style[0] }} ">{{ $stock->sector->sector }}</div>
                     </div>
                     <div class="flex flex-row gap-2">
                         <div class="w-2/5">Industri</div>
-                        <div class="w-3/5  text-green-400 ">{{ $stock->industry->industry }}</div>
+                        <div class="w-3/5  {{ $style[0] }} ">{{ $stock->industry->industry }}</div>
                     </div>
                      <div class="flex flex-row gap-2">
                         <div class="w-2/5">Kurs Laporan</div>
-                        <div class="w-3/5  text-green-400 ">{{ $stock->kurs_report }}</div>
+                        <div class="w-3/5  {{ $style[0] }} ">{{ $stock->kurs_report }}</div>
                     </div>
                      <div class="flex flex-row gap-2">
                         <div class="w-2/5">Emiten Syariah</div>
@@ -107,73 +111,91 @@
                             <tr class="text-green-500">
                                 <th class="p-2">Aset</th>
                                 @foreach($assets['total'] as $asset)
-                                    <th>{{ $asset }}</th>
+                                    <th class="text-right pr-2">{{ $asset }}</th>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Lancar</td>
                                 @foreach($assets['current'] as $asset)
-                                    <td>{{ $asset }}</td>
+                                    <td class="text-right pr-2">{{ $asset }}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Non-Lancar</td>
                                 @foreach($assets['ncurrent'] as $asset)
-                                    <td>{{ $asset }}</td>
+                                    <td class="text-right pr-2">{{ $asset }}</td>
                                 @endforeach
                             </tr>
                             <tr class="font-semibold italic bg-teal-100">
                                 <td class="p-2">Growth</td>
                                 @foreach($assets['growth'] as $asset)
-                                    <td>{{ $asset }}</td>
+                                    @if((float)$asset > 0) 
+                                        <td class="text-green-500 text-right pr-2">+{{ $asset }}</td>
+                                    @elseif((float)$asset < 0)
+                                        <td class="text-red-500 text-right pr-2">{{ $asset }}</td>
+                                    @elseif((float)$asset == 0)
+                                        <td class="text-right pr-2">{{ $asset }}</td>
+                                    @endif
                                 @endforeach
                             </tr>
                             <tr class="text-red-500">
                                 <th class="p-2">Liabilitas</th>
                                 @foreach($liabilities['total'] as $data)
-                                    <th>{{ $data }}</th>
+                                    <th class="text-right pr-2">{{ $data }}</th>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Jangka Pendek</td>
                                 @foreach($liabilities['current'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Jangka Panjang</td>
                                 @foreach($liabilities['ncurrent'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
-                            <tr  class="font-semibold italic">
+                            <tr  class="font-semibold italic bg-teal-100">
                                 <td class="p-2">Growth</td>
                                 @foreach($liabilities['growth'] as $data)
-                                    <td>{{ $data }}</td>
+                                    @if((float)$data > 0) 
+                                        <td class="text-green-500 text-right pr-2">+{{ $data }}</td>
+                                    @elseif((float)$data < 0)
+                                        <td class="text-red-500 text-right pr-2">{{ $data }}</td>
+                                    @elseif((float)$data == 0)
+                                        <td class="text-right pr-2">{{ $data }}</td>
+                                    @endif
                                 @endforeach
                             </tr>
                             <tr class="text-indigo-500">
                                 <th class="p-2">Ekuitas</th>
                                 @foreach($equity['total'] as $data)
-                                    <th>{{ $data }}</th>
+                                    <th class="text-right pr-2">{{ $data }}</th>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Pemilik entitas produk</td>
                                 @foreach($equity['parent'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Non Pengendali</td>
                                 @foreach($equity['not_controller'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
-                            <tr  class="font-semibold italic">
+                            <tr  class="font-semibold italic bg-teal-100">
                                 <td class="p-2">Growth</td>
                                 @foreach($equity['growth'] as $data)
-                                    <td>{{ $data }}</td>
+                                    @if((float)$data > 0) 
+                                        <td class="text-green-500 text-right pr-2">+{{ $data }}</td>
+                                    @elseif((float)$data < 0)
+                                        <td class="text-red-500 text-right pr-2">{{ $data }}</td>
+                                    @elseif((float)$data == 0)
+                                        <td class="text-right pr-2">{{ $data }}</td>
+                                    @endif
                                 @endforeach
                             </tr>
                         </tbody>
@@ -189,7 +211,7 @@
                             <tr>
                                 <th class="p-2">Laba Rugi</th>
                                 @foreach($periodes as $periode)
-                                <th>{{ $periode }}</th>
+                                <th class="text-right pr-2">{{ $periode }}</th>
                                 @endforeach
                             </tr>   
                         </thead>
@@ -197,13 +219,19 @@
                             <tr>
                                 <td class="p-2">Total Pendapatan</td>
                                 @foreach($profits['revenue'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr class="font-semibold italic bg-teal-100">
                                 <td class="p-2">Growth</td>
                                 @foreach($profits['revenue_growth'] as $data)
-                                    <td>{{ $data }}</td>
+                                    @if((float)$data > 0) 
+                                        <td class="text-green-500 text-right pr-2">+{{ $data }}</td>
+                                    @elseif((float)$data < 0)
+                                        <td class="text-red-500 text-right pr-2">{{ $data }}</td>
+                                    @elseif((float)$data == 0)
+                                        <td class="text-right pr-2">{{ $data }}</td>
+                                    @endif
                                 @endforeach
                             </tr>
                             <tr class="text-gray-100 bg-gray-100">
@@ -211,19 +239,25 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>c</td>
+                                <td>-</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td class="p-2">Total Laba Bersih</td>
                                 @foreach($profits['net_profit'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr class="font-semibold italic bg-teal-100">
                                 <td class="p-2">Growth</td>
                                 @foreach($profits['net_profit_growth'] as $data)
-                                    <td>{{ $data }}</td>
+                                    @if((float)$data > 0) 
+                                        <td class="text-green-500 text-right pr-2">+{{ $data }}</td>
+                                    @elseif((float)$data < 0)
+                                        <td class="text-red-500 text-right pr-2">{{ $data }}</td>
+                                    @elseif((float)$data == 0)
+                                        <td class="text-right pr-2">{{ $data }}</td>
+                                    @endif
                                 @endforeach
                             </tr>
                     </table>
@@ -243,79 +277,79 @@
                             <tr>
                                 <td class="p-2">Current Ratio (x)</td>
                                 @foreach($ratios['cr'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Dividen Saham (Rp)</td>
                                 @foreach($ratios['dn'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Dividen Yield</td>
                                 @foreach($ratios['dy'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Dividen Payout (%)</td>
                                 @foreach($ratios['dp'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Laba bersih / saham</td>
                                 @foreach($ratios['np'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Nilai Buku</td>
                                 @foreach($ratios['bv'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Debt to Asset Ratio (x)</td>
                                 @foreach($ratios['dar'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Debt to Equity Ratio (x)</td>
                                 @foreach($ratios['der'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Return of Assets (%)</td>
                                 @foreach($ratios['roa'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Return of Equity (%)</td>
                                 @foreach($ratios['roe'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Net Profit Margin (%)</td>
                                 @foreach($ratios['npm'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Price to Earning Ratio (x)</td>
                                 @foreach($ratios['per'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Price to Book Value (x)</td>
                                 @foreach($ratios['pbv'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                         </tbody>
@@ -339,13 +373,13 @@
                             <tr>
                                 <td class="p-2">Harga</td>
                                 @foreach($costs['cost'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <td class="p-2">Jumlah Saham (Juta)</td>
                                 @foreach($costs['total_stock'] as $data)
-                                    <td>{{ $data }}</td>
+                                    <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                         </tbody>

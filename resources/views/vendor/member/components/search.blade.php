@@ -9,8 +9,10 @@
 		$title = "Laporan Keuangan";
 	} else if(strpos(url()->current() ,'member/compare')) {
 		$title = 'Comparasi Emiten';
+	}else if(strpos(url()->current() ,'member/dictionary')) {
+		$title = 'Kamus Fundamental';
 	}else if(strpos(url()->current() ,'member/package')) {
-		$title = 'Paket Premium';
+		$title = 'Paket Rekap Saham';
 	} else if(strpos(url()->current() ,'admin/dashboard')) {
 		$title = 'Dashboard Admin';
 	}else if(strpos(url()->current() ,'admin/stock')) {

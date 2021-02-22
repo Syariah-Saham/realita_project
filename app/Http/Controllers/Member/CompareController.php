@@ -65,26 +65,30 @@ class CompareController extends Controller
       $items = collect([]);
       foreach (json_decode($request->list_data) as $stock) {
         $stock = Stock::where('code_issuers' , $stock)->first();
+        if(!$stock) {
+          return redirect(url()->previous());
+        }
         $ratio = $stock->report->last()->ratio;
         $item = [
           'ticker' => $stock->code_issuers,
-          'cr' => $ratio->current_ratio,
-          'dn' => $ratio->dividend_nominal,
-          'dy' => $ratio->dividend_yield,
-          'dp' => $ratio->dividend_payout,
-          'np' => $ratio->net_profit,
-          'bv' => $ratio->book_value,
-          'dar' => $ratio->debt_asset_ratio,
-          'der' => $ratio->debt_equity_ratio,
-          'roa' => $ratio->return_of_assets,
-          'roe' => $ratio->return_of_equity,
-          'npm' => $ratio->net_profit_margin,
-          'per' => $ratio->price_to_earning_ratio,
-          'pbv' => $ratio->price_to_book_value,
+          'sharia' => $stock->sharia,
+          'cr'     => $ratio->current_ratio,
+          'dn'     => $ratio->dividend_nominal,
+          'dy'     => $ratio->dividend_yield,
+          'dp'     => $ratio->dividend_payout,
+          'np'     => $ratio->net_profit,
+          'bv'     => $ratio->book_value,
+          'dar'    => $ratio->debt_asset_ratio,
+          'der'    => $ratio->debt_equity_ratio,
+          'roa'    => $ratio->return_of_assets,
+          'roe'    => $ratio->return_of_equity,
+          'npm'    => $ratio->net_profit_margin,
+          'per'    => $ratio->price_to_earning_ratio,
+          'pbv'    => $ratio->price_to_book_value,
         ];
         $items->push($item);
       }
-
+      
       return view('vendor.member.compare',[
           'codes'     => json_encode($code),
           'list_data' => $request->list_data,

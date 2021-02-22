@@ -26,49 +26,55 @@
         				<svg class="h-20 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         				  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
         				</svg>
-        				<h3 class="font-bold text-2xl">Comparison Emiten</h3>
+        				<h3 class="font-bold text-2xl">Komparasi Emiten</h3>
         			</div>
         		</a>
         	</div>
 
-        	<h1 class="text-2xl font-bold text-gray-600 mb-2">Upgrade Premium</h1>
-        	<div class="flex flex-col md:flex-row gap-4">
-        		@forelse($packages as $package)
-                    @php $status = Auth::user()->member->package_id === $package->id; @endphp
-                    <div class="w-full md:w-1/3 @if(!$status) bg-white @else bg-purple-500 text-white @endif rounded-lg shadow-lg text-center p-4 py-6">
-                        <h2 class="text-3xl font-bold @if(!$status) text-teal-400 @endif">{{ $package->name }}</h2>
-                        <p class="text-sm md:text-lg">{{ $package->description }}</p>
-                        <div class="my-3">
-                            <h1 class="text-2xl md:text-4xl mt-2 font-bold @if(!$status)text-indigo-500 @endif">Rp{{ number_format($package->current_price , 0,',','.') }}</h1>
-                            <s class="text-xl text-gray-300">Rp{{ number_format($package->original_price , 0,',','.') }}</s>
-                        </div>
-                        <ul class="text-left text-sm md:text-lg my-2">
-                            <li class="my-1">Free akses laporan keuangan maksimal {{ $package->report }} emiten / bulan</li>
-                            @if(Str::contains($package->name , 'Gratis'))
-                                <li class="my-1">Free screening ratio PBV dan PER Emiten</li>
-                            @elseif(Str::contains($package->name , 'Expert'))
-                                <li class="my-1">Free screening fundamental (All ratio)</li>
-                            @else
-                                <li class="my-1">Free screening fundamental (Maksimal {{ $package->screening }} ratio)</li>
-                            @endif
-                            <li class="my-1">Free fitur comparasi emiten up to {{ $package->compare }} emiten</li>
-                        </ul>
-                        <div class="flex-row mt-2">
-                            @if(!$status)
-                                <a href="{{ url('member/package/'.$package->id.'/buy') }}" class="btn mx-3">Beli</a>
-                            @else
-                                <span class="btn mx-3">Paket Anda</span>
-                            @endif
-                        </div>
+            <h1 class="text-2xl font-bold text-gray-600 mt-5">Watchlist Saham</h1>
+            <form action="{{ url('member/dashboard') }}" method="post" class="bg-white rounded-lg shadow-lg p-4 my-3 w-full md:w-1/2 lg:w-1/3 flex flex-row">
+                @csrf
+                <div >
+                    <input type="text" id="watchlist" class="form-input @error('code') is-invalid @enderror" name="code" placeholder="Ketik Kode Emiten" value="{{ old('code') }}">
+                    @include('vendor.components.error' , ['name' => 'code'])
+                </div>
+                <button class="text-white px-2 my-2 rounded bg-gr ml-2">
+                    <svg class="h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z" />
+                    </svg>
+                </button>
+            </form>
+            <div class="flex flex-row gap-3 mt-4">
+                @forelse($wathcs as $data)
+                    <div class="flex flex-row items-center gap-2 bg-white rounded-md px-4 shadow-md hover:bg-green-100 transition duration-200">
+                        <a href="{{ url('member/report/search?keyword='.$data->stock->code_issuers) }}">{{ $data->stock->code_issuers }}</a>
+                        <form action="{{ url('member/dashboard/' . $data->id) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button class="text-white px-2 my-2 rounded bg-gr2 ml-2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z" />
+                                </svg>
+                                <svg class="h-5 my-1"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                  <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </form>
                     </div>
                 @empty
-                    <h1>Tidak ada paket</h1>
+                    <h1>Tidak ada Wathclist</h1>
                 @endforelse
-                    
-        	</div>
+            </div>
+                
         </div>
     </div>
 
+
+    <script>
+        const input = document.getElementById('watchlist');
+        input.addEventListener('keyup' , () => {
+            input.value = input.value.toUpperCase();
+        })
+    </script>
 
 
 </x-app-layout>

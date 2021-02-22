@@ -183,50 +183,463 @@
 						<thead  class="bg-gr text-white">
 							<tr>
 								<th class="p-2 w-4">#</th>
-								<th class="w-8">Kode Emiten</th>
+								<th>Kode Emiten</th>
 								<th>Nama Emiten</th>
-								@if($ratios->contains('cr')) <th>CR</th> @endif
-								@if($ratios->contains('ds')) <th>DS</th> @endif
-								@if($ratios->contains('dy')) <th>DY</th> @endif
-								@if($ratios->contains('dp')) <th>DP</th> @endif
-								@if($ratios->contains('np')) <th>NP</th> @endif
-								@if($ratios->contains('bv')) <th>BV</th> @endif
-								@if($ratios->contains('dar')) <th>DAR</th> @endif
-								@if($ratios->contains('der')) <th>DER</th> @endif
-								@if($ratios->contains('roa')) <th>ROA</th> @endif
-								@if($ratios->contains('roe')) <th>ROE</th> @endif
-								@if($ratios->contains('npm')) <th>NPM</th> @endif
-								@if($ratios->contains('per')) <th>PER</th> @endif
-								@if($ratios->contains('pbv')) <th>PBV</th> @endif
+								@if($ratios->contains('cr')) 
+									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+										<span>
+											CR
+										</span>
+										<form class="inline-block">
+											<input type="hidden" name="sortKey" value="current_ratio">
+											@if($_GET['sortStatus'] === 'desc')
+												<input type="hidden" name="sortStatus" value="asc">
+											@else
+												<input type="hidden" name="sortStatus" value="desc">
+											@endif
+											<input type="hidden" name="data_query" value="{{ $query }}">
+											<button class="outline-none focus:outline-none">
+												@if($_GET['sortKey'] === 'current_ratio')
+													@if($_GET['sortStatus'] === 'desc')
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 0zm0-6a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+														</svg>
+													@else
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+														</svg>
+													@endif
+												@else
+													<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+													  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+													</svg>
+												@endif
+											</button>
+										</form>
+									</th>
+								@endif
+								@if($ratios->contains('ds')) 
+									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+										<span>
+											DS
+										</span>
+										<form class="inline-block">
+											<input type="hidden" name="sortKey" value="dividend_nominal">
+											@if($_GET['sortStatus'] === 'desc')
+												<input type="hidden" name="sortStatus" value="asc">
+											@else
+												<input type="hidden" name="sortStatus" value="desc">
+											@endif
+											<input type="hidden" name="data_query" value="{{ $query }}">
+											<button class="outline-none focus:outline-none">
+												@if($_GET['sortKey'] === 'dividend_nominal')
+													@if($_GET['sortStatus'] === 'desc')
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 0zm0-6a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+														</svg>
+													@else
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+														</svg>
+													@endif
+												@else
+													<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+													  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+													</svg>
+												@endif
+											</button>
+										</form>
+									</th> 
+								@endif
+								@if($ratios->contains('dy')) 
+									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+										<span>
+											DY
+										</span>
+										<form class="inline-block">
+											<input type="hidden" name="sortKey" value="dividend_yield">
+											@if($_GET['sortStatus'] === 'desc')
+												<input type="hidden" name="sortStatus" value="asc">
+											@else
+												<input type="hidden" name="sortStatus" value="desc">
+											@endif
+											<input type="hidden" name="data_query" value="{{ $query }}">
+											<button class="outline-none focus:outline-none">
+												@if($_GET['sortKey'] === 'dividend_yield')
+													@if($_GET['sortStatus'] === 'desc')
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 0zm0-6a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+														</svg>
+													@else
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+														</svg>
+													@endif
+												@else
+													<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+													  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+													</svg>
+												@endif
+											</button>
+										</form>
+									</th> 
+								@endif
+								@if($ratios->contains('dp')) 
+									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+										<span>
+											DP
+										</span>
+										<form class="inline-block">
+											<input type="hidden" name="sortKey" value="dividend_payout">
+											@if($_GET['sortStatus'] === 'desc')
+												<input type="hidden" name="sortStatus" value="asc">
+											@else
+												<input type="hidden" name="sortStatus" value="desc">
+											@endif
+											<input type="hidden" name="data_query" value="{{ $query }}">
+											<button class="outline-none focus:outline-none">
+												@if($_GET['sortKey'] === 'dividend_payout')
+													@if($_GET['sortStatus'] === 'desc')
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 0zm0-6a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+														</svg>
+													@else
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+														</svg>
+													@endif
+												@else
+													<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+													  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+													</svg>
+												@endif
+											</button>
+										</form>
+									</th> 
+								@endif
+								@if($ratios->contains('np')) 
+									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+										<span>
+											NP
+										</span>
+										<form class="inline-block">
+											<input type="hidden" name="sortKey" value="net_profit">
+											@if($_GET['sortStatus'] === 'desc')
+												<input type="hidden" name="sortStatus" value="asc">
+											@else
+												<input type="hidden" name="sortStatus" value="desc">
+											@endif
+											<input type="hidden" name="data_query" value="{{ $query }}">
+											<button class="outline-none focus:outline-none">
+												@if($_GET['sortKey'] === 'net_profit')
+													@if($_GET['sortStatus'] === 'desc')
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 0zm0-6a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+														</svg>
+													@else
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+														</svg>
+													@endif
+												@else
+													<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+													  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+													</svg>
+												@endif
+											</button>
+										</form>
+									</th> 
+								@endif
+								@if($ratios->contains('bv')) 
+									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+										<span>
+											BV
+										</span>
+										<form class="inline-block">
+											<input type="hidden" name="sortKey" value="book_value">
+											@if($_GET['sortStatus'] === 'desc')
+												<input type="hidden" name="sortStatus" value="asc">
+											@else
+												<input type="hidden" name="sortStatus" value="desc">
+											@endif
+											<input type="hidden" name="data_query" value="{{ $query }}">
+											<button class="outline-none focus:outline-none">
+												@if($_GET['sortKey'] === 'book_value')
+													@if($_GET['sortStatus'] === 'desc')
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 0zm0-6a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+														</svg>
+													@else
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+														</svg>
+													@endif
+												@else
+													<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+													  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+													</svg>
+												@endif
+											</button>
+										</form>
+									</th> 
+								@endif
+								@if($ratios->contains('dar')) 
+									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+										<span>
+											DAR
+										</span>
+										<form class="inline-block">
+											<input type="hidden" name="sortKey" value="debt_asset_ratio">
+											@if($_GET['sortStatus'] === 'desc')
+												<input type="hidden" name="sortStatus" value="asc">
+											@else
+												<input type="hidden" name="sortStatus" value="desc">
+											@endif
+											<input type="hidden" name="data_query" value="{{ $query }}">
+											<button class="outline-none focus:outline-none">
+												@if($_GET['sortKey'] === 'debt_asset_ratio')
+													@if($_GET['sortStatus'] === 'desc')
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 0zm0-6a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+														</svg>
+													@else
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+														</svg>
+													@endif
+												@else
+													<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+													  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+													</svg>
+												@endif
+											</button>
+										</form>
+									</th> 
+								@endif
+								@if($ratios->contains('der')) 
+									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+										<span>
+											DER
+										</span>
+										<form class="inline-block">
+											<input type="hidden" name="sortKey" value="debt_equity_ratio">
+											@if($_GET['sortStatus'] === 'desc')
+												<input type="hidden" name="sortStatus" value="asc">
+											@else
+												<input type="hidden" name="sortStatus" value="desc">
+											@endif
+											<input type="hidden" name="data_query" value="{{ $query }}">
+											<button class="outline-none focus:outline-none">
+												@if($_GET['sortKey'] === 'debt_equity_ratio')
+													@if($_GET['sortStatus'] === 'desc')
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 0zm0-6a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+														</svg>
+													@else
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+														</svg>
+													@endif
+												@else
+													<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+													  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+													</svg>
+												@endif
+											</button>
+										</form>
+									</th> 
+								@endif
+								@if($ratios->contains('roa')) 
+									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+										<span>
+											ROA
+										</span>
+										<form class="inline-block">
+											<input type="hidden" name="sortKey" value="return_of_assets">
+											@if($_GET['sortStatus'] === 'desc')
+												<input type="hidden" name="sortStatus" value="asc">
+											@else
+												<input type="hidden" name="sortStatus" value="desc">
+											@endif
+											<input type="hidden" name="data_query" value="{{ $query }}">
+											<button class="outline-none focus:outline-none">
+												@if($_GET['sortKey'] === 'return_of_assets')
+													@if($_GET['sortStatus'] === 'desc')
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 0zm0-6a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+														</svg>
+													@else
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+														</svg>
+													@endif
+												@else
+													<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+													  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+													</svg>
+												@endif
+											</button>
+										</form>
+									</th> 
+								@endif
+								@if($ratios->contains('roe')) 
+									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+										<span>
+											ROE
+										</span>
+										<form class="inline-block">
+											<input type="hidden" name="sortKey" value="return_of_equity">
+											@if($_GET['sortStatus'] === 'desc')
+												<input type="hidden" name="sortStatus" value="asc">
+											@else
+												<input type="hidden" name="sortStatus" value="desc">
+											@endif
+											<input type="hidden" name="data_query" value="{{ $query }}">
+											<button class="outline-none focus:outline-none">
+												@if($_GET['sortKey'] === 'return_of_equity')
+													@if($_GET['sortStatus'] === 'desc')
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 0zm0-6a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+														</svg>
+													@else
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+														</svg>
+													@endif
+												@else
+													<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+													  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+													</svg>
+												@endif
+											</button>
+										</form>
+									</th> 
+								@endif
+								@if($ratios->contains('npm')) 
+									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+										<span>
+											NPM
+										</span>
+										<form class="inline-block">
+											<input type="hidden" name="sortKey" value="net_profit_margin">
+											@if($_GET['sortStatus'] === 'desc')
+												<input type="hidden" name="sortStatus" value="asc">
+											@else
+												<input type="hidden" name="sortStatus" value="desc">
+											@endif
+											<input type="hidden" name="data_query" value="{{ $query }}">
+											<button class="outline-none focus:outline-none">
+												@if($_GET['sortKey'] === 'net_profit_margin')
+													@if($_GET['sortStatus'] === 'desc')
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 0zm0-6a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+														</svg>
+													@else
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+														</svg>
+													@endif
+												@else
+													<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+													  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+													</svg>
+												@endif
+											</button>
+										</form>
+									</th> 
+								@endif
+								@if($ratios->contains('per')) 
+									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+										<span>
+											PER
+										</span>
+										<form class="inline-block">
+											<input type="hidden" name="sortKey" value="price_to_earning_ratio">
+											@if($_GET['sortStatus'] === 'desc')
+												<input type="hidden" name="sortStatus" value="asc">
+											@else
+												<input type="hidden" name="sortStatus" value="desc">
+											@endif
+											<input type="hidden" name="data_query" value="{{ $query }}">
+											<button class="outline-none focus:outline-none">
+												@if($_GET['sortKey'] === 'price_to_earning_ratio')
+													@if($_GET['sortStatus'] === 'desc')
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 0zm0-6a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+														</svg>
+													@else
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+														</svg>
+													@endif
+												@else
+													<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+													  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+													</svg>
+												@endif
+											</button>
+										</form>
+									</th> 
+								@endif
+								@if($ratios->contains('pbv')) 
+									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+										<span>
+											PBV
+										</span>
+										<form class="inline-block">
+											<input type="hidden" name="sortKey" value="price_to_book_value">
+											@if($_GET['sortStatus'] === 'desc')
+												<input type="hidden" name="sortStatus" value="asc">
+											@else
+												<input type="hidden" name="sortStatus" value="desc">
+											@endif
+											<input type="hidden" name="data_query" value="{{ $query }}">
+											<button class="outline-none focus:outline-none">
+												@if($_GET['sortKey'] === 'price_to_book_value')
+													@if($_GET['sortStatus'] === 'desc')
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 0zm0-6a1 1 0 010-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 01-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+														</svg>
+													@else
+														<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+														  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+														</svg>
+													@endif
+												@else
+													<svg class="h-4 w-4 transform translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+													  <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+													</svg>
+												@endif
+											</button>
+										</form>
+									</th> 
+								@endif
 								<th>Aksi</th>
 							</tr>
 						</thead>
 						<tbody>
 							@forelse($items as $item)
-								@php
-									$report = $item->report->last()->ratio;
-								@endphp
 								<tr @if($loop->iteration % 2 === 0) class="bg-gray-100" @endif>
 									@include('vendor.components.iteration' , ['paginate' => 15])
-									<td class="text-center w-8 md:w-24">{{ $item->code_issuers }}</td>
-									<td>{{ $item->name }}</td>
-									@if($ratios->contains('cr')) <td class="text-center">{{ $report->current_ratio }}</td> @endif
-									@if($ratios->contains('ds')) <td class="text-center">{{ $report->dividend_nominal }}</td> @endif
-									@if($ratios->contains('dy')) <td class="text-center">{{ $report->dividend_yield }}</td> @endif
-									@if($ratios->contains('dp')) <td class="text-center">{{ $report->dividend_payout }}</td> @endif
-									@if($ratios->contains('np')) <td class="text-center">{{ $report->net_profit }}</td> @endif
-									@if($ratios->contains('bv')) <td class="text-center">{{ $report->book_value }}</td> @endif
-									@if($ratios->contains('dar')) <td class="text-center">{{ $report->debt_asset_ratio }}</td> @endif
-									@if($ratios->contains('der')) <td class="text-center">{{ $report->debt_equity_ratio }}</td> @endif
-									@if($ratios->contains('roa')) <td class="text-center">{{ $report->return_of_assets }}</td> @endif
-									@if($ratios->contains('roe')) <td class="text-center">{{ $report->return_of_equity }}</td> @endif
-									@if($ratios->contains('npm')) <td class="text-center">{{ $report->net_profit_margin }}</td> @endif
-									@if($ratios->contains('per')) <td class="text-center">{{ $report->price_to_earning_ratio }}</td> @endif
-									@if($ratios->contains('pbv')) <td class="text-center">{{ $report->price_to_book_value }}</td> @endif
+									<td class="text-center w-8 md:w-24">{{ $item['code_issuers'] }}</td>
+									<td>{{ $item['name'] }}</td>
+									@if($ratios->contains('cr')) <td class="text-right">{{ $item['current_ratio'] }}</td> @endif
+									@if($ratios->contains('ds')) <td class="text-right">{{ $item['dividend_nominal'] }}</td> @endif
+									@if($ratios->contains('dy')) <td class="text-right">{{ $item['dividend_yield'] }}</td> @endif
+									@if($ratios->contains('dp')) <td class="text-right">{{ $item['dividend_payout'] }}</td> @endif
+									@if($ratios->contains('np')) <td class="text-right">{{ $item['net_profit'] }}</td> @endif
+									@if($ratios->contains('bv')) <td class="text-right">{{ $item['book_value'] }}</td> @endif
+									@if($ratios->contains('dar')) <td class="text-right">{{ $item['debt_asset_ratio'] }}</td> @endif
+									@if($ratios->contains('der')) <td class="text-right">{{ $item['debt_equity_ratio'] }}</td> @endif
+									@if($ratios->contains('roa')) <td class="text-right">{{ $item['return_of_assets'] }}</td> @endif
+									@if($ratios->contains('roe')) <td class="text-right">{{ $item['return_of_equity'] }}</td> @endif
+									@if($ratios->contains('npm')) <td class="text-right">{{ $item['net_profit_margin'] }}</td> @endif
+									@if($ratios->contains('per')) <td class="text-right">{{ $item['price_to_earning_ratio'] }}</td> @endif
+									@if($ratios->contains('pbv')) <td class="text-right">{{ $item['price_to_book_value'] }}</td> @endif
 									<td class="col-badge">
 										<form action="{{ url('member/report/search') }}">
-											<input type="hidden" name="keyword" value="{{ $item->code_issuers }}">
-											<button class="badge bg-green focus:outline-none">
+											<input type="hidden" name="keyword" value="{{ $item['code_issuers'] }}">
+											<button class="badge bg-gr2 focus:outline-none">
 												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
 												  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
 												</svg>
@@ -337,6 +750,8 @@
 									@for($i = 1; $i <= $pages ; $i++)
 										<form>
 											<input type="hidden" name="page" value="{{ $i }}">
+											<input type="hidden" name="sortKey" value="{{ $_GET['sortKey'] }}">
+											<input type="hidden" name="sortStatus" value="{{ $_GET['sortStatus'] }}">
 											<input type="hidden" name="data_query" value="{{ $query }}">
 											<button class="relative inline-flex items-center px-4 py-2 text-sm font-medium  border border-gray-300 leading-5 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-green-300 focus:shadow-outline-green active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150 @if($_GET['page'] == $i) bg-blue-400 text-white @else bg-white text-gray-500 @endif">{{ $i }}</button>
 										</form>
@@ -354,6 +769,13 @@
 		const package = document.getElementById('package').getAttribute('user-package');
 		const ratios  = document.querySelectorAll('.ratio');
 		const inputs  = document.querySelectorAll('input[type="number"]');
+		const thRatio = document.querySelectorAll('th.th-ratio');
+
+		thRatio.forEach(item => {
+			item.addEventListener('click' , () => {
+				item.lastElementChild.submit();
+			})
+		})
 
 		if(package.includes('Gratis')) {
 			ratios.forEach(element => {
