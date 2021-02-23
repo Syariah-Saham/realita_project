@@ -18,9 +18,9 @@ class CreateStatisticsTable extends Migration
             $table->unsignedInteger('day');
             $table->unsignedInteger('month');
             $table->unsignedInteger('year');
-            $table->unsignedInteger('free');
-            $table->unsignedInteger('personal');
-            $table->unsignedInteger('expert');
+            $table->unsignedInteger('free')->default(0);
+            $table->unsignedInteger('personal')->default(0);
+            $table->unsignedInteger('expert')->default(0);
             $table->timestamps();
         });
     }

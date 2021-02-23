@@ -15,9 +15,9 @@ class StatisticDate
         			->where('year' , date('Y'));
        if(!$statistic->get()->count()) {
 	       	Statistic::create([
-					'day'   => date('d'),
-					'month' => date('month'),
-					'year'  => date('year'),
+  					'day'   => date('d'),
+  					'month' => date('m'),
+  					'year'  => date('Y'),
 	       	]);
        }
 

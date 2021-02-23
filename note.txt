@@ -15,6 +15,17 @@ pass : admin123
 email : member@email.com
 pass : member123
 
+pass email : x89^IA1C-LDb
+
+MAIL_MAILER=smtp
+MAIL_HOST=mail.rekapsaham.com
+MAIL_PORT=465
+MAIL_USERNAME=info@rekapsaham.com
+MAIL_PASSWORD=x89^IA1C-LDb
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=info@rekapsaham.com
+MAIL_FROM_NAME="${APP_NAME}"
+
 ** Build css **
 npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dist/tailwind.css
 
@@ -55,7 +66,7 @@ new file:   routes/member/dictionary.php
 modified:   routes/web.php
 
 
-Volatilitas adalah jarak antara fluktuasi naik turunnya harga suatu produk efek. Volatilitas tinggi berarti harga bisa melonjak tinggi, dan segera turun drastis secara cepat. begitu pula sebaliknya
+
 
 <div class="hidden result-compare grid-cols-2 md:grid-cols-7 gap-2 mt-6">
 	<div class="col-span-2 rounded-lg shadow-md bg-white overflow-hidden">

@@ -8,7 +8,7 @@
 	} else if(strpos(url()->current() ,'member/report')) {
 		$title = "Laporan Keuangan";
 	} else if(strpos(url()->current() ,'member/compare')) {
-		$title = 'Comparasi Emiten';
+		$title = 'Komparasi Emiten';
 	}else if(strpos(url()->current() ,'member/dictionary')) {
 		$title = 'Kamus Fundamental';
 	}else if(strpos(url()->current() ,'member/package')) {
