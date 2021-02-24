@@ -7,18 +7,25 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <link rel="shorcut icon" href="{{ asset('/asset/logo_warna_bulat.png') }}">
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        
 
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.js" defer></script>
     </head>
-    <body>
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
+        <div class="flex flex-col md:flex-row items-center h-screen">
+            <div class="w-full hidden md:w-3/5 md:h-screen md:flex items-center" style="background: #ecfeff;">
+                <img src="{{ asset('asset/auth/auth-illustration.svg') }}" alt="illustrasi" class="w-3/4 mx-auto">
+            </div>
+
+            <div class="font-sans pt-6 md:pt-2 text-gray-900 antialiased w-full md:w-2/5 md:h-screen">
+                {{ $slot }}
+            </div>
         </div>
     </body>
 </html>

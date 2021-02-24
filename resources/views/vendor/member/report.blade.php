@@ -1,4 +1,7 @@
 <x-app-layout>
+    @include('vendor.member.components.modal' , ['session' => 'sorry'])
+    
+    
     <div class="py-6 pb-12 px-3 lg:px-8">
         <form id="form" action="{{ url('member/report/search') }}" class="flex flex-col items-center justify-center">
             <div id="listStocks" data-json="{{ $codes }}"></div>

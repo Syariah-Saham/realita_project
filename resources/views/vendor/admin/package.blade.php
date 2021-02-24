@@ -11,22 +11,45 @@
 		@forelse($packages as $package)
 			<div class="w-full md:w-1/3 bg-white rounded-lg shadow-lg text-center p-4">
 				<h2 class="text-3xl font-bold text-teal-400">{{ $package->name }}</h2>
-				<p class="text-sm md:text-lg">{{ $package->description }}</p>
 				<div class="my-3">
 					<h1 class="text-2xl md:text-4xl mt-2 font-bold text-indigo-500">Rp{{ number_format($package->current_price , 0,',','.') }}</h1>
 					<s class="text-xl text-gray-300">Rp{{ number_format($package->original_price , 0,',','.') }}</s>
 				</div>
-				<ul class="text-left text-sm md:text-lg my-2">
-					<li class="my-1">Free akses laporan keuangan maksimal {{ $package->report }} emiten / bulan</li>
-					@if(Str::contains($package->name , 'Gratis'))
-						<li class="my-1">Free screening ratio PBV dan PER Emiten</li>
-					@elseif(Str::contains($package->name , 'Expert'))
-                        <li class="my-1">Free screening fundamental (All ratio)</li>
-					@else
-						<li class="my-1">Free screening fundamental (Max. {{ $package->screening }} ratio)</li>
-					@endif
-					<li class="my-1">Free fitur comparasi emiten up to {{ $package->compare }} emiten</li>
-				</ul>
+                <ul class="text-left text-sm md:text-lg my-2">
+                    <li class="my-1 flex flex-row">
+                        <img src="{{ asset('asset/dashboard/list-bullets.svg') }}" alt="illustrasi" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2">
+                        <span>
+                            Free akses laporan keuangan maksimal {{ $package->report }} emiten / bulan
+                        </span></li>
+                    @if(Str::contains($package->name , 'Gratis'))
+                        <li class="my-1 flex flex-row">
+                            <img src="{{ asset('asset/dashboard/list-bullets.svg') }}" alt="illustrasi" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2">
+                            <span>
+                                Free screening ratio PBV dan PER Emiten
+                            </span>
+                        </li>
+                    @elseif(Str::contains($package->name , 'Expert'))
+                        <li class="my-1 flex flex-row">
+                            <img src="{{ asset('asset/dashboard/list-bullets.svg') }}" alt="illustrasi" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2">
+                            <span>
+                                Free screening fundamental (All ratio)
+                            </span>
+                        </li>
+                    @else
+                        <li class="my-1 flex flex-row">
+                            <img src="{{ asset('asset/dashboard/list-bullets.svg') }}" alt="illustrasi" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2">
+                            <span>
+                                Free screening fundamental (Maksimal {{ $package->screening }} ratio)
+                            </span>
+                        </li>
+                    @endif
+                    <li class="my-1 flex flex-row">
+                        <img src="{{ asset('asset/dashboard/list-bullets.svg') }}" alt="illustrasi" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2">
+                        <span>
+                            Free fitur comparasi emiten up to {{ $package->compare }} emiten
+                        </span>
+                    </li>
+                </ul>
 				<div class="flex-row mt-2">
 					<form class="inline-block" action="{{ url('admin/package/'.$package->id) }}" method="post">
 						@csrf

@@ -270,6 +270,7 @@ class ReportController extends Controller
                                   ->first();
 
         $maxEmiten   = Auth::user()->member->package->report;
+        $packageMember = Auth::user()->member->package->name;
         $historyItem = $history->item->count();
         $checkItem = $history->item->where('stock_id' , $stock->id)->count();
         if($historyItem < $maxEmiten) {
@@ -281,7 +282,7 @@ class ReportController extends Controller
           }
         } else {
           if(!$checkItem) {
-            return redirect('member/package');
+            return redirect(url()->previous())->with('sorry' , 'Maaf , status akun Anda masih '.$packageMember.' . Anda hanya bisa melakukan maksimal '. $maxEmiten .' emiten. Untuk membuka fitur lengkap silahkan pilih paket lain.');
           } 
         }
 

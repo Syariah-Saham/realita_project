@@ -43,6 +43,15 @@
             const sidebar = document.querySelector('aside.main-sidebar');
             const smallSidebar = document.querySelector('aside.small-sidebar');
             const content = document.getElementById('content');
+            const btnCloses = document.querySelectorAll('.btnModalClose');
+            const modals = document.querySelectorAll('.modal');
+
+            window.addEventListener('load' , () => {
+                modals.forEach(elememt => {
+                        elememt.style.opacity = 1;
+                        elememt.style.transform = 'translateY(0%)';
+                })
+            })
 
             let status = window.sessionStorage.getItem('sidebar');
             
@@ -82,6 +91,17 @@
                 smallSidebar.classList.toggle('invisible');
                 content.classList.toggle('md:w-3/4');
             });
+
+            btnCloses.forEach(btn => {
+                btn.addEventListener('click' , () => {
+                    let modal = btn.parentElement.parentElement;
+                    modal.style.transform = 'translateY(10%)';
+                    modal.style.opacity = 0;
+                    setTimeout(() => {
+                        modal.parentElement.removeChild(modal);
+                    },1000);
+                })
+            })
 
             
         </script>

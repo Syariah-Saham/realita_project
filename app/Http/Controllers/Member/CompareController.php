@@ -49,11 +49,12 @@ class CompareController extends Controller
     {
       $length = json_decode($request->list_data);
       $maxCompare = Member::where('user_id' , Auth::id())->first()->package->compare;
+      $packageMember = Member::where('user_id' , Auth::id())->first()->package->name;
 
       if(count($length) > 5) {
         return redirect(url()->previous())->with('failed' , 'Sudah mencapai jumlah maksimal');
       } else if(count($length) > $maxCompare) {
-        return redirect('member/package');
+        return redirect(url()->previous())->with('sorry' , 'Maaf , status akun Anda masih '.$packageMember.' . Anda hanya bisa melakukan maksimal '. $maxCompare .' emiten. Untuk membuka fitur lengkap silahkan pilih paket lain.');
       }
 
       $data   = Stock::select('code_issuers')->get();

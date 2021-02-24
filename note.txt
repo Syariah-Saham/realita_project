@@ -9,12 +9,6 @@ green = #76c23a
 yellow_dark = #c8c900
 
 
-email : admin@email.com
-pass : admin123
-
-email : member@email.com
-pass : member123
-
 pass email : x89^IA1C-LDb
 
 MAIL_MAILER=smtp

@@ -1,5 +1,8 @@
 <x-app-layout>
 
+
+    @include('vendor.member.components.modal' , ['session' => 'sorry'])
+
     <div class="py-6 md:pb-12 pb-15 mb-20 md:mb-12 px-1 lg:px-8">
     	<form id="form" action="{{ url('member/compare/find') }}" class="flex flex-col items-center justify-center">
             <div id="listStocks" data-json="{{ $codes }}"></div>
@@ -71,6 +74,9 @@
 
         @php
             $bg = ['bg-green-400' , 'bg-indigo-400' , 'bg-purple-400' , 'bg-orange-400' , 'bg-teal-400'];
+            function percent($number) {
+                return $number * 100 . '%';
+            }
         @endphp
         <div class="block bg-white rounded-lg mt-3 shadow-lg p-3 text-xs md:text-sm">
             <div class="my-4 border-b-2 pb-3 border-gray-200">
@@ -78,9 +84,9 @@
                 <div class="flex">
                     <div class="w-1/6 font-bold">
                         <p class="my-1 md:py-2">Emiten</p>
-                        <p class="my-1">NPM</p>
-                        <p class="my-1">RoA</p>
-                        <p class="my-1">RoE</p>
+                        <p class="my-1">NPM(%)</p>
+                        <p class="my-1">RoA(%) </p>
+                        <p class="my-1">RoE(%) </p>
                     </div>
                     @if(isset($items))
                     @foreach($items as $stock)
@@ -89,9 +95,9 @@
                                 <input type="hidden" name="keyword" value="{{ $stock['ticker'] }}">
                                 <button class="text-center w-full hover:bg-opacity-80 text-white rounded  font-bold my-1 md:py-2 transition duration-200 {{ $bg[$loop->iteration-1] }} ">{{ $stock['ticker'] }}</button>
                             </form>
-                            <p class="my-1">{{ $stock['npm'] }}</p>
-                            <p class="my-1">{{ $stock['roa'] }}</p>
-                            <p class="my-1">{{ $stock['roe'] }}</p>
+                            <p class="my-1">{{ percent($stock['npm']) }}</p>
+                            <p class="my-1">{{ percent($stock['roa']) }}</p>
+                            <p class="my-1">{{ percent($stock['roe']) }}</p>
                         </div>
                     @endforeach
                     @endif
@@ -111,9 +117,9 @@
                     <div class="w-1/6 font-bold">
                         <p class="my-1 md:py-2">Emiten</p>
                         <p class="my-1">NP</p>
-                        <p class="my-1">BV</p>
-                        <p class="my-1">PER</p>
-                        <p class="my-1">PBV</p>
+                        <p class="my-1">BV(Rp)</p>
+                        <p class="my-1">PER(x)</p>
+                        <p class="my-1">PBV(x)</p>
                     </div>
                     @if(isset($items))
                     @foreach($items as $stock)
@@ -147,9 +153,9 @@
                 <div class="flex">
                     <div class="w-1/6 font-bold">
                         <p class="my-1 md:py-2">Emiten</p>
-                        <p class="my-1">CR</p>
-                        <p class="my-1">DER</p>
-                        <p class="my-1">DAR</p>
+                        <p class="my-1">CR(x)</p>
+                        <p class="my-1">DER(x)</p>
+                        <p class="my-1">DAR(x)</p>
                     </div>
                     @if(isset($items))
                     @foreach($items as $stock)
@@ -261,7 +267,6 @@
 
     <script>
         const btnDelete = document.querySelectorAll('.btn-delete');
-        console.log(btnDelete);
         btnDelete.forEach(btn => {
             btn.addEventListener('click' , () => {
                 let codeIssuers = btn.getAttribute('data-code');

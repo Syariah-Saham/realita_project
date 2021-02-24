@@ -5,6 +5,7 @@
             @include('vendor.member.components.search')
             
             <div class="flex items-center">
+                @if(Auth::user()->role_id === 2)
                 <div class="h-9 w-9 mr-2 md:-mr-2">
                     @php
                         $package = Auth::user()->member->package->name;
@@ -18,6 +19,7 @@
                     @endphp
                     <img src="{{ asset('asset/dashboard/'.$icon) }}" alt="package icon">
                 </div>
+                @endif
                 <!-- Settings Dropdown -->
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <x-jet-dropdown align="right" width="48">
