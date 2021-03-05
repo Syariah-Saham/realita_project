@@ -32,7 +32,7 @@ class AdminController extends Controller
     */
     public function index () 
     {
-    	$admins = User::where('role_id' , 1)->get();
+    	$admins = User::where('role_id' , 1)->paginate(10);
     	return view($this->view.'admin' , ['admins' => $admins]);
     }
 

@@ -1,9 +1,8 @@
 @extends('layouts.admin')
-@section('title'  , 'Daftar Admin')
+@section('title'  , 'Daftar Member')
 @section('body')
 
-<h1 class="text-2xl font-bold text-gray-600 mb-2 mt-6">Admin</h1>
-<a href="{{ url('admin/admin/add') }}" class="btn">Tambah Admin</a>
+<h1 class="text-2xl font-bold text-gray-600 mb-2 mt-6">Member</h1>
 <table class="w-full bg-white rounded-xl overflow-hidden shadow-lg">
 	<thead class="bg-green-400 text-white">
 		<tr>
@@ -15,13 +14,18 @@
 	</thead>
 
 	<tbody>
-		@forelse($admins as $admin)
+		@forelse($members as $member)
 			<tr class="text-center">
 				@include('vendor.components.iteration' , ['paginate' => 10])
-				<td class="text-left">{{ $admin->name }}</td>
-				<td class="text-left">{{ $admin->email }}</td>
+				<td class="text-left">{{ $member->name }}</td>
+				<td class="text-left">{{ $member->email }}</td>
 				<td class="col-badge">
-					<form action="{{ url('admin/admin/'.$admin->id) }}" method="post">
+					<a href="" class="badge bg-blue">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+						  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+						</svg>
+					</a>
+					<form action="{{ url('admin/member/'.$member->id) }}" method="post">
 						@csrf
 						@method('delete')
 						<button class="badge bg-red">
@@ -42,9 +46,8 @@
 
 
 <div class="mt-2">
-	{{ $admins->links() }}
+	{{ $members->links() }}
 </div>
-
 
 @endsection
 	

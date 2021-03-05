@@ -28,7 +28,7 @@
 
 
 
-<aside class="z-40 main-sidebar invisible">
+<aside class="z-40 main-sidebar invisible overflow-y-auto overflow-x-hidden">
 	<div class="brand">
 		<img src="{{ asset('asset/logo_warna.png') }}" alt="logo syariah saham" class="h-15 mt-8 mx-auto">
 	</div>
