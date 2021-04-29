@@ -215,11 +215,11 @@
 				<a class="font-bold text-xl btn-register rounded-full px-6" href="{{ url('register') }}">DAFTAR</a>
 			</div>
 		</header>
-		<div class="flex flex-col-reverse gap-10 md:flex-row px-4 md:px-10 py-10 md:py-28">
+		<div class="flex flex-col-reverse gap-10 md:flex-row px-4 md:px-10 py-10 md:py-36">
 			<div class="w-full text-center md:text-left md:w-1/2">
 				<h1 class="text-3xl md:text-6xl font-black">REALITA</h1>
 				<h2 class="text-xl md:text-4xl font-bold">SOLUSI INVESTASI</h2>
-				<p class="font-light mt-4 text-sm md:text-lg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus quibusdam quam molestias, vel, error perspiciatis. Necessitatibus ut corrupti libero impedit maxime dignissimos voluptatibus!</p>
+				<p class="font-light mt-4 text-sm md:text-lg">Sejak kami meluncurkan produk laporan keuangan pertama kali di tahun 2016, alhaldulillah sudah banyak investor menggunakan data kami, baik untuk kepentingan analisis maupun sekedar tugas kuliah. Fitur terbaru dari kami menyediakan data laporan keuangan 5 tahun terakhir. Semoga produk ini dapat membantu para investor dalam menganalisis keuangan suatu perusahaan.</p>
 			</div>
 			<div class="w-full pt-10 md:pt-0 md:w-1/2">
 				<img src="{{ asset('asset/landing/banner-illustration.svg') }}" alt="banner illustration">
@@ -251,8 +251,8 @@
 			<div class="mt-6 md:mt-0 md:w-1/2">
 				<h1 class="title-section text-center text-xl md:text-3xl font-black mb-2 md:mb-5">Apa itu <span>Realita</span></h1>
 				<div class="w-4/5 mx-auto text-sm md:text-md">
-					<p class="mb-5 text-justify" style="text-indent: 50px">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus doloremque veniam sint tenetur deserunt dicta quae, odit voluptatibus commodi rem voluptatem quia placeat reprehenderit explicabo fugit debitis perferendis similique dolor.</p>
-					<p class="text-justify" style="text-indent: 50px">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt nihil, unde amet sed nostrum atque mollitia quasi iusto natus rem accusantium sit modi voluptatum accusamus. Perferendis aliquid dicta nisi impedit!</p>
+					<p class="mb-5 text-justify" style="text-indent: 50px">REALITA adalah Rekap Laporan Keuangan Lima Tahunan. Data-data yang disajikan berdasarkan laporan keuangan resmi yang dikeluarkan oleh perusahaan tercatat di Bursa Efek Indonesia. Jadi, selama 5 tahun ke belakang, laporan keungan dari berbagai perusahaan tercatat disajikan di sini.</p>
+					<p class="text-justify" style="text-indent: 50px">Dalam REALITA ini banyak fitur menarik yang bisa dianalisis lebih lanjut oleh para investor.</p>
 				</div>
 			</div>
 		</div>
@@ -273,20 +273,25 @@
 				<h1 class="text-center text-xl md:text-3xl font-black">Fitur di Realita</h1>
 				<p class="text-sm md:text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, in?</p>
 			</div>
-			<div class="flex flex-col md:flex-row gap-12 my-8 w-full md:w-4/5 justify-center mx-auto">
-				<div class="md:w-1/3 bg-white p-8 rounded shadow-lg">
+			<div class="flex flex-col md:flex-row gap-4 my-8 w-full md:w-4/5 justify-center mx-auto">
+				<div class="md:w-1/4 bg-white p-8 rounded shadow-lg">
 					<img src="{{ asset('asset/landing/laporan_keuangan.svg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
 					<h3 class="font-bold text-lg md:text-2xl text-second">Laporan Keuangan</h3>
 					<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
 				</div>
-				<div class="md:w-1/3 bg-white p-8 rounded shadow-lg">
+				<div class="md:w-1/4 bg-white p-8 rounded shadow-lg">
 					<img src="{{ asset('asset/landing/screening_saham.svg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
 					<h3 class="font-bold text-lg md:text-2xl text-second">Screening Fundamental</h3>
 					<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
 				</div>
-				<div class="md:w-1/3 bg-white p-8 rounded shadow-lg">
+				<div class="md:w-1/4 bg-white p-8 rounded shadow-lg">
 					<img src="{{ asset('asset/landing/comparasi.svg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
-					<h3 class="font-bold text-lg md:text-2xl text-second">Comparasion</h3>
+					<h3 class="font-bold text-lg md:text-2xl text-second">Komparasi Emiten</h3>
+					<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
+				</div>
+				<div class="md:w-1/4 bg-white p-8 rounded shadow-lg">
+					<img src="{{ asset('asset/landing/comparasi.svg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
+					<h3 class="font-bold text-lg md:text-2xl text-second">Realita</h3>
 					<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
 				</div>
 			</div>
@@ -308,64 +313,34 @@
 				<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, nemo?</p>
 			</div>
 			<div class="flex flex-col md:flex-row gap-8 mx-auto justify-between w-full md:w-4/5 my-6">
-				<div class="md:w-1/2">
-					<div class="shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2">
-						<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
-						<div>
-							<h3 class="font-bold text-md md:text-lg -mb-1">Lorem, ipsum, dolor.</h3>
-							<p class="text-xs md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-						</div>
-					</div>
-					<div class="shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2">
-						<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
-						<div>
-							<h3 class="font-bold text-md md:text-lg -mb-1">Lorem, ipsum, dolor.</h3>
-							<p class="text-xs md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-						</div>
-					</div>
-					<div class="shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2">
-						<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
-						<div>
-							<h3 class="font-bold text-md md:text-lg -mb-1">Lorem, ipsum, dolor.</h3>
-							<p class="text-xs md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-						</div>
-					</div>
-					<div class="shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2">
-						<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
-						<div>
-							<h3 class="font-bold text-md md:text-lg -mb-1">Lorem, ipsum, dolor.</h3>
-							<p class="text-xs md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-						</div>
+				<div class="w-full md:w-1/2 shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2">
+					<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
+					<div>
+						<h3 class="font-bold text-md md:text-lg -mb-1">Rasio Lengkap</h3>
+						<p class="text-xs md:text-sm">File rekap ini menyajikan puluhan rasio keuangan yang paling dibutuhkan para investor</p>
 					</div>
 				</div>
-				<div class="md:w-1/2">
-					<div class="shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2">
-						<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
-						<div>
-							<h3 class="font-bold text-md md:text-lg -mb-1">Lorem, ipsum, dolor.</h3>
-							<p class="text-xs md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-						</div>
+				<div class="w-full md:w-1/2 shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2">
+					<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
+					<div>
+						<h3 class="font-bold text-md md:text-lg -mb-1">Nilai Wajar</h3>
+						<p class="text-xs md:text-sm">Analisis fundamental pada akhirnya adalah menakar nilai wajar suatu saham. Di file rekap ini, data nilai wajar disajikan berikut margin of ssafety (MoS) dari harga terkini.</p>
 					</div>
-					<div class="shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2">
-						<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
-						<div>
-							<h3 class="font-bold text-md md:text-lg -mb-1">Lorem, ipsum, dolor.</h3>
-							<p class="text-xs md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-						</div>
+				</div>
+			</div>
+			<div class="flex flex-col md:flex-row gap-8 mx-auto justify-between w-full md:w-4/5 my-6">
+				<div class="w-full md:w-1/2 shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2">
+					<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
+					<div>
+						<h3 class="font-bold text-md md:text-lg -mb-1">Analisis Perbandingan</h3>
+						<p class="text-xs md:text-sm">Bingung memilih saham mana dalam industri atau grup yang sama? Fitur <b class="text-green-400">Comparison</b> menjawab kebutuhan ini dengan fasilitas membandingkan sampai lima saham.</p>
 					</div>
-					<div class="shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2">
-						<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
-						<div>
-							<h3 class="font-bold text-md md:text-lg -mb-1">Lorem, ipsum, dolor.</h3>
-							<p class="text-xs md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-						</div>
-					</div>
-					<div class="shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2">
-						<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
-						<div>
-							<h3 class="font-bold text-md md:text-lg -mb-1">Lorem, ipsum, dolor.</h3>
-							<p class="text-xs md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-						</div>
+				</div>
+				<div class="w-full md:w-1/2 shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2">
+					<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
+					<div>
+						<h3 class="font-bold text-md md:text-lg -mb-1">Sumber Data Primer</h3>
+						<p class="text-xs md:text-sm">Bagi para peminat riset, file rekap ini dientri manual dari sumber data primer laporan keuangan emiten, bukan grabbing data secara online atau sumber berita sekunder lainnya.</p>
 					</div>
 				</div>
 			</div>
@@ -423,130 +398,55 @@
 				<h1 class="title-section text-xl md:text-3xl font-black">Harga <span>realita</span></h1>
 				<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, nemo?</p>
 			</div>
-			<div class="flex flex-col md:flex-row gap-12 my-8 w-full md:w-4/5 justify-center mx-auto">
-				<div class="md:w-1/3 bg-white p-4 md:p-8 rounded shadow-lg">
-					<div class="text-center">
-						<h3 class="font-bold text-lg md:text-2xl text-second">Paket Gratis</h3>
-						<h2 class="text-sm md:text-lg">Lorem, ipsum dolor sit amet.</h2>
-						<div class="cost flex flex-row justify-center bg-teal-400 text-white px-2 rounded my-2 items-center gap-2 rounded-l-full pl-6 relative -mr-10">
-							<p>Rp</p>
-							<h2 class="font-bold text-3xl md:text-5xl">1.000.000</h2>
-						</div>
-					</div>
-					<ul class="pt-3">
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-					</ul>
-					<button class="w-1/2 py-2 px-6 uppercase text-white text-lg font-bold rounded mx-auto block mt-3 outline-none bg-gray-400">Beli</button>
-				</div>
-				<div class="md:w-1/3 bg-white p-4 md:p-8 rounded shadow-lg">
-					<div class="text-center">
-						<h3 class="font-bold text-lg md:text-2xl text-second">Paket Personal</h3>
-						<h2 class="text-sm md:text-lg">Lorem, ipsum dolor sit amet.</h2>
-						<div class="cost flex flex-row justify-center bg-purple-400 text-white px-2 rounded my-2 items-center gap-2 rounded-l-full pl-6 relative -mr-10">
-							<p>Rp</p>
-							<h2 class="font-bold text-3xl md:text-5xl">1.000.000</h2>
-						</div>
-					</div>
-					<ul class="pt-3">
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-					</ul>
-					<button class="w-1/2 py-2 px-6 uppercase text-white text-lg font-bold rounded mx-auto block mt-3 outline-none bg-gray-400">Beli</button>
-				</div>
-				<div class="md:w-1/3 bg-white p-4 md:p-8 rounded shadow-lg">
-					<div class="text-center">
-						<h3 class="font-bold text-lg md:text-2xl text-second">Paket Expert</h3>
-						<h2 class="text-sm md:text-lg">Lorem, ipsum dolor sit amet.</h2>
-						<div class="cost flex flex-row justify-center bg-indigo-400 text-white px-2 rounded my-2 items-center gap-2 rounded-l-full pl-6 relative -mr-10">
-							<p>Rp</p>
-							<h2 class="font-bold text-3xl md:text-5xl">1.000.000</h2>
-						</div>
-					</div>
-					<ul class="pt-3">
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-						<li class="flex flex-row gap-2 items-center mb-3">
-							<img src="{{ asset('asset/landing/list-icon.svg') }}" class="h-6" alt="icon list">
-							<p class="text-sm md:text-md">Lorem ipsum dolor sit amet.</p>
-						</li>
-					</ul>
-					<button class="w-1/2 py-2 px-6 uppercase text-white text-lg font-bold rounded mx-auto block mt-3 outline-none bg-gray-400">Beli</button>
-				</div>
+			<div class="flex flex-col md:flex-row gap-6 my-8 w-full md:w-4/5 justify-center mx-auto">
+				@foreach($packages as $package)
+		            <div class="w-full md:w-1/3 bg-white rounded-lg shadow-lg text-center p-4 py-6">
+		                <h2 class="text-3xl font-bold  text-teal-400">{{ $package->name }}</h2>
+		                <p class="text-sm md:text-lg">{{ $package->description }}</p>
+		                <div class="my-3">
+		                    <h1 class="text-2xl md:text-4xl mt-2 font-bold text-indigo-500">Rp{{ number_format($package->current_price , 0,',','.') }}</h1>
+		                    <s class="text-xl text-gray-300">Rp{{ number_format($package->original_price , 0,',','.') }}</s>
+		                </div>
+		                <ul class="text-left text-sm md:text-lg my-2">
+		                    <li class="my-1 flex flex-row">
+	                            <img src="{{ asset('asset/dashboard/list-bullets.svg') }}" alt="illustrasi" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2">
+	                            <span>
+	                                Free akses laporan keuangan maksimal {{ $package->report }} emiten / bulan
+	                            </span></li>
+	                        @if(Str::contains($package->name , 'Gratis'))
+	                            <li class="my-1 flex flex-row">
+	                                <img src="{{ asset('asset/dashboard/list-bullets.svg') }}" alt="illustrasi" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2">
+	                                <span>
+	                                    Free screening ratio PBV dan PER Emiten
+	                                </span>
+	                            </li>
+	                        @elseif(Str::contains($package->name , 'Expert'))
+	                            <li class="my-1 flex flex-row">
+	                                <img src="{{ asset('asset/dashboard/list-bullets.svg') }}" alt="illustrasi" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2">
+	                                <span>
+	                                    Free screening fundamental (All ratio)
+	                                </span>
+	                            </li>
+	                        @else
+	                            <li class="my-1 flex flex-row">
+	                                <img src="{{ asset('asset/dashboard/list-bullets.svg') }}" alt="illustrasi" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2">
+	                                <span>
+	                                    Free screening fundamental (Maksimal {{ $package->screening }} ratio)
+	                                </span>
+	                            </li>
+	                        @endif
+	                        <li class="my-1 flex flex-row">
+	                            <img src="{{ asset('asset/dashboard/list-bullets.svg') }}" alt="illustrasi" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2">
+	                            <span>
+	                                Free fitur comparasi emiten up to {{ $package->compare }} emiten
+	                            </span>
+	                        </li>
+		                </ul>
+		                <div class="flex-row mt-2">
+		                	<a href="{{ url('member/package/'.$package->id.'/buy') }}" class="btn mx-3">Beli</a>
+		                </div>
+		            </div>
+				@endforeach
 			</div>
 		</div>
 	{{-- End Price --}}
@@ -621,22 +521,24 @@
 			<div class="text-center">
 				<img src="{{ asset('asset/logo_warna.png') }}" alt="logo syariah saham" class="h-20 mx-auto">
 			</div>
-			<div class="flex flex-col md:flex-row gap-6 px-15 justify-center">
-				<div class="md:w-1/3">
+			<div class="flex flex-col md:flex-row gap-12 px-15 justify-center">
+				<div class="md:w-2/4">
 					<h2 class="text-lg font-bold">Tentang Kami</h2>
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam, error.</p>
+					<p>Syariah Saham adalah komunitas saham syariah pertama di Indonesia. Kami hadir dengan Visi "Memasyarakatkan Saham Syariah dan Mensyariahkan Saham Masyarakat".</p>
+					<p>Basecamp : Kp. Tegalcaang, RT.03/04. Desa Sukamaju. Cibeber. Kabupaten Cianjur, Jawa Barat 43262</p>
 				</div>
-				<div class="md:w-1/3">
-					<h2 class="text-lg font-bold">Fitur</h2>
+				<div class="md:w-1/4">
+					<h2 class="text-lg font-bold">Layanan</h2>
 					<div class="link">
-						<a href="">Apa itu Realita</a>
-						<a href="">Manfaat Realita</a>
-						<a href="">Fitur Realita</a>
-						<a href="">Testimoni</a>
-						<a href="">FAQ</a>
+						<a href="{{ url('/member/report') }}">Laporan Keuangan</a>
+						<a href="{{ url('/member/screening') }}">Screening Fundamental</a>
+						<a href="{{ url('/member/compare') }}">Komparasi Emiten</a>
+						<a href="{{ url('/member/compare') }}">Realita</a>
+						<a href="{{ route('login') }}">Login</a>
+						<a href="{{ route('register') }}">Daftar</a>
 					</div>
 				</div>
-				<div class="md:w-1/3">
+				<div class="md:w-1/4">
 					<h2 class="text-lg font-bold">Halaman</h2>
 					<div class="link">
 						<a href="#about">Apa itu Realita</a>
@@ -648,7 +550,7 @@
 				</div>
 			</div>
 		</div>
-		<footer class="py-5 px-10 mt-8">
+		<footer class="py-5 px-10 mt-8 text-center">
 			<p class="text-xs md:text-sm">&copy; 2021 Rekap Saham. All rights reserved.</p>
 		</footer>
 	{{-- end footer --}}

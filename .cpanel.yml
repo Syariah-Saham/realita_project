@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/u1028868/public_html/rekapsaham.com/
+    - /bin/cp -a * $DEPLOYPATH
