@@ -9,6 +9,7 @@
 	<link rel="shorcut icon" href="{{ asset('/asset/logo_warna_bulat.png') }}">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 	<style>
 		html {
@@ -163,13 +164,13 @@
 			<div class="w-full md:w-1/3">
 				<img src="{{ asset('/asset/logo_warna.png') }}" alt="logo warna" class="h-10">
 			</div>
-			<div class="md:w-2/3 hidden md:flex justify-end gap-10">
-				<a class="font-semibold text-lg" href="#about">REALITA</a>
-				<a class="font-semibold text-lg" href="#feature">FITUR</a>
-				<a class="font-semibold text-lg" href="#price">HARGA</a>
-				<a class="font-semibold text-lg" href="#testimoni">TESTIMONI</a>
-				<a class="font-semibold text-lg" href="{{ url('/login') }}">MASUK</a>
-				<a class="font-semibold text-lg btn-register2 rounded-full px-6" href="{{ url('register') }}">DAFTAR</a>
+			<div class="md:w-2/3 hidden md:flex justify-end items-center gap-14">
+				<a class="font-semibold" href="#about">REALITA</a>
+				<a class="font-semibold" href="#feature">FITUR</a>
+				<a class="font-semibold" href="#price">HARGA</a>
+				<a class="font-semibold" href="#testimoni">TESTIMONI</a>
+				<a class="font-semibold" href="{{ url('/login') }}">MASUK</a>
+				<a class="font-semibold btn-register2 py-2 px-6 rounded-full px-6" href="{{ url('register') }}">DAFTAR</a>
 			</div>
 		</nav>
 		<div id="btnSidebar" class="icon md:hidden text-green-500 fixed z-50 right-0 mr-8 mt-1">
@@ -206,22 +207,22 @@
 			<div class="w-1/3">
 				<img class="h-16" src="{{ asset('/asset/logo_putih.png') }}" alt="logo syariah saham">
 			</div>
-			<div class="w-2/3 hidden justify-end lg:flex gap-10">
-				<a class="font-bold text-xl" href="#about">REALITA</a>
-				<a class="font-bold text-xl" href="#feature">FITUR</a>
-				<a class="font-bold text-xl" href="#price">HARGA</a>
-				<a class="font-bold text-xl" href="#testimoni">TESTIMONI</a>
-				<a class="font-bold text-xl" href="{{ url('/login') }}">MASUK</a>
-				<a class="font-bold text-xl btn-register rounded-full px-6" href="{{ url('register') }}">DAFTAR</a>
+			<div class="w-2/3 hidden justify-end items-center lg:flex gap-14">
+				<a class="font-bold" href="#about">REALITA</a>
+				<a class="font-bold" href="#feature">FITUR</a>
+				<a class="font-bold" href="#price">HARGA</a>
+				<a class="font-bold" href="#testimoni">TESTIMONI</a>
+				<a class="font-bold" href="{{ url('/login') }}">MASUK</a>
+				<a class="font-bold btn-register rounded-full py-2 px-6 px-6 transition duration-200" href="{{ url('register') }}">DAFTAR</a>
 			</div>
 		</header>
 		<div class="flex flex-col-reverse gap-10 md:flex-row px-4 md:px-10 py-10 md:py-36">
-			<div class="w-full text-center md:text-left md:w-1/2">
+			<div class="w-full text-center md:text-left md:w-1/2" data-aos="fade-right">
 				<h1 class="text-3xl md:text-6xl font-black">REALITA</h1>
 				<h2 class="text-xl md:text-4xl font-bold">SOLUSI INVESTASI</h2>
 				<p class="font-light mt-4 text-sm md:text-lg">Sejak kami meluncurkan produk laporan keuangan pertama kali di tahun 2016, alhaldulillah sudah banyak investor menggunakan data kami, baik untuk kepentingan analisis maupun sekedar tugas kuliah. Fitur terbaru dari kami menyediakan data laporan keuangan 5 tahun terakhir. Semoga produk ini dapat membantu para investor dalam menganalisis keuangan suatu perusahaan.</p>
 			</div>
-			<div class="w-full pt-10 md:pt-0 md:w-1/2">
+			<div class="w-full pt-10 md:pt-0 md:w-1/2" data-aos="fade-left">
 				<img src="{{ asset('asset/landing/banner-illustration.svg') }}" alt="banner illustration">
 			</div>
 		</div>
@@ -245,10 +246,10 @@
 
 	{{-- About --}}
 		<div id="about" class="about flex flex-col md:flex-row px-3 md:px-15 py-20 items-center">
-			<div class="md:w-1/2">
+			<div class="md:w-1/2" data-aos="fade-right">
 				<img src="{{ asset('asset/landing/about-illustration.svg') }}" class="w-4/5 mx-auto" alt="about illustration">
 			</div>
-			<div class="mt-6 md:mt-0 md:w-1/2">
+			<div class="mt-6 md:mt-0 md:w-1/2" data-aos="fade-left">
 				<h1 class="title-section text-center text-xl md:text-3xl font-black mb-2 md:mb-5">Apa itu <span>Realita</span></h1>
 				<div class="w-4/5 mx-auto text-sm md:text-md">
 					<p class="mb-5 text-justify" style="text-indent: 50px">REALITA adalah Rekap Laporan Keuangan Lima Tahunan. Data-data yang disajikan berdasarkan laporan keuangan resmi yang dikeluarkan oleh perusahaan tercatat di Bursa Efek Indonesia. Jadi, selama 5 tahun ke belakang, laporan keungan dari berbagai perusahaan tercatat disajikan di sini.</p>
@@ -271,25 +272,24 @@
 		<div id="feature" class="feature section-2 text-center">
 			<div class="text-white">
 				<h1 class="text-center text-xl md:text-3xl font-black">Fitur di Realita</h1>
-				<p class="text-sm md:text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, in?</p>
 			</div>
 			<div class="flex flex-col md:flex-row gap-4 my-8 w-full md:w-4/5 justify-center mx-auto">
-				<div class="md:w-1/4 bg-white p-8 rounded shadow-lg">
+				<div class="md:w-1/4 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
 					<img src="{{ asset('asset/landing/laporan_keuangan.svg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
 					<h3 class="font-bold text-lg md:text-2xl text-second">Laporan Keuangan</h3>
 					<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
 				</div>
-				<div class="md:w-1/4 bg-white p-8 rounded shadow-lg">
+				<div class="md:w-1/4 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="400">
 					<img src="{{ asset('asset/landing/screening_saham.svg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
 					<h3 class="font-bold text-lg md:text-2xl text-second">Screening Fundamental</h3>
 					<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
 				</div>
-				<div class="md:w-1/4 bg-white p-8 rounded shadow-lg">
+				<div class="md:w-1/4 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="600">
 					<img src="{{ asset('asset/landing/comparasi.svg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
 					<h3 class="font-bold text-lg md:text-2xl text-second">Komparasi Emiten</h3>
 					<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
 				</div>
-				<div class="md:w-1/4 bg-white p-8 rounded shadow-lg">
+				<div class="md:w-1/4 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="800">
 					<img src="{{ asset('asset/landing/comparasi.svg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
 					<h3 class="font-bold text-lg md:text-2xl text-second">Realita</h3>
 					<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
@@ -310,17 +310,16 @@
 		<div class="benefit px-3 md:px-10 py-20">
 			<div class="text-center">
 				<h1 class="title-section text-xl md:text-3xl font-black">Manfaat dari <span>realita</span></h1>
-				<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, nemo?</p>
 			</div>
 			<div class="flex flex-col md:flex-row gap-8 mx-auto justify-between w-full md:w-4/5 my-6">
-				<div class="w-full md:w-1/2 shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2">
+				<div class="w-full md:w-1/2 shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2" data-aos="fade-right">
 					<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
 					<div>
 						<h3 class="font-bold text-md md:text-lg -mb-1">Rasio Lengkap</h3>
 						<p class="text-xs md:text-sm">File rekap ini menyajikan puluhan rasio keuangan yang paling dibutuhkan para investor</p>
 					</div>
 				</div>
-				<div class="w-full md:w-1/2 shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2">
+				<div class="w-full md:w-1/2 shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2" data-aos="fade-left">
 					<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
 					<div>
 						<h3 class="font-bold text-md md:text-lg -mb-1">Nilai Wajar</h3>
@@ -329,14 +328,14 @@
 				</div>
 			</div>
 			<div class="flex flex-col md:flex-row gap-8 mx-auto justify-between w-full md:w-4/5 my-6">
-				<div class="w-full md:w-1/2 shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2">
+				<div class="w-full md:w-1/2 shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2" data-aos="fade-right" data-aos-delay="200">
 					<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
 					<div>
 						<h3 class="font-bold text-md md:text-lg -mb-1">Analisis Perbandingan</h3>
 						<p class="text-xs md:text-sm">Bingung memilih saham mana dalam industri atau grup yang sama? Fitur <b class="text-green-400">Comparison</b> menjawab kebutuhan ini dengan fasilitas membandingkan sampai lima saham.</p>
 					</div>
 				</div>
-				<div class="w-full md:w-1/2 shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2">
+				<div class="w-full md:w-1/2 shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2" data-aos="fade-left" data-aos-delay="200">
 					<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
 					<div>
 						<h3 class="font-bold text-md md:text-lg -mb-1">Sumber Data Primer</h3>
@@ -359,22 +358,21 @@
 		<div id="testimoni" class="testimoni section-2 text-center">
 			<div class="text-white">
 				<h1 class="text-center text-xl md:text-3xl font-black">Testimoni Pengguna Realita</h1>
-				<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, in?</p>
 			</div>
 			<div class="flex flex-col md:flex-row gap-12 my-8 w-full md:w-4/5 justify-center mx-auto">
-				<div class="md:w-1/3 bg-white p-8 rounded shadow-lg">
+				<div class="md:w-1/3 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
 					<img src="{{ asset('asset/landing/user.jpg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto rounded-full">
 					<h3 class="font-bold text-lg md:text-2xl text-second">Pengguna Realita</h3>
 					<h2 class="text-xs md:text-md italic">Investor Saham</h2>
 					<p class="pt-3 text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
 				</div>
-				<div class="md:w-1/3 bg-white p-8 rounded shadow-lg">
+				<div class="md:w-1/3 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="400">
 					<img src="{{ asset('asset/landing/user.jpg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto rounded-full">
 					<h3 class="font-bold text-lg md:text-2xl text-second">Pengguna Realita</h3>
 					<h2 class="text-xs md:text-md italic">Investor Saham</h2>
 					<p class="pt-3 text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
 				</div>
-				<div class="md:w-1/3 bg-white p-8 rounded shadow-lg">
+				<div class="md:w-1/3 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="600">
 					<img src="{{ asset('asset/landing/user.jpg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto rounded-full">
 					<h3 class="font-bold text-lg md:text-2xl text-second">Pengguna Realita</h3>
 					<h2 class="text-xs md:text-md italic">Investor Saham</h2>
@@ -396,11 +394,10 @@
 		<div id="price" class="price px-3 md:px-10 py-20">
 			<div class="text-center">
 				<h1 class="title-section text-xl md:text-3xl font-black">Harga <span>realita</span></h1>
-				<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, nemo?</p>
 			</div>
 			<div class="flex flex-col md:flex-row gap-6 my-8 w-full md:w-4/5 justify-center mx-auto">
 				@foreach($packages as $package)
-		            <div class="w-full md:w-1/3 bg-white rounded-lg shadow-lg text-center p-4 py-6">
+		            <div class="w-full md:w-1/3 bg-white rounded-xl shadow-lg text-center p-4 py-6" data-aos="fade-up">
 		                <h2 class="text-3xl font-bold  text-teal-400">{{ $package->name }}</h2>
 		                <p class="text-sm md:text-lg">{{ $package->description }}</p>
 		                <div class="my-3">
@@ -443,7 +440,7 @@
 	                        </li>
 		                </ul>
 		                <div class="flex-row mt-2">
-		                	<a href="{{ url('member/package/'.$package->id.'/buy') }}" class="btn mx-3">Beli</a>
+		                	<a href="{{ url('member/package/'.$package->id.'/buy') }}" class="btn text-white bg-green-400 rounded-full py-1 px-4 uppercase font-bold mx-3">Beli</a>
 		                </div>
 		            </div>
 				@endforeach
@@ -464,24 +461,23 @@
 			<div class="md:w-1/2">
 				<div class="text-center">
 					<h1 class="title-section text-center text-xl md:text-3xl font-black">FAQ <span>Realita</span></h1>
-					<p class="text-sm md:text-md">Lorem, ipsum dolor sit, amet consectetur adipisicing.</p>
 				</div>
 				<div class="md:w-4/5 mx-auto mt-4 md:mt-8">
-					<div class="shadow-lg rounded py-4 px-8 mb-4">
+					<div class="shadow-lg rounded py-4 px-8 mb-4" data-aos="fade-up">
 						<p class="text-sm md:text-lg">Lorem ipsum dolor sit amet consectetur.</p>
 					</div>
-					<div class="shadow-lg rounded py-4 px-8 mb-4">
+					<div class="shadow-lg rounded py-4 px-8 mb-4" data-aos="fade-up">
 						<p class="text-sm md:text-lg">Lorem ipsum dolor sit amet consectetur.</p>
 					</div>
-					<div class="shadow-lg rounded py-4 px-8 mb-4">
+					<div class="shadow-lg rounded py-4 px-8 mb-4" data-aos="fade-up">
 						<p class="text-sm md:text-lg">Lorem ipsum dolor sit amet consectetur.</p>
 					</div>
-					<div class="shadow-lg rounded py-4 px-8 mb-4">
+					<div class="shadow-lg rounded py-4 px-8 mb-4" data-aos="fade-up">
 						<p class="text-sm md:text-lg">Lorem ipsum dolor sit amet consectetur.</p>
 					</div>
 				</div>
 			</div>
-			<div class="mb-10 md:mb-0 md:w-1/2">
+			<div class="mb-10 md:mb-0 md:w-1/2" data-aos="fade-left">
 				<img src="{{ asset('asset/landing/faq-illustration.svg') }}" class="mx-auto w-4/5" alt="about illustration">
 			</div>
 		</div>
@@ -494,7 +490,7 @@
 
 	{{-- Contact --}}
 		<div class="px-4 md:px-0">
-			<div class="contact mx-auto md:w-4/5 my-10 flex flex-col md:flex-row shadow-xl p-5 md:p-15 items-center gap-8">
+			<div class="contact mx-auto md:w-4/5 my-10 flex flex-col md:flex-row shadow-xl p-5 md:p-15 rounded-xl items-center gap-8">
 				<div class="md:w-1/2">
 					<img src="{{ asset('asset/landing/contact-illustration.svg') }}" alt="illustration" class="mx-auto">
 				</div>
@@ -525,7 +521,7 @@
 				<div class="md:w-2/4">
 					<h2 class="text-lg font-bold">Tentang Kami</h2>
 					<p>Syariah Saham adalah komunitas saham syariah pertama di Indonesia. Kami hadir dengan Visi "Memasyarakatkan Saham Syariah dan Mensyariahkan Saham Masyarakat".</p>
-					<p>Basecamp : Kp. Tegalcaang, RT.03/04. Desa Sukamaju. Cibeber. Kabupaten Cianjur, Jawa Barat 43262</p>
+					<p>Office : Perkantoran Tanjung Mas Raya, Blok B1 Nomor 44, Tanjung Barat, Jagakarsa, Jakarta Selatan 12530.</p>
 				</div>
 				<div class="md:w-1/4">
 					<h2 class="text-lg font-bold">Layanan</h2>
@@ -551,7 +547,7 @@
 			</div>
 		</div>
 		<footer class="py-5 px-10 mt-8 text-center">
-			<p class="text-xs md:text-sm">&copy; 2021 Rekap Saham. All rights reserved.</p>
+			<p class="text-xs md:text-sm">&copy; {{ date('Y') }} PT Syariah Saham. All rights reserved.</p>
 		</footer>
 	{{-- end footer --}}
 
@@ -559,11 +555,20 @@
 
 
 
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 	<script>
 		const btnSidebar = document.getElementById('btnSidebar');
 		const sidebar = document.querySelector('aside');
 		const menus = document.querySelectorAll('aside a');
+
+		AOS.init({
+			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+			  offset: 120, // offset (in px) from the original trigger point
+			  delay: 0, // values from 0 to 3000, with step 50ms
+			  duration: 1000, // values from 0 to 3000, with step 50ms
+			  easing: 'ease-out-back', // default easing for AOS animations
+		});
 
 		const handleSidebar = () => {
 			if(!btnSidebar.classList.contains('active')) {
