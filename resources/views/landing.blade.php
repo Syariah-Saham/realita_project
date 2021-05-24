@@ -547,7 +547,7 @@
 			</div>
 		</div>
 		<footer class="py-5 px-10 mt-8 text-center">
-			<p class="text-xs md:text-sm">&copy; {{ date('Y') }} PT Syariah Saham. All rights reserved.</p>
+			<p class="text-xs md:text-sm">&copy;Copyright {{ date('Y') }} by PT. Syariah Saham Indonesia. All rights reserved.</p>
 		</footer>
 	{{-- end footer --}}
 
