@@ -289,15 +289,16 @@ class ImportDataController extends Controller
     */
     public function financeReport () 
     {
-      $response = file_get_contents('https://script.googleusercontent.com/macros/echo?user_content_key=D6odqG8L-xzq9YJ0UPU2aWAp9xXBp0mLQmE6754OvEoMHxs1nJe9JjAtxumLe88pyU_16mo-GLFq0E7T6XMvU5zhRf6rxvSZm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNRPRDWCFEUPUCAvv5zCSIUaSC79J_nQZRP62EpFUWzOk31tQAom9XS_oaFYNXVtNTI4M6Joi2cBOcojD0Vgt6GwPrhXE4h8vQ&lib=MTT_G-6P_TeeXHK2lekWiEBJS-FelNKUK');
+      ini_set('max_execution_time', 1000);
+      $response = file_get_contents('https://script.googleusercontent.com/macros/echo?user_content_key=4wybNkWk_-cht3f9IDw82RtmAuEa2mLBtFoldNFj_Tbx-ktrrdDaezAjzd-zm2u8Bqf8OMze14fEOy1mjVltSqzIu3TG3tnMm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnMCDl0xavnYPouZJrfBMKXVRwqVAYmOVvZqbmqP8xYxvM-ED8JwGqroyMhCraF5MTqCvbuHrKtbOpF1AuSET__ZDx-O8l86yHg&lib=MTT_G-6P_TeeXHK2lekWiEBJS-FelNKUK');
       $data = json_decode($response)->records;
       dump('Sedang Mengambil Data. Proses ini memerlukan waktu beberapa saat. Mohon tunggu sebentar.');
       dump('Loading ....');
       foreach($data as $key => $stock) {
-        //dump('Saham '. $stock->ticker .' ke => ' . ($key +1));
+        dump('Saham '. $stock->ticker .' ke => ' . ($key +1));
 
         $stock_id = Stock::where('code_issuers',$stock->ticker)->get()->first()->id;
-        $periode_id = PeriodeReport::where('year' , '2019')->get()->first()->id;
+        $periode_id = PeriodeReport::where('year' , '2020')->get()->first()->id;
         $report = FinanceReport::where('stock_id' , $stock_id)
                                 ->where('periode_id' , $periode_id);
         if($report->get()->count() === 0){
