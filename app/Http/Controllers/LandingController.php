@@ -21,7 +21,7 @@ class LandingController extends Controller
     public function index ( ) 
     {
       $packages = Package::get();
-    	return view('landing' , [
+    	return view('landing.main' , [
           'packages' => $packages,
       ]);
     }

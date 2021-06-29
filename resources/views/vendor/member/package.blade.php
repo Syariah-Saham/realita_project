@@ -49,7 +49,7 @@
                                         <li class="my-1 flex flex-row">
                                             <img src="{{ asset('asset/dashboard/list-bullets.svg') }}" alt="illustrasi" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2">
                                             <span>
-                                                Free fitur comparasi emiten up to {{ $package->compare }} emiten
+                                                Free fitur komparasi emiten up to {{ $package->compare }} emiten
                                             </span>
                                         </li>
                 	                </ul>

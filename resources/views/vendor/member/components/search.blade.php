@@ -12,7 +12,7 @@
 	}else if(strpos(url()->current() ,'member/dictionary')) {
 		$title = 'Kamus Fundamental';
 	}else if(strpos(url()->current() ,'member/package')) {
-		$title = 'Paket Rekap Saham';
+		$title = 'Paket Realita';
 	} else if(strpos(url()->current() ,'admin/dashboard')) {
 		$title = 'Dashboard Admin';
 	}else if(strpos(url()->current() ,'admin/stock')) {
