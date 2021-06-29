@@ -6,6 +6,7 @@
 			@foreach($packages as $package)
 	            <div class="w-full md:w-1/3 bg-white rounded-xl shadow-lg text-center p-4 py-6" data-aos="fade-up">
 	                <h2 class="text-3xl font-bold  text-teal-400">{{ $package->name }}</h2>
+	                <h4 class="text-sm mb-3 -mt-1">{{ $package->description }}</h4>
 	                <div class="my-3 -mt-2">
                 		@if($package->name === 'FREE!')
 		                	<div class="flex flex-row justify-center items-center gap-1">
