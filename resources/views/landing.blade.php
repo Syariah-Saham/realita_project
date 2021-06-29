@@ -273,26 +273,26 @@
 			<div class="text-white">
 				<h1 class="text-center text-xl md:text-3xl font-black">Fitur di Realita</h1>
 			</div>
-			<div class="flex flex-col md:flex-row gap-4 my-8 w-full md:w-4/5 justify-center mx-auto">
-				<div class="md:w-1/4 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+			<div class="flex flex-col md:flex-row gap-4 my-8 w-full md:w-5/6 justify-center mx-auto">
+				<div class="md:w-1/4 bg-white p-4 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
 					<img src="{{ asset('asset/landing/laporan_keuangan.svg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
-					<h3 class="font-bold text-lg md:text-2xl text-second">Laporan Keuangan</h3>
-					<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
+					<h3 class="font-bold text-lg md:text-xl text-second">Laporan Keuangan</h3>
+					<p class="text-sm md:text-md">Setiap emiten yang terdaftar di Bursa Efek Indonesia kami sajikan data terupdate sesuai dengan yang dikeluarkan oleh emiten saat dirilis resmi ke publik.</p>
 				</div>
-				<div class="md:w-1/4 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="400">
+				<div class="md:w-1/4 bg-white p-4 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="400">
 					<img src="{{ asset('asset/landing/screening_saham.svg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
-					<h3 class="font-bold text-lg md:text-2xl text-second">Screening Fundamental</h3>
-					<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
+					<h3 class="font-bold text-lg md:text-xl text-second">Screening Fundamental</h3>
+					<p class="text-sm md:text-md">Kamu bisa melakukan screening / pencarian saham berdasarkan ratio yang sesuai dengan tipikal investor.</p>
 				</div>
-				<div class="md:w-1/4 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="600">
+				<div class="md:w-1/4 bg-white p-4 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="600">
 					<img src="{{ asset('asset/landing/comparasi.svg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
-					<h3 class="font-bold text-lg md:text-2xl text-second">Komparasi Emiten</h3>
-					<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
+					<h3 class="font-bold text-lg md:text-xl text-second">Komparasi Emiten</h3>
+					<p class="text-sm md:text-md">Perbandingan hasil laporan keuangan antar perusahaan yang sejenis atau satu sektor. Simple, tinggal bandingkan mana yang sehat secara fundamental</p>
 				</div>
-				<div class="md:w-1/4 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="800">
+				<div class="md:w-1/4 bg-white p-4 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="800">
 					<img src="{{ asset('asset/landing/comparasi.svg') }}" alt="fitur 1" class="w-4/5 my-5 mx-auto">
-					<h3 class="font-bold text-lg md:text-2xl text-second">Realita</h3>
-					<p class="text-sm md:text-md">Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Porro esse voluptatem ipsum, vel, ratione quasi.</p>
+					<h3 class="font-bold text-lg md:text-xl text-second">Realita</h3>
+					<p class="text-sm md:text-md">Adalah Rekap Laporan Keuangan Lima Tahunan. Jadi, selama 5 tahun ke belakang, laporan keuangan dari berbagai perusahaan tercatat disajikan  di sini.</p>
 				</div>
 			</div>
 		</div>
@@ -323,7 +323,7 @@
 					<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
 					<div>
 						<h3 class="font-bold text-md md:text-lg -mb-1">Nilai Wajar</h3>
-						<p class="text-xs md:text-sm">Analisis fundamental pada akhirnya adalah menakar nilai wajar suatu saham. Di file rekap ini, data nilai wajar disajikan berikut margin of ssafety (MoS) dari harga terkini.</p>
+						<p class="text-xs md:text-sm">Analisis fundamental pada akhirnya adalah menakar nilai wajar suatu saham. Di file rekap ini, data nilai wajar disajikan berikut margin of safety (MoS) dari harga terkini.</p>
 					</div>
 				</div>
 			</div>
@@ -332,7 +332,7 @@
 					<img src="{{ asset('asset/logo_warna_bulat.png') }}" class="w-16" alt="sample icon">
 					<div>
 						<h3 class="font-bold text-md md:text-lg -mb-1">Analisis Perbandingan</h3>
-						<p class="text-xs md:text-sm">Bingung memilih saham mana dalam industri atau grup yang sama? Fitur <b class="text-green-400">Comparison</b> menjawab kebutuhan ini dengan fasilitas membandingkan sampai lima saham.</p>
+						<p class="text-xs md:text-sm">Bingung memilih saham mana dalam industri atau grup yang sama? Fitur Komparasi menjawab kebutuhan ini dengan fasilitas membandingkan sampai lima saham.</p>
 					</div>
 				</div>
 				<div class="w-full md:w-1/2 shadow-lg flex flex-row items-center gap-4 py-3 px-3 md:px-6 mb-2" data-aos="fade-left" data-aos-delay="200">
@@ -401,7 +401,10 @@
 		                <h2 class="text-3xl font-bold  text-teal-400">{{ $package->name }}</h2>
 		                <p class="text-sm md:text-lg">{{ $package->description }}</p>
 		                <div class="my-3">
-		                    <h1 class="text-2xl md:text-4xl mt-2 font-bold text-indigo-500">Rp{{ number_format($package->current_price , 0,',','.') }}</h1>
+		                	<div class="flex flex-row justify-center items-center gap-1">
+			                    <h1 class="text-2xl md:text-4xl mt-2 font-bold text-indigo-500">Rp{{ number_format($package->current_price , 0,',','.') }}</h1>
+		                		<span class="mt-3">/bln</span>
+		                	</div>
 		                    <s class="text-xl text-gray-300">Rp{{ number_format($package->original_price , 0,',','.') }}</s>
 		                </div>
 		                <ul class="text-left text-sm md:text-lg my-2">

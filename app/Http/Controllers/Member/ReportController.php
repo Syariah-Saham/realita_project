@@ -268,7 +268,6 @@ class ReportController extends Controller
                                   ->where('month' , date('m'))
                                   ->where('year' , date('Y'))
                                   ->first();
-
         $maxEmiten   = Auth::user()->member->package->report;
         $packageMember = Auth::user()->member->package->name;
         $historyItem = $history->item->count();
@@ -285,7 +284,6 @@ class ReportController extends Controller
             return redirect(url()->previous())->with('sorry' , 'Maaf , status akun Anda masih '.$packageMember.' . Anda hanya bisa melakukan maksimal '. $maxEmiten .' emiten. Untuk membuka fitur lengkap silahkan pilih paket lain.');
           } 
         }
-
 
         $reports = $stock->report->reverse()->take(5);
         $reports = $reports->reverse();

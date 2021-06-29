@@ -1,5 +1,7 @@
 <x-app-layout>
 
+    @include('vendor.member.components.modal' , ['session' => 'sorry'])
+
     <div class="py-12">
         <div class="max-w-7xl px-4 sm:px-6 lg:px-8 pb-10">
 
@@ -44,26 +46,28 @@
                     </svg>
                 </button>
             </form>
-            <div class="flex flex-row gap-3 mt-4">
-                @forelse($wathcs as $data)
-                    <div class="flex flex-row items-center gap-2 bg-white rounded-md px-4 shadow-md hover:bg-green-100 transition duration-200">
-                        <a href="{{ url('member/report/search?keyword='.$data->stock->code_issuers) }}">{{ $data->stock->code_issuers }}</a>
-                        <form action="{{ url('member/dashboard/' . $data->id) }}" method="post">
-                            @csrf
-                            @method('delete')
-                            <button class="text-white px-2 my-2 rounded bg-gr2 ml-2">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z" />
-                                </svg>
-                                <svg class="h-5 my-1"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                  <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                                </svg>
-                            </button>
-                        </form>
-                    </div>
-                @empty
-                    <h1>Tidak ada Wathclist</h1>
-                @endforelse
-            </div>
+            @forelse($wathcs->chunk(5) as $chunk)
+                <div class="flex flex-row gap-3 mt-4">
+                    @foreach($chunk as $data)
+                        <div class="flex flex-row items-center gap-2 bg-white rounded-md px-4 shadow-md hover:bg-green-100 transition duration-200">
+                            <a href="{{ url('member/report/search?keyword='.$data->stock->code_issuers) }}">{{ $data->stock->code_issuers }}</a>
+                            <form action="{{ url('member/dashboard/' . $data->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button class="text-white px-2 my-2 rounded bg-gr2 ml-2">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z" />
+                                    </svg>
+                                    <svg class="h-5 my-1"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                      <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                    @endforeach
+                </div>
+            @empty
+                <h1>Tidak ada Wathclist</h1>
+            @endforelse
                 
         </div>
     </div>

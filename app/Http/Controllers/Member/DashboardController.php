@@ -80,7 +80,7 @@ class DashboardController extends Controller
       if(!Str::contains($package->name , 'Expert')) {
         $max = $package->watchlist;
         if($totalWatch >= $max) {
-          return redirect('member/package');
+          return redirect(url()->previous())->with('sorry' , 'Maaf , status akun Anda masih '.$package->name.' . Anda hanya bisa menambahkan maksimal '. $max .' emiten. Untuk membuka fitur lengkap silahkan pilih paket lain.');
         }
       }
 

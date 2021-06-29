@@ -19,6 +19,8 @@
 		$dictionary = true;
 	}else if(path('admin/package')) {
 		$package = true;
+	} else if(path('admin/profile')) {
+		$profile = true;
 	}
 @endphp
 
@@ -83,7 +85,7 @@
 				</svg>
 				<span>Member</span>
 			</a>
-			<a href="{{ url('user/profile') }}">
+			<a href="{{ url('admin/profile') }}">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 				  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
 				</svg>
@@ -144,17 +146,17 @@
 			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
 			</svg>
 		</a>
-		<a href="{{ url('admin/admin') }}" class="px-2 @if(isset($profile)) active @endif">
+		<a href="{{ url('admin/admin') }}" class="px-2 @if(isset($admin)) active @endif">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
 			</svg>
 		</a>
-		<a href="{{ url('admin/member') }}" class="px-2 @if(isset($profile)) active @endif">
+		<a href="{{ url('admin/member') }}" class="px-2 @if(isset($member)) active @endif">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
 			</svg>
 		</a>
-		<a href="{{ url('user/profile') }}" class="px-2 @if(isset($profile)) active @endif">
+		<a href="{{ url('admin/profile') }}" class="px-2 @if(isset($profile)) active @endif">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
 			</svg>

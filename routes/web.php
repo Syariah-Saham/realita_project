@@ -88,6 +88,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
 
 		include
 		__DIR__.'/admin/import.php';
+
+		include
+		__DIR__.'/admin/profile.php';
 	});
 
 
