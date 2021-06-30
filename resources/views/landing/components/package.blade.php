@@ -68,7 +68,7 @@
                         </li>
 	                </ul>
 	                <div class="flex-row mt-2">
-	                	<a href="{{ url('member/package/'.$package->id.'/buy') }}" class="btn text-white bg-green-400 rounded-full py-1 px-4 uppercase font-bold mx-3">Beli</a>
+	                	<a href="{{ url('member/package/'.$package->id.'/xendit') }}" class="btn text-white bg-green-400 rounded-full py-1 px-4 uppercase font-bold mx-3">Beli</a>
 	                </div>
 	            </div>
 			@endforeach

@@ -4,8 +4,7 @@
 			<img src="{{ asset('asset/landing/contact-illustration.svg') }}" alt="illustration" class="mx-auto">
 		</div>
 		<div class="md:w-1/2 text-center">
-			<h1 class="title-section text-xl md:text-3xl font-black">Hubungi <span>kami</span></h1>
-			<p class="text-sm md:text-md">Lorem, ipsum dolor sit, amet consectetur adipisicing.</p>
+			<h1 class="title-section text-xl md:text-3xl font-black">Hubungi <span style="text-transform: capitalize;">kami</span></h1>
 			<form class="mt-6">
 				<input type="text" class="form-input border-2 border-gray-300" placeholder="Masukkan Email ....">
 				<input type="text" class="form-input border-2 border-gray-300" placeholder="Masukkan Nama ....">

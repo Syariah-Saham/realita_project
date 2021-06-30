@@ -10,8 +10,8 @@
                             $status = Auth::user()->member->package_id === $package->id; 
                         @endphp
 
-                        @if(Str::contains($packageMember , 'Gratis'))
-                            @if(!Str::contains($package->name , 'Gratis'))
+                        @if(Str::contains($packageMember , 'FREE'))
+                            @if(!Str::contains($package->name , 'FREE'))
                 	            <div class="w-full md:w-1/3 @if(!$status) bg-white @else bg-purple-500 text-white @endif rounded-lg shadow-lg text-center p-4 py-6">
                 	                <h2 class="text-3xl font-bold @if(!$status) text-teal-400 @endif">{{ $package->name }}</h2>
                 	                <div class="my-3">
@@ -24,7 +24,7 @@
                                             <span>
                                                 Free akses laporan keuangan maksimal {{ $package->report }} emiten / bulan
                                             </span></li>
-                                        @if(Str::contains($package->name , 'Gratis'))
+                                        @if(Str::contains($package->name , 'FREE'))
                                             <li class="my-1 flex flex-row">
                                                 <img src="{{ asset('asset/dashboard/list-bullets.svg') }}" alt="illustrasi" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2">
                                                 <span>
@@ -55,7 +55,7 @@
                 	                </ul>
                 	                <div class="flex-row mt-2">
                 	                    @if(!$status && $package->current_price !== 0 )
-                	                        <a href="{{ url('member/package/'.$package->id.'/buy') }}" class="btn mx-3">Beli</a>
+                	                        <a href="{{ url('member/package/'.$package->id.'/xendit') }}" class="btn mx-3">Beli</a>
                 	                    @elseif($status)
                 	                        <span class="btn mx-3">Paket Anda</span>
                 	                    @endif
@@ -73,7 +73,7 @@
                                     </div>
                                     <ul class="text-left text-xs md:text-sm my-2">
                                         <li class="my-1">Free akses laporan keuangan maksimal {{ $package->report }} emiten / bulan</li>
-                                        @if(Str::contains($package->name , 'Gratis'))
+                                        @if(Str::contains($package->name , 'FREE'))
                                             <li class="my-1">Free screening ratio PBV dan PER Emiten</li>
                                         @elseif(Str::contains($package->name , 'Expert'))
                                             <li class="my-1">Free screening fundamental (All ratio)</li>
@@ -84,7 +84,7 @@
                                     </ul>
                                     <div class="flex-row mt-2">
                                         @if(!$status && $package->current_price !== 0 )
-                                            <a href="{{ url('member/package/'.$package->id.'/buy') }}" class="btn mx-3">Beli</a>
+                                            <a href="{{ url('member/package/'.$package->id.'/xendit') }}" class="btn mx-3">Beli</a>
                                         @elseif($status)
                                             <span class="btn mx-3">Paket Anda</span>
                                         @endif
@@ -119,7 +119,7 @@
                                 <td>Rp{{ number_format($payment->package->current_price , 0,',','.') }}</td>
                                 <td class="text-center">{{ $payment->status }}</td>
                                 <td class="col-badge">
-                                    <a href="{{ url('member/package/'.$payment->id . '/download') }}" class="badge bg-gr2">
+                                    <a href="{{ $payment->invoice_url }}" class="badge bg-gr2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
                                         </svg>

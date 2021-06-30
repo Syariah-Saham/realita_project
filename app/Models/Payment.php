@@ -11,7 +11,7 @@ use App\Models\Package;
 class Payment extends Model
 {
     use HasFactory;
-    protected $fillable = ['member_id' , 'bank_id' , 'package_id' , 'proof_payment' , 'status'];
+    protected $fillable = ['member_id' , 'package_id' , 'invoice_id' , 'invoice_url' , 'proof_payment' , 'status'];
 
     public function member () 
     {

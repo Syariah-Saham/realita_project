@@ -39,11 +39,15 @@
 	</div>
 
 
-	<div class="items mt-5">
-		@forelse($items->chunk(3) as $chunk)
-			<div class="flex flex-col md:flex-row gap-2 md:gap-4">
+	<div class="items mt-5 flex flex-col md:flex-row w-full gap-2">
+		@php
+			$total_item = $items->count();
+			$chunk_row = ceil($total_item / 3);
+		@endphp
+		@forelse($items->chunk($chunk_row) as $chunk)
+			<div class="flex flex-col gap-2 w-full">
 				@foreach($chunk as $item)
-					<div class="bg-white w-full md:w-1/2 lg:w-1/3 md:my-4 rounded-sm shadow-md p-3">
+					<div class="bg-white w-full rounded-sm shadow-md p-3">
 						<h3 class="font-semibold text-sm md:text-lg">
 							<span>{{ $item->keyword }}</span>
 							<button data-id="{{ $item->id }}" class="p-1 text-teal-400 transition duration-200 hover:text-teal-600 transform translate-y-1 btnEdit">
