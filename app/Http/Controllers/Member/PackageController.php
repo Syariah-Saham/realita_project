@@ -29,7 +29,7 @@ class PackageController extends Controller
     */
     public function index () 
     {
-    	$packages = Package::get();
+    	$packages = Package::orderBy('current_price')->get();
       $payments = Payment::where('member_id' , Auth::user()->member->id)->latest()->get();
     	return view('vendor.member.package' , [
             'packages' => $packages,
@@ -41,7 +41,6 @@ class PackageController extends Controller
     {
       $memberId = Auth::user()->member->id;
       Xendit::setApiKey(env('XENDIT_API_KEY'));
-
       $params = [
           'external_id'          => 'Eclass_INV_' . Str::random(30),
           'payer_email'          => Auth::user()->email,

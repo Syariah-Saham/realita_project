@@ -2,11 +2,11 @@
 @section('title'  , 'Paket')
 @section('body')
 
+@include('vendor.components.modal-delete')
 
 <div class="px-1 md:px-6 lg:px-8 my-4 mb-8">
 	<h1 class="font-bold text-3xl">Paket</h1>
 	<a href="{{ url('/admin/package/create') }}" class="btn">Buat Paket</a>
-	<a href="{{ url('admin/bank/') }}" class="btn">Daftar Bank</a>
 	<div class="mt-4 flex flex-col md:flex-row gap-4">
 		@forelse($packages as $package)
 			<div class="w-full md:w-1/3 bg-white rounded-lg shadow-lg text-center p-4">
@@ -51,11 +51,7 @@
                     </li>
                 </ul>
 				<div class="flex-row mt-2">
-					<form class="inline-block" action="{{ url('admin/package/'.$package->id) }}" method="post">
-						@csrf
-						@method('delete')
-						<button class="btn mx-3">Hapus</button>
-					</form>
+					<button data-action="{{ url('admin/package/'.$package->id) }}" class="text-white uppercase rounded-full py-1 px-4 mx-3 bg-red-400 badge-delete">Hapus</button>
 					<a href="{{ url('admin/package/'.$package->id.'/edit') }}" class="btn mx-3">Edit</a>
 				</div>
 			</div>	

@@ -1,6 +1,6 @@
 <nav class="navbar z-30 shadow-md h-12 w-full fixed bg-white flex flex-row justify-between items-center px-10">
 	<div class="w-full md:w-1/3">
-		<img src="{{ asset('/asset/logo_warna.png') }}" alt="logo warna" class="h-10">
+		<img src="{{ asset('/asset/logo_warna.png') }}" alt="Realita Syariah Saham Indonesia" class="h-10">
 	</div>
 	<div class="md:w-2/3 hidden md:flex justify-end items-center gap-14">
 		<a class="font-semibold" href="#about">REALITA</a>

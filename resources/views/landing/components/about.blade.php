@@ -1,7 +1,7 @@
 <div class="hidden md:block">
 	<div id="about" class="about flex flex-col md:flex-row px-3 md:px-15 py-20 items-center">
 		<div class="md:w-1/2" data-aos="fade-right">
-			<img src="{{ asset('asset/landing/about-illustration.svg') }}" class="w-4/5 mx-auto" alt="about illustration">
+			<img src="{{ asset('asset/landing/about-illustration.svg') }}" class="w-4/5 mx-auto" alt="Tentan Realita Syariah Saham Indonesia">
 		</div>
 		<div class="mt-6 md:mt-0 md:w-1/2" data-aos="fade-left">
 			<h1 class="title-section text-center text-xl md:text-3xl font-black mb-2 md:mb-5">Apa itu <span>Realita</span></h1>
@@ -16,7 +16,7 @@
 <div class="md:hidden">
 	<div id="about" class="about flex flex-col md:flex-row px-3 md:px-15 py-20 items-center">
 		<div class="md:w-1/2" data-aos="fade-up">
-			<img src="{{ asset('asset/landing/about-illustration.svg') }}" class="w-4/5 mx-auto" alt="about illustration">
+			<img src="{{ asset('asset/landing/about-illustration.svg') }}" class="w-4/5 mx-auto" alt="Tentan Realita Syariah Saham Indonesia">
 		</div>
 		<div class="mt-6 md:mt-0 md:w-1/2" data-aos="fade-up" data-aos-delay="200">
 			<h1 class="title-section text-center text-xl md:text-3xl font-black mb-2 md:mb-5">Apa itu <span>Realita</span></h1>

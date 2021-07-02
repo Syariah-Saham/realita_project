@@ -41,7 +41,7 @@
 			</div>
 		</div>
 		<div class="mb-10 md:mb-0 md:w-1/2" data-aos="fade-right">
-			<img src="{{ asset('asset/landing/faq-illustration.svg') }}" class="mx-auto w-4/5" alt="about illustration">
+			<img src="{{ asset('asset/landing/faq-illustration.svg') }}" class="mx-auto w-4/5" alt="Faq Realita Syariah Saham Indonesia">
 		</div>
 	</div>
 </div>
@@ -90,7 +90,7 @@
 			</div>
 		</div>
 		<div class="mb-10 md:mb-0 md:w-1/2" data-aos="fade-up">
-			<img src="{{ asset('asset/landing/faq-illustration.svg') }}" class="mx-auto w-4/5" alt="about illustration">
+			<img src="{{ asset('asset/landing/faq-illustration.svg') }}" class="mx-auto w-4/5" alt="Faq Realita Syariah Saham Indonesia">
 		</div>
 	</div>
 </div>

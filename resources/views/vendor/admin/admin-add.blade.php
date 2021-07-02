@@ -3,7 +3,7 @@
 @section('body')
 
 
-<form action="{{ url('admin/admin') }}" class="bg-white rounded-xl shadow-lg py-3 px-6 mt-5" method="post">
+<form action="{{ url('admin/admin') }}" class="bg-white md:w-1/2 rounded-xl shadow-lg py-3 px-6 mt-5" method="post">
 	@csrf
 	<h1 class="text-2xl font-bold text-gray-600 mb-2 mt-6">Tambah Admin</h1>
 	<div class="form-group">

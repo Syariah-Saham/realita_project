@@ -1,6 +1,6 @@
 <div class="footer mt-20 border-t-2 text-sm md:text-base border-gray-300 pt-8">
 	<div class="text-center">
-		<img src="{{ asset('asset/logo_warna.png') }}" alt="logo syariah saham" class="h-20 mx-auto">
+		<img src="{{ asset('asset/logo_warna.png') }}" alt="Realita Syariah Saham Indonesia" class="h-20 mx-auto">
 	</div>
 	<div class="flex flex-col md:flex-row gap-5 md:gap-12 px-6 md:px-15 justify-center">
 		<div class="md:w-2/4">

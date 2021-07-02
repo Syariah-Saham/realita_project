@@ -39,6 +39,49 @@
 	@livewireScripts
 
 	<script src="{{ asset('vendor/chartjs/Chart.js') }}"></script>
+	 <script>
+	    const modals       = document.querySelectorAll('.modal');
+	    const badgesDelete = document.querySelectorAll('button.badge-delete');
+	    const btnModals    = document.querySelectorAll('.btn-modal');
+
+	    const openModal = (modal) => {
+	        modal.style.pointerEvents = 'all';
+	        modal.style.transform = 'translate(50% , 0)';
+	        modal.style.opacity = 1;
+	    }
+
+	    const closeModal = (modal) => {
+	        modal.style.transform = 'translate(50% , -20%)';
+	        modal.style.opacity = 0;
+	        setTimeout(() => {
+	            modal.style.pointerEvents = 'none';
+	        },200);
+	    }
+
+	    badgesDelete.forEach(btn => {
+	        btn.addEventListener('click' , () => {
+	            let action = btn.getAttribute('data-action');
+	            let modal = document.getElementById('modal-delete');
+	            modal.setAttribute('action' , action);
+	            openModal(modal);
+	        })
+	    })
+
+	    btnModals.forEach(btn => {
+	        btn.addEventListener('click' , () => {
+	            let target = btn.getAttribute('data-target');
+	            let element = document.querySelector(`.modal${target}`);
+	            openModal(element);
+	        });
+	    })
+
+	    modals.forEach(modal => {
+	        let btnClose = modal.querySelector('button.close');
+	        btnClose.addEventListener('click' , () => {
+	            closeModal(modal);
+	        })
+	    });
+	</script>
 	<script>
 	    const btnSidebar = document.getElementById('btnSidebar');
 	    const sidebar = document.querySelector('aside.main-sidebar');

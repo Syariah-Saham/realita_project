@@ -1,5 +1,5 @@
 <aside class="sidebar fixed z-30 bg-white h-screen w-screen pt-6 md:hidden">
-	<img src="{{ asset('asset/logo_warna.png') }}" alt="syariah saham warna" class="h-20 block mx-auto">
+	<img src="{{ asset('asset/logo_warna.png') }}" alt="Realita Syariah Saham Indonesia" class="h-20 block mx-auto">
 	<div class="list mt-8 w-4/5 mx-auto pb-6 border-b-2 border-gray-300 text-center">
 		<a href="#about" class="block font-semibold text-lg my-2">REALITA</a>
 		<a href="#feature" class="block font-semibold text-lg my-2">FITUR</a>

@@ -1,7 +1,7 @@
 <div class="px-4 md:px-0">
 	<div class="contact mx-auto md:w-4/5 my-10 flex flex-col md:flex-row shadow-xl p-5 md:p-15 rounded-xl items-center gap-8">
 		<div class="md:w-1/2">
-			<img src="{{ asset('asset/landing/contact-illustration.svg') }}" alt="illustration" class="mx-auto">
+			<img src="{{ asset('asset/landing/contact-illustration.svg') }}" alt="Hubungi Realita Syariah Saham Indonesia" class="mx-auto">
 		</div>
 		<div class="md:w-1/2 text-center">
 			<h1 class="title-section text-xl md:text-3xl font-black">Hubungi <span style="text-transform: capitalize;">kami</span></h1>

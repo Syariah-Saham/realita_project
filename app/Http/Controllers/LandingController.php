@@ -20,7 +20,7 @@ class LandingController extends Controller
     */
     public function index ( ) 
     {
-      $packages = Package::get();
+      $packages = Package::orderBy('current_price')->get();
     	return view('landing.main' , [
           'packages' => $packages,
       ]);

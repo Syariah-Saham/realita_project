@@ -3,6 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="application-name" content="Realita">
+	<meta name="title" content="Realita | Laporan Emiten Rekap Lima Tahun">
+	<meta name="description" content="REALITA adalah Rekap Laporan Keuangan Lima Tahunan. Data-data yang disajikan berdasarkan laporan keuangan resmi yang dikeluarkan oleh perusahaan tercatat di Bursa Efek Indonesia. Jadi, selama 5 tahun ke belakang, laporan keungan dari berbagai perusahaan tercatat disajikan di sini.">
+	<meta name="author" content="PT Syariah Saham Indonesia">
 	<title>Realita | Laporan Emiten Rekap Lima Tahun</title>
 
 	<link rel="stylesheet" href="{{ asset('/css/app.css') }}">

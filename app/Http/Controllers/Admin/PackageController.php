@@ -23,7 +23,7 @@ class PackageController extends Controller
     */
     public function index () 
     {
-    	$packages = Package::get();
+    	$packages = Package::orderBy('current_price')->get();
       $payments = Payment::WHERE('status' , 'pending')->get();
     	return view('vendor.admin.package' , [
             'packages' => $packages,

@@ -777,7 +777,7 @@
 			})
 		})
 
-		if(package.includes('FREE')) {
+		if(package.includes('FREE') || package.includes('Basic')) {
 			ratios.forEach(element => {
 				let attr = element.getAttribute('data-ratio');
 				if(attr !== 'per' && attr !== 'pbv') {
