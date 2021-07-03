@@ -22,6 +22,34 @@ class ScreeningController extends Controller
         return '!=';
       }
     }
+
+    public function query_free ($query) 
+    {
+      $query = collect($query);
+      $query->prepend('!=' , 'option_cr');
+      $query->prepend(null , 'cr');
+      $query->prepend('!=' , 'option_ds');
+      $query->prepend(null , 'ds');
+      $query->prepend('!=' , 'option_dy');
+      $query->prepend(null , 'dy');
+      $query->prepend('!=' , 'option_dp');
+      $query->prepend(null , 'dp');
+      $query->prepend('!=' , 'option_np');
+      $query->prepend(null , 'np');
+      $query->prepend('!=' , 'option_bv');
+      $query->prepend(null , 'bv');
+      $query->prepend('!=' , 'option_dar');
+      $query->prepend(null , 'dar');
+      $query->prepend('!=' , 'option_der');
+      $query->prepend(null , 'der');
+      $query->prepend('!=' , 'option_roa');
+      $query->prepend(null , 'roa');
+      $query->prepend('!=' , 'option_roe');
+      $query->prepend(null , 'roe');
+      $query->prepend('!=' , 'option_npm');
+      $query->prepend(null , 'npm');
+      return $query;
+    }
     
     /**
       * route: member/screening
@@ -56,7 +84,7 @@ class ScreeningController extends Controller
               return $this->op($item);
             } else {
               if($item === null) {
-                return 0;
+                return null;
               } else {
                 return $item;
               }
@@ -66,10 +94,14 @@ class ScreeningController extends Controller
       } else {
         $query = collect(json_decode($request->data_query));
       }
+      $package_name = Auth::user()->member->package->name;
+      if($package_name === 'FREE!') {
+        $query = $this->query_free($query);
+      }
 
       $ratios = collect([]);
       foreach ($query as $key => $value) {
-        if(!Str::contains($key , 'option') && $key !== '_token' && $value !== 0) {
+        if(!Str::contains($key , 'option') && $key !== '_token' && $value !== null) {
           $ratios->push($key);
         }  
       }
@@ -89,13 +121,12 @@ class ScreeningController extends Controller
                                 ->where('price_to_earning_ratio' , $query['option_per'] , $query['per'])
                                 ->where('price_to_book_value' , $query['option_pbv'] , $query['pbv'])
                     ->get();
-
       $collections = collect([]);
       foreach($data_ratio as $data) {
         if($data->report->periode_id === $periode_id) {
           $data2 = collect([
-              'code_issuers'                 => $data->report->stock->code_issuers,
-              'name'                 => $data->report->stock->name,
+              'code_issuers'           => $data->report->stock->code_issuers,
+              'name'                   => $data->report->stock->name,
               'current_ratio'          => $data->current_ratio,
               'dividend_nominal'       => $data->dividend_nominal,
               'dividend_yield'         => $data->dividend_yield,
@@ -112,7 +143,7 @@ class ScreeningController extends Controller
           ]);
           $collections->push($data2);
         }
-      } 
+      }
       
       $sortKey = (isset($_GET['sortKey'])) ? $_GET['sortKey'] : 'code_issuers';
       $sortStatus = (isset($_GET['sortStatus'])) ? $_GET['sortStatus'] : 'asc';

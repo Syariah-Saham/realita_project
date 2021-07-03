@@ -272,6 +272,7 @@ class ReportController extends Controller
         $packageMember = Auth::user()->member->package->name;
         $historyItem = $history->item->count();
         $checkItem = $history->item->where('stock_id' , $stock->id)->count();
+
         if($historyItem < $maxEmiten) {
           if(!$checkItem) {
             HistoryItem::create([
@@ -284,7 +285,7 @@ class ReportController extends Controller
             return redirect(url()->previous())->with('sorry' , 'Maaf , status akun Anda masih '.$packageMember.' . Anda hanya bisa melakukan maksimal '. $maxEmiten .' emiten. Untuk membuka fitur lengkap silahkan pilih paket lain.');
           } 
         }
-
+        
         $reports = $stock->report->reverse()->take(5);
         $reports = $reports->reverse();
 
@@ -313,7 +314,7 @@ class ReportController extends Controller
         $costs       = $this->setCostStock($costs);
 
         $json = $this->setJson();
-
+        
         return view('vendor.member.report' , [
             'codes'       => json_encode($code),
             'data'        => true,

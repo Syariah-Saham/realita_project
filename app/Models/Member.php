@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Package;
 use App\Models\User;
 use App\Models\Watchlist;
+use App\Models\HistoryReport;
 
 
 class Member extends Model
@@ -27,5 +28,10 @@ class Member extends Model
     public function watchlist () 
     {
         return $this->hasMany(Watchlist::class , 'member_id');
+    }
+
+    public function report () 
+    {
+        return $this->hasMany(HistoryReport::class , 'member_id');
     }
 }

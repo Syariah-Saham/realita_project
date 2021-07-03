@@ -1,4 +1,6 @@
 <x-app-layout>
+    @include('vendor.member.components.modal' , ['session' => 'sorry'])
+	
 	<div class="py-4 px-4 pb-12">
         <div class="max-w-7xl md:px-4 sm:px-6 lg:px-8 pb-20">
         	<div id="package" user-package="{{ Auth::user()->member->package->name }}"></div>
@@ -632,7 +634,7 @@
 									@if($ratios->contains('dar')) <td class="text-right">{{ $item['debt_asset_ratio'] }}</td> @endif
 									@if($ratios->contains('der')) <td class="text-right">{{ $item['debt_equity_ratio'] }}</td> @endif
 									@if($ratios->contains('roa')) <td class="text-right">{{ $item['return_of_assets'] }}</td> @endif
-									@if($ratios->contains('roe')) <td class="text-right">{{ $item['return_of_equity'] }}</td> @endif
+									@if($ratios->contains('roe')) <td class="text-right">{{ $item['return_of_equity'] * 100 }}%</td> @endif
 									@if($ratios->contains('npm')) <td class="text-right">{{ $item['net_profit_margin'] }}</td> @endif
 									@if($ratios->contains('per')) <td class="text-right">{{ $item['price_to_earning_ratio'] }}</td> @endif
 									@if($ratios->contains('pbv')) <td class="text-right">{{ $item['price_to_book_value'] }}</td> @endif
@@ -654,7 +656,7 @@
 							@endforelse
 						</tbody>
 					</table>
-							<p class="mt-6 text-xs md:text-sm">
+							<p class="mt-6 text-xs">
 								*) Catatan:
 								@if($ratios->contains('cr'))
 									<div class="flex text-xs md:text-sm">
