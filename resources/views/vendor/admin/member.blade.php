@@ -11,16 +11,23 @@
 			<th class="p-2">#</th>
 			<th>Nama</th>
 			<th>Email</th>
+			<th>Paket</th>
+			<th>Awal</th>
+			<th>Berakhir</th>
 			<th>Aksi</th>
 		</tr>
 	</thead>
 
 	<tbody>
+		
 		@forelse($members as $member)
 			<tr class="text-center">
 				@include('vendor.components.iteration' , ['paginate' => 10])
 				<td class="text-left">{{ $member->name }}</td>
 				<td class="text-left">{{ $member->email }}</td>
+				<td class="text-left">{{ $member->member->package->name }}</td>
+				<td class="text-left">{{ $member->member->start_date }}</td>
+				<td class="text-left">{{ $member->member->finish_date }}</td>
 				<td class="col-badge">
 					<button data-action="{{ url('admin/member/'.$member->id) }}" class="badge badge-delete bg-red">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">

@@ -95,7 +95,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
 
 
 	// member
-	Route::name('member')->middleware('role_member')->prefix('member')->group(function() {
+	Route::name('member')->middleware('role_member' , 'check_package')->prefix('member')->group(function() {
 		include
 		__DIR__.'/member/dashboard.php';
 

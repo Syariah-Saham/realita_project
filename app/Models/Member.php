@@ -13,7 +13,7 @@ use App\Models\HistoryReport;
 class Member extends Model
 {
     use HasFactory;
-    protected $fillable = ['package_id' , 'user_id'];
+    protected $fillable = ['package_id' , 'user_id' , 'start_date' , 'finish_date'];
 
     public function package () 
     {

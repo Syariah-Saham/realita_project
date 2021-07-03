@@ -13,6 +13,7 @@ use App\Models\Payment;
 use App\Helpers\StatisticDate;
 use Auth;
 use Xendit\Xendit;
+use Carbon\Carbon;
 
 class PackageController extends Controller
 {
@@ -68,6 +69,7 @@ class PackageController extends Controller
           $payment = Payment::where('member_id' , $memberId)
                             ->where('package_id' , $package->id)
                             ->first();
+
           return redirect($payment->invoice_url);
         }
     }
@@ -94,7 +96,19 @@ class PackageController extends Controller
             'expert' => $statistic->expert + 1,
           ]);
         }
-        $payment->member->update(['package_id' => $payment->package_id]);
+
+        $start_date = date('d-m-Y');
+        if(date('d') > 30) {
+          $finish_date = '30-' . date('m-Y') ;
+        } else {
+          $next_month = date('m') + 1;
+          $finish_date = Carbon::parse(date('d') . '-' . $next_month . '-' . date('Y'))->format('d-m-Y'); 
+        }
+        $payment->member->update([
+          'package_id' => $payment->package_id,
+          'start_date' => $start_date,
+          'finish_date' => $finish_date,
+        ]);
 
 
         return redirect('member/package');

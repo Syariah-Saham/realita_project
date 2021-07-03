@@ -1,0 +1,6 @@
+{
+    "workbench.iconTheme": "eq-material-theme-icons-palenight",
+    "editor.lineHeight": 25,
+    "debug.node.autoAttach": "on",
+    "editor.formatOnPaste": true
+}

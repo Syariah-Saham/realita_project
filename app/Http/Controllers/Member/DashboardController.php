@@ -83,7 +83,6 @@ class DashboardController extends Controller
           return redirect(url()->previous())->with('sorry' , 'Maaf , status akun Anda masih '.$package->name.' . Anda hanya bisa menambahkan maksimal '. $max .' emiten. Untuk membuka fitur lengkap silahkan pilih paket lain.');
         }
       }
-
       $stock = Stock::where('code_issuers' , $request->code)->get();
       if($stock->count() === 0) {
         return redirect(url()->previous());
