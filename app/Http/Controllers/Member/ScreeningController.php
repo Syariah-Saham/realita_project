@@ -146,7 +146,11 @@ class ScreeningController extends Controller
               'price_to_earning_ratio' => $data->price_to_earning_ratio,
               'price_to_book_value'    => $data->price_to_book_value
           ]);
-          $collections->push($data2);
+          if($query['pbv'] !== null && $data->price_to_book_value != 0) {
+            $collections->push($data2);
+          } else if($query['pbv'] === null) {
+            $collections->push($data2);
+          }
         }
       }
       

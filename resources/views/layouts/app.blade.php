@@ -17,6 +17,11 @@
         <link rel="stylesheet" href="{{ asset('vendor/chartjs/Chart.css') }}">
 
         @livewireStyles
+        <style>
+            button:focus {
+                outline: 1px solid #dddddd;
+            }
+        </style>
 
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.js" defer></script>

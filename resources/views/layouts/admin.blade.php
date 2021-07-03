@@ -14,6 +14,11 @@
 	<!-- Styles -->
 	<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 	<link rel="stylesheet" href="{{ asset('vendor/chartjs/Chart.css') }}">
+	<style>
+		button:focus {
+			outline: 1px solid #dddddd;
+		}
+	</style>
 
 	@livewireStyles
 

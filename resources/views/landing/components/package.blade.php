@@ -22,34 +22,39 @@
 	                    <li class="my-1 flex flex-row">
                         	<img src="{{ asset('asset/landing/bullet-icon.svg') }}" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2" alt="Paket Realita Syariah Saham Indonesia">
                             <span>
-                                Free akses laporan keuangan maksimal {{ $package->report }} emiten / bulan
-                            </span></li>
-                        @if(Str::contains($package->name , 'FREE'))
-                            <li class="my-1 flex flex-row">
-                            	<img src="{{ asset('asset/landing/bullet-icon.svg') }}" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2" alt="Paket Realita Syariah Saham Indonesia">
-                                <span>
-                                    Free screening ratio PBV dan PER Emiten
-                                </span>
-                            </li>
-                        @elseif(Str::contains($package->name , 'Expert'))
-                            <li class="my-1 flex flex-row">
-                            	<img src="{{ asset('asset/landing/bullet-icon.svg') }}" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2" alt="Paket Realita Syariah Saham Indonesia">
-                                <span>
-                                    Free screening fundamental (All ratio)
-                                </span>
-                            </li>
-                        @else
-                            <li class="my-1 flex flex-row">
-                            	<img src="{{ asset('asset/landing/bullet-icon.svg') }}" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2" alt="Paket Realita Syariah Saham Indonesia">
-                                <span>
-                                    Free screening fundamental (Maksimal {{ $package->screening }} ratio)
-                                </span>
-                            </li>
-                        @endif
+                                Akses Mudah Laporan Keuangan Emiten 5 tahun (2016-2020)
+                            </span>
+                        </li>
                         <li class="my-1 flex flex-row">
                         	<img src="{{ asset('asset/landing/bullet-icon.svg') }}" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2" alt="Paket Realita Syariah Saham Indonesia">
                             <span>
-                                Free fitur komparasi emiten up to {{ $package->compare }} emiten
+		                        @if(Str::contains($package->name , 'FREE') || Str::contains($package->name , 'Basic'))
+	                                Free Screening Ratio PBV dan PER Emiten
+		                        @elseif(Str::contains($package->name , 'Expert'))
+                                    Free Screening All Ratio
+		                        @else
+                                    Free Screening Ratio (Maksimal {{ $package->screening }} Ratio)
+                                @endif
+                            </span>
+                        </li>
+                        <li class="my-1 flex flex-row">
+                        	<img src="{{ asset('asset/landing/bullet-icon.svg') }}" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2" alt="Paket Realita Syariah Saham Indonesia">
+                            <span>
+                            	@if(Str::contains($package->name , 'FREE') || Str::contains($package->name , 'Basic'))
+                            		Fitur Head to Head Emiten
+                                @else
+	                                Fitur Komparasi Hingga {{ $package->compare }} Emiten
+                                @endif
+                            </span>
+                        </li>
+                        <li class="my-1 flex flex-row">
+                        	<img src="{{ asset('asset/landing/bullet-icon.svg') }}" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2" alt="Paket Realita Syariah Saham Indonesia">
+                            <span>
+                            @if($package->name === 'Expert')
+                                Watchlist Unlimited
+                            @else
+                                Watchlist Maksimal {{ $package->watchlist }} Emiten
+                            @endif
                             </span>
                         </li>
 	                </ul>
