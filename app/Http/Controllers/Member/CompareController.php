@@ -11,7 +11,10 @@ use Auth;
 class CompareController extends Controller
 {
     
-    
+    public function percent ($number) 
+    {
+      return ($number * 100) . '%'; 
+    }
     
     /**
       * route: member/compare
@@ -75,21 +78,21 @@ class CompareController extends Controller
           'sharia' => $stock->sharia,
           'cr'     => $ratio->current_ratio,
           'dn'     => $ratio->dividend_nominal,
-          'dy'     => $ratio->dividend_yield,
-          'dp'     => $ratio->dividend_payout,
+          'dy'     => $this->percent($ratio->dividend_yield),
+          'dp'     => $this->percent($ratio->dividend_payout),
           'np'     => $ratio->net_profit,
           'bv'     => $ratio->book_value,
           'dar'    => $ratio->debt_asset_ratio,
           'der'    => $ratio->debt_equity_ratio,
-          'roa'    => $ratio->return_of_assets,
-          'roe'    => $ratio->return_of_equity,
-          'npm'    => $ratio->net_profit_margin,
+          'roa'    => $this->percent($ratio->return_of_assets),
+          'roe'    => $this->percent($ratio->return_of_equity),
+          'npm'    => $this->percent($ratio->net_profit_margin),
           'per'    => $ratio->price_to_earning_ratio,
           'pbv'    => $ratio->price_to_book_value,
         ];
         $items->push($item);
       }
-      
+
       return view('vendor.member.compare',[
           'codes'     => json_encode($code),
           'list_data' => $request->list_data,

@@ -290,7 +290,7 @@
                                 @endforeach
                             </tr>
                             <tr>
-                                <td class="p-2">Dividen Yield</td>
+                                <td class="p-2">Dividen Yield (%)</td>
                                 @foreach($ratios['dy'] as $data)
                                     <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach

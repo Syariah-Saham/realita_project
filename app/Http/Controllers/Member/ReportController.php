@@ -27,6 +27,11 @@ class ReportController extends Controller
     return number_format($number , 0,',','.');
   }
 
+  public function percent ($number) 
+  {
+    return ($number * 100) . '%'; 
+  }
+
   public function setAsset ($array) 
   {
     $current  = [];
@@ -156,15 +161,15 @@ class ReportController extends Controller
     foreach ($array as $data) {
       array_push($cr, $data->current_ratio);
       array_push($dn, $data->dividend_nominal);
-      array_push($dy, $data->dividend_yield . '%');
-      array_push($dp, $data->dividend_payout . '%');
+      array_push($dy, $this->percent($data->dividend_yield));
+      array_push($dp, $this->percent($data->dividend_payout));
       array_push($np, $data->net_profit);
       array_push($bv, $data->book_value);
       array_push($dar, $data->debt_asset_ratio);
       array_push($der, $data->debt_equity_ratio);
-      array_push($roa, $data->return_of_assets . '%');
-      array_push($roe, $data->return_of_equity . '%');
-      array_push($npm, $data->net_profit_margin . '%');
+      array_push($roa, $this->percent($data->return_of_assets));
+      array_push($roe, $this->percent($data->return_of_equity));
+      array_push($npm, $this->percent($data->net_profit_margin));
       array_push($per, $data->price_to_earning_ratio);
       array_push($pbv, $data->price_to_book_value);
       array_push($jsonPER, $data->price_to_earning_ratio);

@@ -23,6 +23,11 @@ class ScreeningController extends Controller
       }
     }
 
+    public function percent ($number) 
+    {
+      return ($number * 100) . '%'; 
+    }
+
     public function query_free ($query) 
     {
       $query = collect($query);
@@ -129,15 +134,15 @@ class ScreeningController extends Controller
               'name'                   => $data->report->stock->name,
               'current_ratio'          => $data->current_ratio,
               'dividend_nominal'       => $data->dividend_nominal,
-              'dividend_yield'         => $data->dividend_yield,
-              'dividend_payout'        => $data->dividend_payout,
+              'dividend_yield'         => $this->percent($data->dividend_yield),
+              'dividend_payout'        => $this->percent($data->dividend_payout),
               'net_profit'             => $data->net_profit,
               'book_value'             => $data->book_value,
               'debt_asset_ratio'       => $data->debt_asset_ratio,
               'debt_equity_ratio'      => $data->debt_equity_ratio,
-              'return_of_assets'       => $data->return_of_assets,
-              'return_of_equity'       => $data->return_of_equity,
-              'net_profit_margin'      => $data->net_profit_margin,
+              'return_of_assets'       => $this->percent($data->return_of_assets),
+              'return_of_equity'       => $this->percent($data->return_of_equity),
+              'net_profit_margin'      => $this->percent($data->net_profit_margin),
               'price_to_earning_ratio' => $data->price_to_earning_ratio,
               'price_to_book_value'    => $data->price_to_book_value
           ]);

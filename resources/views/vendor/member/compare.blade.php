@@ -74,9 +74,6 @@
 
         @php
             $bg = ['bg-green-400' , 'bg-indigo-400' , 'bg-purple-400' , 'bg-orange-400' , 'bg-teal-400'];
-            function percent($number) {
-                return $number * 100 . '%';
-            }
         @endphp
         <div class="block bg-white rounded-lg mt-3 shadow-lg p-3 text-xs md:text-sm">
             <div class="my-4 border-b-2 pb-3 border-gray-200">
@@ -95,9 +92,9 @@
                                 <input type="hidden" name="keyword" value="{{ $stock['ticker'] }}">
                                 <button class="text-center w-full hover:bg-opacity-80 text-white rounded  font-bold my-1 md:py-2 transition duration-200 {{ $bg[$loop->iteration-1] }} ">{{ $stock['ticker'] }}</button>
                             </form>
-                            <p class="my-1">{{ percent($stock['npm']) }}</p>
-                            <p class="my-1">{{ percent($stock['roa']) }}</p>
-                            <p class="my-1">{{ percent($stock['roe']) }}</p>
+                            <p class="my-1">{{ $stock['npm'] }}</p>
+                            <p class="my-1">{{ $stock['roa'] }}</p>
+                            <p class="my-1">{{ $stock['roe'] }}</p>
                         </div>
                     @endforeach
                     @endif

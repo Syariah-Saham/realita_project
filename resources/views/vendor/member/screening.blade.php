@@ -634,7 +634,7 @@
 									@if($ratios->contains('dar')) <td class="text-right">{{ $item['debt_asset_ratio'] }}</td> @endif
 									@if($ratios->contains('der')) <td class="text-right">{{ $item['debt_equity_ratio'] }}</td> @endif
 									@if($ratios->contains('roa')) <td class="text-right">{{ $item['return_of_assets'] }}</td> @endif
-									@if($ratios->contains('roe')) <td class="text-right">{{ $item['return_of_equity'] * 100 }}%</td> @endif
+									@if($ratios->contains('roe')) <td class="text-right">{{ $item['return_of_equity'] }}</td> @endif
 									@if($ratios->contains('npm')) <td class="text-right">{{ $item['net_profit_margin'] }}</td> @endif
 									@if($ratios->contains('per')) <td class="text-right">{{ $item['price_to_earning_ratio'] }}</td> @endif
 									@if($ratios->contains('pbv')) <td class="text-right">{{ $item['price_to_book_value'] }}</td> @endif
