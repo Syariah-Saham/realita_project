@@ -158,6 +158,14 @@
 				background-position-x: -600px;
 			}
 		}
+
+		@media(max-width: 900px) {
+			.section-2 {
+				padding-top: 120px;
+				padding-bottom: 80px;
+			}
+		}
+
 	</style>
 </head>
 <body id="home">

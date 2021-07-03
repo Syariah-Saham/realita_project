@@ -26,7 +26,7 @@ class Check_Package
     public function handle(Request $request, Closure $next)
     {
         $finish_date = Auth::user()->member->finish_date;
-        dump($finish_date);
+    
         if($finish_date !== 'free' && $finish_date !== 'unlimited') {
             $check = now() >= $this->carbon($finish_date . ' 23:59:59');
             if($check) {
