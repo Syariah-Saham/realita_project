@@ -14,11 +14,17 @@
                             @if(!Str::contains($package->name , 'FREE'))
                 	            <div class="w-full md:w-1/3 @if(!$status) bg-white @else bg-purple-500 text-white @endif rounded-lg shadow-lg text-center p-4 py-6">
                 	                <h2 class="text-3xl font-bold @if(!$status) text-teal-400 @endif">{{ $package->name }}</h2>
+                                    <h4 class="text-sm mb-3">{{ $package->description }}</h4>
                 	                <div class="my-3">
                 	                    <h1 class="text-2xl md:text-4xl mt-2 font-bold @if(!$status)text-indigo-500 @endif">Rp{{ number_format($package->current_price , 0,',','.') }}</h1>
                 	                    <s class="text-xl text-gray-300">Rp{{ number_format($package->original_price , 0,',','.') }}</s>
+                                        @if($package->name === 'FREE!' || $package->name === 'Expert')
+                                            <p class="text-gray-300">( akses selamanya )</p>
+                                        @else
+                                            <p class="text-gray-300">( dibayar perbulan)</p>
+                                        @endif
                 	                </div>
-                	                <ul class="text-left text-sm md:text-base my-2">
+                	                <ul class="text-left text-sm my-2">
                 	                    <li class="my-1 flex flex-row">
                                             <img src="{{ asset('asset/landing/bullet-icon.svg') }}" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2" alt="Paket Realita Syariah Saham Indonesia">
                                             <span>
@@ -80,11 +86,17 @@
                             @if(!Str::contains($package->name , 'Basic') && !Str::contains($package->name , 'FREE'))
                                 <div class="w-full md:w-1/3 @if(!$status) bg-white @else bg-purple-500 text-white @endif rounded-lg shadow-lg text-center p-4 py-6">
                                     <h2 class="text-3xl font-bold @if(!$status) text-teal-400 @endif">{{ $package->name }}</h2>
+                                    <h4 class="text-sm mb-3">{{ $package->description }}</h4>
                                     <div class="my-3">
                                         <h1 class="text-2xl md:text-4xl mt-2 font-bold @if(!$status)text-indigo-500 @endif">Rp{{ number_format($package->current_price , 0,',','.') }}</h1>
                                         <s class="text-xl text-gray-300">Rp{{ number_format($package->original_price , 0,',','.') }}</s>
+                                        @if($package->name === 'FREE!' || $package->name === 'Expert')
+                                            <p class="text-gray-300">( akses selamanya )</p>
+                                        @else
+                                            <p class="text-gray-300">( dibayar perbulan)</p>
+                                        @endif
                                     </div>
-                                    <ul class="text-left text-sm md:text-base my-2">
+                                    <ul class="text-left text-sm my-2">
                                         <li class="my-1 flex flex-row">
                                                 <img src="{{ asset('asset/landing/bullet-icon.svg') }}" class="inline-block h-4 md:h-6 transform translate-y-0.5 mr-2" alt="Paket Realita Syariah Saham Indonesia">
                                             <span>
@@ -144,12 +156,18 @@
                             @if(Str::contains($package->name , 'Expert'))
                                 <div class="w-full md:w-1/3 @if(!$status) bg-white @else bg-purple-500 text-white @endif rounded-lg shadow-lg text-center p-4 py-6">
                                     <h2 class="text-3xl font-bold @if(!$status) text-teal-400 @endif">{{ $package->name }}</h2>
+                                    <h4 class="text-sm mb-3">{{ $package->description }}</h4>
                                     <p class="text-sm md:text-base">{{ $package->description }}</p>
                                     <div class="my-3">
                                         <h1 class="text-2xl md:text-4xl mt-2 font-bold @if(!$status)text-indigo-500 @endif">Rp{{ number_format($package->current_price , 0,',','.') }}</h1>
                                         <s class="text-xl text-gray-300">Rp{{ number_format($package->original_price , 0,',','.') }}</s>
+                                        @if($package->name === 'FREE!' || $package->name === 'Expert')
+                                            <p class="text-gray-300">( akses selamanya )</p>
+                                        @else
+                                            <p class="text-gray-300">( dibayar perbulan)</p>
+                                        @endif
                                     </div>
-                                    <ul class="text-left text-xs md:text-sm my-2">
+                                    <ul class="text-left text-sm my-2">
                                         <li class="my-1">Akses Mudah Laporan Keuangan Emiten 5 tahun (2016-2020)</li>
                                         @if(Str::contains($package->name , 'FREE') || Str::contains($package->name , 'Basic'))
                                             <li class="my-1">Free Screening Ratio PBV dan PER Emiten</li>
