@@ -8,7 +8,6 @@ use App\Models\Package;
 use App\Models\Member;
 use App\Models\Stock;
 use App\Models\Watchlist;
-use App\Helpers\StatisticDate;
 use Auth;
 use Str;
 
@@ -33,21 +32,6 @@ class DashboardController extends Controller
       foreach ($data as $value) {
         array_push($code, $value->code_issuers);
       }
-
-    	$status = Member::where('user_id' , Auth::id())->count();
-    	if(!$status){
-    		$package_id = Package::where('current_price',0)->first()->id;
-    		Member::create([
-          'package_id' => $package_id,
-          'user_id'    => Auth::id(),
-    		]);
-
-        $statistic = StatisticDate::get();
-        $statistic->update([
-          'free' => $statistic->free + 1,
-        ]);
-    	}
-
 
       $wathcs = Watchlist::where('member_id' , Auth::user()->member->id)->get();
     	

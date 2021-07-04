@@ -121,10 +121,10 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden bg-gr text-white">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ url('member/dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-jet-responsive-nav-link>
             @if(Auth::user()->role_id === 2)
+                <x-jet-responsive-nav-link href="{{ url('member/dashboard') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Dashboard') }}
+                </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ url('member/report') }}" :active="request()->routeIs('report')">
                     {{ __('Laporan Keuangan') }}
                 </x-jet-responsive-nav-link>
@@ -141,6 +141,9 @@
                     {{ __('Paket & Pembayaran') }}
                 </x-jet-responsive-nav-link>
             @elseif(Auth::user()->role_id === 1)
+                <x-jet-responsive-nav-link href="{{ url('admin/dashboard') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Dashboard') }}
+                </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ url('admin/stock') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Daftar Saham') }}
                 </x-jet-responsive-nav-link>
