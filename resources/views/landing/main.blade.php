@@ -175,112 +175,41 @@
 		@include('landing.components.navbar')
 	{{-- End Navbar --}}
 
-
-
-
 	{{-- Sidebar --}}
 		@include('landing.components.sidebar')
 	{{-- End Sidebar --}}
-
-
-
 
 	{{-- Banner --}}
 		@include('landing.components.banner')
 	{{-- end bannner --}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	{{-- About --}}
 		@include('landing.components.about')
 	{{-- End About --}}
-
-
-
-
-
-
-
-
-
 
 	{{-- Feature --}}
 		@include('landing.components.feature')
 	{{-- About Feature --}}
 
-
-
-
-
-
-
-
-
 	{{-- Benefit --}}
 		@include('landing.components.benefit')
 	{{-- End Benefit --}}
 
-
-
-
-
-
-
-
-
 	{{-- Testimoni --}}
-		@include('landing.components.testimoni')
+		{{-- @include('landing.components.testimoni') --}}
 	{{-- End Testimoni --}}
-
-
-
-
-
-
-
-
 
 	{{-- Price Package --}}
 		@include('landing.components.package')
 	{{-- End Price --}}
 
-
-
-
-
-
-
-
-
 	{{-- FAQ --}}
 		@include('landing.components.faq')
 	{{-- End FAQ --}}
 
-
-
-
-
-
 	{{-- Contact --}}
 		@include('landing.components.contact')
 	{{-- End Contact --}}
-
-
-
-
 
 	{{-- footer --}}
 		@include('landing.components.footer')

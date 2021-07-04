@@ -42,7 +42,7 @@ width: 100% !important;
 <!-- Body content -->
 <tr>
 <td class="content-cell">
-<img src="https://rekapsaham.com/asset/mail/email-verification.png" title="illustrasi" style="display: block;" width="350" height="250" alt="illustration" class="illustrasi">
+<img src="https://realita.syariahsaham.id/asset/mail/email-verification.png" title="illustrasi" style="display: block;" width="350" height="250" alt="illustration" class="illustrasi">
 
 {{ Illuminate\Mail\Markdown::parse($slot) }}
 

@@ -61,7 +61,12 @@
 		                </ul>
 	            	</div>
 	                <div class="flex-row mt-5">
-	                	<a href="{{ url('member/package/'.$package->id.'/xendit') }}" class="btn text-white bg-green-400 rounded-full py-1 px-4 uppercase font-bold mx-3">Beli</a>
+						@if($package->name !== 'FREE!')
+							<a href="{{ url('member/package/'.$package->id.'/xendit') }}" class="btn text-white bg-green-400 rounded-full py-1 px-4 uppercase font-bold mx-3">Beli</a>
+						@else
+							<a href="{{ url('/register') }}" class="btn text-white bg-green-400 rounded-full py-1 px-4 uppercase font-bold mx-3">Daftar</a>
+						@endif
+						
 	                </div>
 	            </div>
 			@endforeach
