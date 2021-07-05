@@ -58,7 +58,7 @@
             @php
                 $style = ($stock->sharia === 'true')  ? ['text-green-400' , 'bg-gr'] : ['text-red-400' , 'bg-red-400'];
             @endphp
-            <h1 class="text-center font-bold text-center text-2xl bg-white p-2 rounded shadow-lg block w-48 mx-auto">Kode Saham <span class="text-white block w-full rounded mt-2 text-4xl py-2 font-black {{ $style[1] }}">{{ $stock->code_issuers }}</span></h1>
+            <h1 class="text-center font-bold text-2xl bg-white p-2 rounded shadow-lg block w-48 mx-auto">Kode Saham <span class="text-white block w-full rounded mt-2 text-4xl py-2 font-black {{ $style[1] }}">{{ $stock->code_issuers }}</span></h1>
             <div id="dataJson" data-json="{{ $json }}"></div>
             <div class="flex flex-col md:flex-row gap-2 shadow-md bg-white p-4 mt-4">
                 <div class="md:w-1/2">
@@ -102,11 +102,11 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 grid-rows-7 lg:grid-rows-6 mt-6 text-xs md:text-sm">
                     <table class="col-span-3 md:col-span-2 lg:h-full row-span-2 rounded-lg shadow-md overflow-auto md:overflow-hidden bg-white p-2">
-                        <thead class="text-white" style="background-image: linear-gradient(136deg, #009efd 0%, #f900fd 100%);">
+                        <thead class="text-white text-right text-base" style="background-image: linear-gradient(136deg, #009efd 0%, #f900fd 100%);">
                             <tr>
-                                <th class="p-2">Neraca</th>
+                                <th class="p-2 text-center">Neraca</th>
                                 @foreach($periodes as $periode)
-                                <th>{{ $periode }}</th>
+                                <th class="pr-2">{{ $periode }}</th>
                                 @endforeach
                             </tr>   
                         </thead>
@@ -210,11 +210,11 @@
                         <canvas style="height: 250px" id="chartEquity"></canvas>
                     </div>
                     <table class="col-span-3 md:col-span-2 lg:h-full rounded-lg shadow-md overflow-auto md:overflow-hidden bg-white p-2">
-                        <thead class="text-white" style="background-image: linear-gradient(136deg, #009efd 0%, #f900fd 100%);">
+                        <thead class="text-white text-right text-base" style="background-image: linear-gradient(136deg, #009efd 0%, #f900fd 100%);">
                             <tr>
-                                <th class="p-2">Laba Rugi</th>
+                                <th class="p-2 text-center">Laba Rugi</th>
                                 @foreach($periodes as $periode)
-                                <th class="text-right pr-2">{{ $periode }}</th>
+                                <th class="pr-2">{{ $periode }}</th>
                                 @endforeach
                             </tr>   
                         </thead>
@@ -268,11 +268,11 @@
                         <canvas style="height: 250px" id="chartProfit"></canvas>
                     </div>
                     <table class="col-span-3 md:col-span-2 lg:h-full row-span-2 rounded-lg shadow-md overflow-auto md:overflow-hidden bg-white p-2">
-                        <thead class="text-white" style="background-image: linear-gradient(136deg, #009efd 0%, #f900fd 100%);">
+                        <thead class="text-white text-right text-base" style="background-image: linear-gradient(136deg, #009efd 0%, #f900fd 100%);">
                             <tr>
-                                <th class="p-2">Rasio Keuangan</th>
+                                <th class="p-2 text-center">Rasio Keuangan</th>
                                 @foreach($periodes as $periode)
-                                <th>{{ $periode }}</th>
+                                <th class="pr-2">{{ $periode }}</th>
                                 @endforeach
                             </tr>   
                         </thead>
@@ -364,11 +364,11 @@
                         <canvas style="height: 250px" id="chartPERPBV" ></canvas>
                     </div>
                     <table class="col-span-3 md:col-span-2 rounded-lg shadow-md overflow-auto md:overflow-hidden bg-white p-2">
-                        <thead class="text-white" style="background-image: linear-gradient(136deg, #009efd 0%, #f900fd 100%);">
+                        <thead class="text-white text-right text-base" style="background-image: linear-gradient(136deg, #009efd 0%, #f900fd 100%);">
                             <tr>
-                                <th class="p-2">Harga & Jumlah Saham</th>
+                                <th class="p-2 text-center">Harga & Jumlah Saham</th>
                                 @foreach($periodes as $periode)
-                                <th>{{ $periode }}</th>
+                                <th class="pr-2">{{ $periode }}</th>
                                 @endforeach
                             </tr>   
                         </thead>

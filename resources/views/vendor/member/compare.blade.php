@@ -202,7 +202,7 @@
                 </div>
                 <div style="font-size: 10px">
                     <div class="flex">
-                        <span class="w-1/6">*) DN</span><span class="w-2/6">Dividend Saham</span>
+                        <span class="w-1/6">*) DS</span><span class="w-2/6">Dividend Saham</span>
                         <span class="w-1/6"> DY</span><span class="w-2/6">Dividend Yield</span>
                     </div>
                     <p class="flex"><span class="w-1/6 pl-3"> DP</span><span>Dividend Payout</span></p>
@@ -244,7 +244,7 @@
                     @if(isset($items))
                     @foreach($items as $stock)
                         <div class="w-1/6 text-right  mx-0.5 pr-0.5">
-                            <div class="text-center mt-2 border-t-2 pt-3 border-gray-100 pt-1">
+                            <div class="text-center mt-2 border-t-2 border-gray-100 pt-1">
                                 <button data-code="{{ $stock['ticker'] }}" class="bg-red rounded mx-auto p-1 text-white btn-delete">
                                     <svg class="h-4 w-4 md:h-6 md:w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                       <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />

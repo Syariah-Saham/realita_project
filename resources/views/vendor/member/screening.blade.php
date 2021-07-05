@@ -186,9 +186,9 @@
 							<tr>
 								<th class="p-2 w-4">#</th>
 								<th>Kode Emiten</th>
-								<th>Nama Emiten</th>
+								<th class="text-left">Nama Emiten</th>
 								@if($ratios->contains('cr')) 
-									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+									<th class="hover:bg-white text-right hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
 										<span>
 											CR
 										</span>
@@ -221,7 +221,7 @@
 									</th>
 								@endif
 								@if($ratios->contains('ds')) 
-									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+									<th class="hover:bg-white text-right hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
 										<span>
 											DS
 										</span>
@@ -254,7 +254,7 @@
 									</th> 
 								@endif
 								@if($ratios->contains('dy')) 
-									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+									<th class="hover:bg-white text-right hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
 										<span>
 											DY
 										</span>
@@ -287,7 +287,7 @@
 									</th> 
 								@endif
 								@if($ratios->contains('dp')) 
-									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+									<th class="hover:bg-white text-right hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
 										<span>
 											DP
 										</span>
@@ -320,7 +320,7 @@
 									</th> 
 								@endif
 								@if($ratios->contains('np')) 
-									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+									<th class="hover:bg-white text-right hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
 										<span>
 											NP
 										</span>
@@ -353,7 +353,7 @@
 									</th> 
 								@endif
 								@if($ratios->contains('bv')) 
-									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+									<th class="hover:bg-white text-right hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
 										<span>
 											BV
 										</span>
@@ -386,7 +386,7 @@
 									</th> 
 								@endif
 								@if($ratios->contains('dar')) 
-									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+									<th class="hover:bg-white text-right hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
 										<span>
 											DAR
 										</span>
@@ -419,7 +419,7 @@
 									</th> 
 								@endif
 								@if($ratios->contains('der')) 
-									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+									<th class="hover:bg-white text-right hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
 										<span>
 											DER
 										</span>
@@ -452,7 +452,7 @@
 									</th> 
 								@endif
 								@if($ratios->contains('roa')) 
-									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+									<th class="hover:bg-white text-right hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
 										<span>
 											ROA
 										</span>
@@ -485,7 +485,7 @@
 									</th> 
 								@endif
 								@if($ratios->contains('roe')) 
-									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+									<th class="hover:bg-white text-right hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
 										<span>
 											ROE
 										</span>
@@ -518,7 +518,7 @@
 									</th> 
 								@endif
 								@if($ratios->contains('npm')) 
-									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+									<th class="hover:bg-white text-right hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
 										<span>
 											NPM
 										</span>
@@ -551,7 +551,7 @@
 									</th> 
 								@endif
 								@if($ratios->contains('per')) 
-									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+									<th class="hover:bg-white text-right hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
 										<span>
 											PER
 										</span>
@@ -584,7 +584,7 @@
 									</th> 
 								@endif
 								@if($ratios->contains('pbv')) 
-									<th class="hover:bg-white hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
+									<th class="hover:bg-white text-right hover:bg-opacity-30 th-ratio transition duration-200 cursor-pointer">
 										<span>
 											PBV
 										</span>
