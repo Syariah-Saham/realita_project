@@ -21,6 +21,10 @@ use Illuminate\Http\Request;
 
 Route::get('/', [LandingController::class , 'index']);
 
+Route::get('/debug-sentry', function () {
+    throw new Exception('My first Sentry error!');
+});
+
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');

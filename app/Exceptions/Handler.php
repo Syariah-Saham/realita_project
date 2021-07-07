@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Throwable;
 
 class Handler extends ExceptionHandler
 {
@@ -25,6 +26,11 @@ class Handler extends ExceptionHandler
         'password_confirmation',
     ];
 
+    public function report(Throwable $exception)
+    {
+
+    }
+
     /**
      * Register the exception handling callbacks for the application.
      *
@@ -32,6 +38,11 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        //
+        $this->reportable(function (Throwable $exception) {
+            if (app()->bound('sentry') && $this->shouldReport($exception)) {
+                app('sentry')->captureException($exception);
+            }
+            parent::report($exception);
+        });
     }
 }
