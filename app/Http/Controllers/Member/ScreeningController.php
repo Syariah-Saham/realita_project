@@ -91,6 +91,9 @@ class ScreeningController extends Controller
               if($item === null) {
                 return null;
               } else {
+                if($key === 'roe') {
+                  return (int)$item / 100;
+                }
                 return $item;
               }
             }
@@ -103,7 +106,7 @@ class ScreeningController extends Controller
       if($package_name === 'FREE!') {
         $query = $this->query_free($query);
       }
-
+      
       $ratios = collect([]);
       foreach ($query as $key => $value) {
         if(!Str::contains($key , 'option') && $key !== '_token' && $value !== null) {
