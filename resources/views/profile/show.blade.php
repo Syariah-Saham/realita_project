@@ -11,8 +11,10 @@
                 $package = Auth::user()->member->package;
             @endphp
 
+            <div class="p-5 md:p-0">
                 <h2 class="text-lg font-semibold text-gray-800">Paket Anda</h2>
-                <p class="text-sm">Anda sedang berlangganan {{ $package->name }} sejak {{ $package->created_at->diffForHumans() }}</p>
+                <p class="text-sm">Anda sedang berlangganan {{ $package->name }} sejak {{ Auth::user()->created_at->diffForHumans() }}</p>
+            </div>
 
                 <x-jet-section-border />
 

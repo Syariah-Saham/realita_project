@@ -33,7 +33,7 @@
             @livewire('navigation-dropdown')
 
             <!-- Page Content -->
-            <main class="overflow-y-auto h-screen">
+            <main class="overflow-y-auto h-screen pb-20 lg:pb-10">
                 {{ $slot }}
             </main>
         </div>

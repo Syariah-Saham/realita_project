@@ -1,10 +1,10 @@
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        {{ __('Profile Information') }}
+        {{ __('Profil') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Update your account\'s profile information and email address.') }}
+        {{ __('Update informasi profil dan email akun Anda bisa melalui form berikut ini.') }}
     </x-slot>
 
     <x-slot name="form">
@@ -24,7 +24,7 @@
                                     reader.readAsDataURL($refs.photo.files[0]);
                             " />
 
-                <x-jet-label for="photo" value="{{ __('Photo') }}" />
+                <x-jet-label for="photo" value="{{ __('Foto') }}" />
 
                 <!-- Current Profile Photo -->
                 <div class="mt-2" x-show="! photoPreview">
@@ -39,12 +39,12 @@
                 </div>
 
                 <x-jet-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
-                    {{ __('Select A New Photo') }}
+                    {{ __('Unggah Foto') }}
                 </x-jet-secondary-button>
 
                 @if ($this->user->profile_photo_path)
                     <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
-                        {{ __('Remove Photo') }}
+                        {{ __('Hapus Foto') }}
                     </x-jet-secondary-button>
                 @endif
 
@@ -69,11 +69,11 @@
 
     <x-slot name="actions">
         <x-jet-action-message class="mr-3" on="saved">
-            {{ __('Saved.') }}
+            {{ __('Tersimpan.') }}
         </x-jet-action-message>
 
         <x-jet-button wire:loading.attr="disabled" wire:target="photo">
-            {{ __('Save') }}
+            {{ __('Simpan') }}
         </x-jet-button>
     </x-slot>
 </x-jet-form-section>
