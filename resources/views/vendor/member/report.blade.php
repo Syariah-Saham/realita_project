@@ -111,7 +111,7 @@
                             </tr>   
                         </thead>
                         <tbody>
-                            <tr class="text-green-500">
+                            <tr class="text-green-500 text-left">
                                 <th class="p-2">Aset</th>
                                 @foreach($assets['total'] as $asset)
                                     <th class="text-right pr-2">{{ $asset }}</th>
@@ -141,7 +141,7 @@
                                     @endif
                                 @endforeach
                             </tr>
-                            <tr class="text-red-500">
+                            <tr class="text-red-500 text-left">
                                 <th class="p-2">Liabilitas</th>
                                 @foreach($liabilities['total'] as $data)
                                     <th class="text-right pr-2">{{ $data }}</th>
@@ -171,14 +171,14 @@
                                     @endif
                                 @endforeach
                             </tr>
-                            <tr class="text-indigo-500">
+                            <tr class="text-indigo-500 text-left">
                                 <th class="p-2">Ekuitas</th>
                                 @foreach($equity['total'] as $data)
                                     <th class="text-right pr-2">{{ $data }}</th>
                                 @endforeach
                             </tr>
                             <tr>
-                                <td class="p-2">Pemilik entitas produk</td>
+                                <td class="p-2">Pemilik entitas induk</td>
                                 @foreach($equity['parent'] as $data)
                                     <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
@@ -284,19 +284,19 @@
                                 @endforeach
                             </tr>
                             <tr>
-                                <td class="p-2">Dividen Saham (Rp)</td>
+                                <td class="p-2">Dividend Saham (Rp)</td>
                                 @foreach($ratios['dn'] as $data)
                                     <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
-                                <td class="p-2">Dividen Yield (%)</td>
+                                <td class="p-2">Dividend Yield (%)</td>
                                 @foreach($ratios['dy'] as $data)
                                     <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
-                                <td class="p-2">Dividen Payout (%)</td>
+                                <td class="p-2">Dividend Payout (%)</td>
                                 @foreach($ratios['dp'] as $data)
                                     <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach

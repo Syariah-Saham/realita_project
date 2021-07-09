@@ -113,7 +113,7 @@
                 <div class="flex">
                     <div class="w-1/6 font-bold">
                         <p class="my-1 md:py-2">Emiten</p>
-                        <p class="my-1">NP</p>
+                        <p class="my-1">EPS</p>
                         <p class="my-1">BV(Rp)</p>
                         <p class="my-1">PER(x)</p>
                         <p class="my-1">PBV(x)</p>
@@ -135,7 +135,7 @@
                 </div>
                 <div style="font-size: 10px">
                     <div class="flex">
-                        <span class="w-1/6">*) NP</span><span class="w-2/6">Laba Bersih</span>
+                        <span class="w-1/6">*) EPS</span><span class="w-2/6">Laba Bersih per Saham</span>
                         <span class="w-1/6"> BV</span><span class="w-2/6">Nilai Buku</span>
                     </div>
                     <div class="flex">
