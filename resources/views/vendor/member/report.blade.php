@@ -326,13 +326,13 @@
                                 @endforeach
                             </tr>
                             <tr>
-                                <td class="p-2">Return of Assets (%)</td>
+                                <td class="p-2">Return on Assets (%)</td>
                                 @foreach($ratios['roa'] as $data)
                                     <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach
                             </tr>
                             <tr>
-                                <td class="p-2">Return of Equity (%)</td>
+                                <td class="p-2">Return on Equity (%)</td>
                                 @foreach($ratios['roe'] as $data)
                                     <td class="text-right pr-2">{{ $data }}</td>
                                 @endforeach

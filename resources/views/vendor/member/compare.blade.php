@@ -102,9 +102,9 @@
                 <div style="font-size: 10px">
                     <div class="flex">
                         <span class="w-1/6">*) NPM</span><span class="w-2/6">Net Profit Margin</span>
-                        <span class="w-1/6"> ROA</span><span class="w-2/6">Return of Asset</span>
+                        <span class="w-1/6"> ROA</span><span class="w-2/6">Return on Asset</span>
                     </div>
-                    <p class="flex"><span class="w-1/6 pl-3">RoE</span><span>Return of Equity</span></p>
+                    <p class="flex"><span class="w-1/6 pl-3">RoE</span><span>Return on Equity</span></p>
                 </div>
             </div>
 

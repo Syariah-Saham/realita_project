@@ -4,6 +4,7 @@
 	<div class="py-4 px-4 pb-12">
         <div class="max-w-7xl md:px-4 sm:px-6 lg:px-8 pb-20">
         	<div id="package" user-package="{{ Auth::user()->member->package->name }}"></div>
+			<div id="maxRatio" user-ratio="{{ Auth::user()->member->package->screening }}" ></div>
         	<div class="text-center">
 	            <img src="{{ asset('asset/landing/screening_saham.svg') }}" alt="illustrasi" class="w-4/5 md:w-1/2 mb-4 mx-auto">
 				<h1 class="text-2xl font-bold text-gray-600">Screening Fundamental</h1>
@@ -769,6 +770,7 @@
 
 	<script>
 		const package = document.getElementById('package').getAttribute('user-package');
+		const maxRatio = document.getElementById('maxRatio').getAttribute('user-ratio');
 		const ratios  = document.querySelectorAll('.ratio');
 		const inputs  = document.querySelectorAll('input[type="number"]');
 		const thRatio = document.querySelectorAll('th.th-ratio');
@@ -778,8 +780,8 @@
 				item.lastElementChild.submit();
 			})
 		})
-
-		if(package.includes('FREE') || package.includes('Basic')) {
+		
+		if(package.includes('FREE')) {
 			ratios.forEach(element => {
 				let attr = element.getAttribute('data-ratio');
 				if(attr !== 'per' && attr !== 'pbv') {
@@ -788,7 +790,7 @@
 					children[2].lastElementChild.disabled = true;
 				}
 			})
-		} else if(package.includes('Personal')) {
+		} else if(package.includes('Personal') || package.includes('Basic')) {
 			let storeRatio = [];
 			ratios.forEach(element => {
 				let attr = element.getAttribute('data-ratio');
@@ -803,10 +805,10 @@
 							storeRatio.push(i.name);
 						};
 
-						if(storeRatio.length >= 5 && i.value === '') {
+						if(storeRatio.length >= (maxRatio-1) && i.value === '') {
 							i.disabled = true;
 							i.parentElement.parentElement.children[1].disabled = true;
-						} else if(storeRatio.length < 5) {
+						} else if(storeRatio.length <= (maxRatio - 1)) {
 							i.disabled = false;
 							i.parentElement.parentElement.children[1].disabled = false;
 						}

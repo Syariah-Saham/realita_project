@@ -32,7 +32,7 @@
 	                        <li class="my-1 flex flex-row">
 	                        	<img src="{{ asset('asset/landing/bullet-icon.svg') }}" class="inline-block h-4 md:h-6 transform mr-2" alt="Paket Realita Syariah Saham Indonesia">
 	                            <span>
-			                        @if(Str::contains($package->name , 'FREE') || Str::contains($package->name , 'Basic'))
+			                        @if(Str::contains($package->name , 'FREE') )
 		                                Free Screening Ratio PBV dan PER Emiten
 			                        @elseif(Str::contains($package->name , 'Expert'))
 	                                    Free Screening All Ratio
