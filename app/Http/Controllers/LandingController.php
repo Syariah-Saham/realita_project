@@ -25,5 +25,17 @@ class LandingController extends Controller
           'packages' => $packages,
       ]);
     }
+
+    public function contact(Request $request)
+    {
+      $request->validate([
+        'email' => 'required|email',
+        'name' => 'required|string|min:2|max:30',
+        'message' => 'required|string|min:2|max:1000',
+      ]);
+
+      $link = 'mailto:info@realita.syariahsaham.id?subject=Info Realita&body=' . $request->message;
+      return redirect($link);
+    }
     	
 }

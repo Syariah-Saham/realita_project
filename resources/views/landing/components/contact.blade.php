@@ -5,9 +5,10 @@
 		</div>
 		<div class="md:w-1/2 text-center">
 			<h1 class="title-section text-xl md:text-3xl font-black">Hubungi <span style="text-transform: capitalize;">kami</span></h1>
-			<form class="mt-6">
-				<input type="text" class="form-input border-2 border-gray-300" placeholder="Masukkan Email ....">
-				<input type="text" class="form-input border-2 border-gray-300" placeholder="Masukkan Nama ....">
+			<form class="mt-6" action="{{ url('/contact') }}" method="post">
+				@csrf
+				<input type="text" name="email" class="form-input border-2 border-gray-300" placeholder="Masukkan Email ....">
+				<input type="text" name="name" class="form-input border-2 border-gray-300" placeholder="Masukkan Nama ....">
 				<textarea name="message" id="message" rows="6" class="form-input border-2 border-gray-300"></textarea>
 				<button class="py-1 px-6 text-white uppercase font-bold rounded-full">Kirim</button>
 			</form>

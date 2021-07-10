@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', [LandingController::class , 'index']);
+Route::post('contact' , [LandingController::class , 'contact']);
 
 Route::get('/debug-sentry', function () {
     throw new Exception('My first Sentry error!');

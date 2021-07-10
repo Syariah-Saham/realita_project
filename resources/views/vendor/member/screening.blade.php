@@ -112,7 +112,7 @@
 						</div>
 					</div>
 					<div  data-ratio="roa" class="ratio filter-item flex flex-col md:flex-row gap-3 items-center">
-						<div class="w-full md:w-2/5">Return of Assets</div>
+						<div class="w-full md:w-2/5">Return on Assets</div>
 						<select name="option_roa" id="option" class="w-full md:w-1/5 text-xs form-input">
 							<option value="">- pilih -</option>
 							<option value="down">di bawah</option>
@@ -124,7 +124,7 @@
 						</div>
 					</div>
 					<div  data-ratio="roe" class="ratio filter-item flex flex-col md:flex-row gap-3 items-center">
-						<div class="w-full md:w-2/5">Return of Equity</div>
+						<div class="w-full md:w-2/5">Return on Equity</div>
 						<select name="option_roe" id="option" class="w-full md:w-1/5 text-xs form-input">
 							<option value="">- pilih -</option>
 							<option value="down">di bawah</option>
