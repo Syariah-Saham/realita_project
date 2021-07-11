@@ -21,7 +21,7 @@ class MemberController extends Controller
     */
     public function index () 
     {
-      $members = User::where('role_id' , 2)->where('email_verified_at' , '!=' , null)->paginate(10);
+      $members = User::where('role_id' , 2)->where('email_verified_at' , '!=' , null)->paginate(15);
       return view('vendor.admin.member' , ['members' => $members]);
     }
       

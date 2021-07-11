@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Package;
 use App\Models\Payment;
+use App\Models\Member;
 
 class PackageController extends Controller
 {
@@ -98,6 +99,26 @@ class PackageController extends Controller
    		$package->delete();
    		return redirect(url()->previous())->with('delete' , 'Data berhasil dihapus!');
    	}
+
+
+
+
+	/**
+   	  * route: admin/package/{package}
+   	  * method: get
+   	  * params: package
+   	  * description: 
+   	    * 	this method for show detail package
+   	  * @return : @var view
+   	*/	
+	public function detail(Request $request , Package $package)
+	{
+		$members = Member::where('package_id' , $package->id)->paginate(15);
+		return view('vendor.admin.package-detail' , [
+			'package' => $package,
+			'members' => $members,
+		]);
+	}
 
 
    	
