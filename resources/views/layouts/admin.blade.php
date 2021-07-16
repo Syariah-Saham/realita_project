@@ -29,11 +29,11 @@
 	
         @include('vendor.admin.components.sidebar')
 
-	<div id="content" class="min-h-screen w-full right-0 fixed bg-gray-100"  style="transition: 1.35s;transition-timing-function: ease-in-out;">
+	<div id="content" class="min-h-screen right-0 fixed bg-gray-100" >
 	    @livewire('navigation-dropdown')
 
 	    <!-- Page Content -->
-	    <main class="overflow-y-auto h-screen px-1 md:px-4 pt-4 pb-20">
+	    <main class="overflow-y-auto h-screen pl-10 pt-5 pb-20 lg:pb-10 w-full">
 			@yield('body')
 	    </main>
 	</div>
@@ -93,6 +93,11 @@
 	    const smallSidebar = document.querySelector('aside.small-sidebar');
 	    const content = document.getElementById('content');
 
+		window.addEventListener('load' , () => {
+			sidebar.style.transition = '1.2s ease-in-out';
+			content.style.transition = '1.35s ease-in-out';
+		})
+		
 	    let status = window.sessionStorage.getItem('sidebar');
 	    
 	    if(!status) { window.sessionStorage.setItem('sidebar' , 'active') }
@@ -102,13 +107,15 @@
 	        smallSidebar.classList.remove('invisible');
 	        btnSidebar.style.transform = "rotate(-540deg)";
 	        content.classList.add('md:pl-10');
-	        content.classList.remove('md:w-3/4');
-	        sidebar.classList.add('invisible');
+			content.classList.add('w-full');
+			content.classList.remove('md:w-3/4');
+			sidebar.classList.add('invisible');
 	    } else {
 	        smallSidebar.style.transitionDelay = '1.2s';
 	        smallSidebar.classList.add('invisible');
 	        content.classList.remove('md:pl-10');
 	        content.classList.add('md:w-3/4');
+			content.classList.remove('w-full');
 	        sidebar.style.transition = '0s;'
 	        sidebar.classList.remove('invisible');
 	        setTimeout(() => {
@@ -130,6 +137,7 @@
 	        sidebar.classList.toggle('invisible');
 	        smallSidebar.classList.toggle('invisible');
 	        content.classList.toggle('md:w-3/4');
+			content.classList.toggle('w-full');
 	    });
 
 	    

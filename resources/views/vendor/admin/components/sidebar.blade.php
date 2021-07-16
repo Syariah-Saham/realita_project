@@ -24,7 +24,7 @@
 	}
 @endphp
 
-<button id="btnSidebar" style="transition: .6s ease-in-out; outline: none" class="bg-white text-green-500 fixed z-50 h-10 w-10 rounded ml-1 mt-2 hidden rounded-full p-2 border-2 border-green-200 md:block">
+<button id="btnSidebar" style="transition: .6s ease-in-out; outline: none" class="bg-white text-green-500 fixed z-50 h-10 w-10 ml-1 mt-2 hidden rounded-full p-2 border-2 border-green-200 md:block">
 	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 	  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
 	</svg>

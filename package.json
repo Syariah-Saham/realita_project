@@ -8,7 +8,7 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "css:dashboard": "npx tailwindcss-cli@latest build ./resources/css/dashboard.css -o ./public/css/dashboard.css"
+        "css:dashboard": "npx tailwindcss build resources/css/dashboard.css -o public/css/dashboard.css"
     },
     "devDependencies": {
         "@tailwindcss/ui": "^0.6.0",

@@ -32,12 +32,12 @@
     </head>
     <body class="font-sans antialiased bg-gray-100">
         @include('vendor.member.components.sidebar')
-
-        <div id="content" class="min-h-screen w-full right-0 fixed bg-gray-100" style="transition: 1.35s;transition-timing-function: ease-in-out;">
+        
+        <div id="content" class="min-h-screen right-0 fixed bg-gray-100">
             @livewire('navigation-dropdown')
 
             <!-- Page Content -->
-            <main class="overflow-y-auto h-screen pb-20 lg:pb-10">
+            <main class="overflow-y-auto h-screen pb-20 lg:pb-10 w-full">
                 {{ $slot }}
             </main>
         </div>
@@ -60,6 +60,8 @@
                         elememt.style.opacity = 1;
                         elememt.style.transform = 'translateY(0%)';
                 })
+                sidebar.style.transition = '1.2s ease-in-out';
+                content.style.transition = '1.35s ease-in-out';
             })
 
             let status = window.sessionStorage.getItem('sidebar');
@@ -71,6 +73,7 @@
                 smallSidebar.classList.remove('invisible');
                 btnSidebar.style.transform = "rotate(-540deg)";
                 content.classList.add('md:pl-10');
+                content.classList.add('w-full');
                 content.classList.remove('md:w-3/4');
                 sidebar.classList.add('invisible');
             } else {
@@ -78,6 +81,7 @@
                 smallSidebar.classList.add('invisible');
                 content.classList.remove('md:pl-10');
                 content.classList.add('md:w-3/4');
+                content.classList.remove('w-full');
                 sidebar.style.transition = '0s;'
                 sidebar.classList.remove('invisible');
                 setTimeout(() => {
@@ -99,6 +103,7 @@
                 sidebar.classList.toggle('invisible');
                 smallSidebar.classList.toggle('invisible');
                 content.classList.toggle('md:w-3/4');
+                content.classList.toggle('w-full');
             });
 
             btnCloses.forEach(btn => {

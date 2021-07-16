@@ -8,6 +8,8 @@ use App\Models\Sector;
 use App\Models\Industry;
 use App\Models\Stock;
 
+use App\Models\Setting;
+
 use App\Models\PeriodeReport;
 use App\Models\FinanceReport;
 
@@ -137,7 +139,10 @@ class ImportDataController extends Controller
     */
     public function index () 
     {
-    	return view('vendor.admin.import-data');
+      $maintenance_mode = Setting::where('key' , 'maintenance')->first()->value;
+    	return view('vendor.admin.import-data' , [
+        'maintenance_mode' => $maintenance_mode,
+      ]);
     }
     	
 
@@ -355,6 +360,19 @@ class ImportDataController extends Controller
       }
       dump("Selesai Import");
       return redirect(url()->previous())->with('complete' , 'Laporan Keuangan berhasil diimport ke database');
+    }
+
+
+
+
+
+
+
+
+    public function maintenance(Request $request)
+    {
+      Setting::where('key' , 'maintenance')->update(['value' => $request->mode]);
+      return redirect(url()->previous())->with('switch mode' , 'Mode Maintenance berhasil diubah!');
     }
       
       

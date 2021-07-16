@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\PeriodeReport;
 use App\Models\Statistic;
 use App\Models\Package;
+use App\Models\Setting;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,4 +59,13 @@ Artisan::command('statistic' , function() {
 		'personal' => $data[1],
 		'expert'   => $data[2],
 	]);
+});
+
+
+Artisan::command('maintenance' , function() {
+	Setting::create([
+		'key' => 'maintenance',
+		'value' => 'true',
+	]);
+
 });
