@@ -403,7 +403,7 @@ class ReportController extends Controller
           return redirect(url()->previous())->with('failed' , 'Data tidak ditemukan!');
       }
 
-      $reports = $stock->report->reverse()->take(5);
+      $reports = $stock->report->where('periode_id' , '!=' , 20)->last()->reverse()->take(5);
         $reports = $reports->reverse();
 
         $assets      = collect([]);
