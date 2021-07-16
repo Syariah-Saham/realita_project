@@ -32,9 +32,6 @@ class CreateMembersTable extends Migration
      */
     public function down()
     {
-        Schema::table('members' , function(Blueprint $table) {
-            $table->dropForeign(['package_id' , 'user_id']);
-        });
         Schema::dropIfExists('members');
     }
 }

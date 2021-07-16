@@ -159,21 +159,21 @@ class ReportController extends Controller
     $jsonPBV = [];
 
     foreach ($array as $data) {
-      array_push($cr, $data->current_ratio);
-      array_push($dn, $data->dividend_nominal);
+      array_push($cr, (float)$data->current_ratio);
+      array_push($dn, (float)$data->dividend_nominal);
       array_push($dy, $this->percent($data->dividend_yield));
       array_push($dp, $this->percent($data->dividend_payout));
-      array_push($np, $data->net_profit);
-      array_push($bv, $data->book_value);
-      array_push($dar, $data->debt_asset_ratio);
-      array_push($der, $data->debt_equity_ratio);
+      array_push($np, (float)$data->net_profit);
+      array_push($bv, (float)$data->book_value);
+      array_push($dar, (float)$data->debt_asset_ratio);
+      array_push($der, (float)$data->debt_equity_ratio);
       array_push($roa, $this->percent($data->return_of_assets));
       array_push($roe, $this->percent($data->return_of_equity));
       array_push($npm, $this->percent($data->net_profit_margin));
-      array_push($per, $data->price_to_earning_ratio);
-      array_push($pbv, $data->price_to_book_value);
-      array_push($jsonPER, $data->price_to_earning_ratio);
-      array_push($jsonPBV, $data->price_to_book_value);
+      array_push($per, (float)$data->price_to_earning_ratio);
+      array_push($pbv, (float)$data->price_to_book_value);
+      array_push($jsonPER, (float)$data->price_to_earning_ratio);
+      array_push($jsonPBV, (float)$data->price_to_book_value);
     }
 
     $this->per = $jsonPER;
@@ -250,13 +250,14 @@ class ReportController extends Controller
           array_push($code, $value->code_issuers);
         }
 
+        /* check the data is there or not */
         $stock = Stock::where('code_issuers' , $request->keyword)->first();
         if(!$stock) {
           return redirect(url()->previous())->with('failed' , 'Data tidak ditemukan!');
         }
 
+        /* check the search history of the user */
         $memberId = Auth::user()->member->id;
-
         $findHistory = HistoryReport::where('member_id' , $memberId)
                                     ->where('month' , date('m'))
                                     ->where('year' , date('Y'))
@@ -278,6 +279,7 @@ class ReportController extends Controller
         $historyItem = $history->item->count();
         $checkItem = $history->item->where('stock_id' , $stock->id)->count();
 
+        /* create or redirect based on user history */
         if($historyItem < $maxEmiten) {
           if(!$checkItem) {
             HistoryItem::create([
@@ -291,7 +293,9 @@ class ReportController extends Controller
           } 
         }
         
-        $reports = $stock->report->reverse()->take(5);
+
+        /* manage financial reports */
+        $reports = $stock->report->where('periode_id' , '!=' , 20)->reverse()->take(5);
         $reports = $reports->reverse();
 
         $assets      = collect([]);
@@ -311,13 +315,13 @@ class ReportController extends Controller
           $ratios->push($report->ratio);
           $costs->push($report->coststock);
         }
+        
         $assets      = $this->setAsset($assets);
         $liabilities = $this->setLiabilities($liabilities);
         $equity      = $this->setEquity($equity);
         $profits     = $this->setProfit($profits);
         $ratios      = $this->setRatio($ratios);
         $costs       = $this->setCostStock($costs);
-
         $json = $this->setJson();
         
         return view('vendor.member.report' , [

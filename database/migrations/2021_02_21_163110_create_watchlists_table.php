@@ -32,9 +32,6 @@ class CreateWatchlistsTable extends Migration
      */
     public function down()
     {
-        Schema::table('watchlists' , function(Blueprint $table) {
-            $table->dropForeign(['member_id' , 'stock_id']);
-        });
         Schema::dropIfExists('watchlists');
     }
 }

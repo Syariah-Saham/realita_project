@@ -34,7 +34,6 @@ Artisan::command('generate' , function() {
 		'name'     => 'admin',
 		'email'    => 'admin@email.com',
 		'password' => Hash::make('admin123'),
-		'status'   => 'confirmed',
 	]);
 
 	PeriodeReport::create(['year' => '2015']);

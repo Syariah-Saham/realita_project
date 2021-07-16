@@ -32,9 +32,6 @@ class CreateFinanceReportsTable extends Migration
      */
     public function down()
     {
-        Schema::table('finance_reports', function(Blueprint $table) {
-            $table->dropForeign(['periode_id' , 'stock_id']);
-        });
         Schema::dropIfExists('finance_reports');
     }
 }

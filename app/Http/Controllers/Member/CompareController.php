@@ -72,23 +72,23 @@ class CompareController extends Controller
         if(!$stock) {
           return redirect(url()->previous());
         }
-        $ratio = $stock->report->last()->ratio;
+        $ratio = $stock->report->where('periode_id' , '!=' , 20)->last()->ratio;
         $item = [
           'ticker' => $stock->code_issuers,
           'sharia' => $stock->sharia,
-          'cr'     => $ratio->current_ratio,
-          'dn'     => $ratio->dividend_nominal,
+          'cr'     => (float)$ratio->current_ratio,
+          'dn'     => (float)$ratio->dividend_nominal,
           'dy'     => $this->percent($ratio->dividend_yield),
           'dp'     => $this->percent($ratio->dividend_payout),
-          'np'     => $ratio->net_profit,
-          'bv'     => $ratio->book_value,
-          'dar'    => $ratio->debt_asset_ratio,
-          'der'    => $ratio->debt_equity_ratio,
+          'np'     => (float)$ratio->net_profit,
+          'bv'     => (float)$ratio->book_value,
+          'dar'    => (float)$ratio->debt_asset_ratio,
+          'der'    => (float)$ratio->debt_equity_ratio,
           'roa'    => $this->percent($ratio->return_of_assets),
           'roe'    => $this->percent($ratio->return_of_equity),
           'npm'    => $this->percent($ratio->net_profit_margin),
-          'per'    => $ratio->price_to_earning_ratio,
-          'pbv'    => $ratio->price_to_book_value,
+          'per'    => (float)$ratio->price_to_earning_ratio,
+          'pbv'    => (float)$ratio->price_to_book_value,
         ];
         $items->push($item);
       }

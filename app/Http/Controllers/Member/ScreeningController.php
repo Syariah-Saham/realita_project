@@ -135,19 +135,19 @@ class ScreeningController extends Controller
           $data2 = collect([
               'code_issuers'           => $data->report->stock->code_issuers,
               'name'                   => $data->report->stock->name,
-              'current_ratio'          => $data->current_ratio,
-              'dividend_nominal'       => $data->dividend_nominal,
+              'current_ratio'          => (float)$data->current_ratio,
+              'dividend_nominal'       => (float)$data->dividend_nominal,
               'dividend_yield'         => $this->percent($data->dividend_yield),
               'dividend_payout'        => $this->percent($data->dividend_payout),
-              'net_profit'             => $data->net_profit,
-              'book_value'             => $data->book_value,
-              'debt_asset_ratio'       => $data->debt_asset_ratio,
-              'debt_equity_ratio'      => $data->debt_equity_ratio,
+              'net_profit'             => (float)$data->net_profit,
+              'book_value'             => (float)$data->book_value,
+              'debt_asset_ratio'       => (float)$data->debt_asset_ratio,
+              'debt_equity_ratio'      => (float)$data->debt_equity_ratio,
               'return_of_assets'       => $this->percent($data->return_of_assets),
               'return_of_equity'       => $this->percent($data->return_of_equity),
               'net_profit_margin'      => $this->percent($data->net_profit_margin),
-              'price_to_earning_ratio' => $data->price_to_earning_ratio,
-              'price_to_book_value'    => $data->price_to_book_value
+              'price_to_earning_ratio' => (float)$data->price_to_earning_ratio,
+              'price_to_book_value'    => (float)$data->price_to_book_value
           ]);
           if($query['pbv'] !== null && $data->price_to_book_value != 0) {
             $collections->push($data2);

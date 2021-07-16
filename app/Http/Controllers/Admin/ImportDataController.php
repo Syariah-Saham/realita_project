@@ -259,6 +259,7 @@ class ImportDataController extends Controller
     public function setRatio ($report_id , $data) 
     {
         $status = FinanceRatio::where('report_id' , $report_id)->get()->count();
+
         if(!$status) {
             FinanceRatio::create([
                 'report_id'              => $report_id,
@@ -290,7 +291,7 @@ class ImportDataController extends Controller
     public function financeReport () 
     {
       ini_set('max_execution_time', 1000);
-      $response = file_get_contents('https://script.googleusercontent.com/macros/echo?user_content_key=4wybNkWk_-cht3f9IDw82RtmAuEa2mLBtFoldNFj_Tbx-ktrrdDaezAjzd-zm2u8Bqf8OMze14fEOy1mjVltSqzIu3TG3tnMm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnMCDl0xavnYPouZJrfBMKXVRwqVAYmOVvZqbmqP8xYxvM-ED8JwGqroyMhCraF5MTqCvbuHrKtbOpF1AuSET__ZDx-O8l86yHg&lib=MTT_G-6P_TeeXHK2lekWiEBJS-FelNKUK');
+      $response = file_get_contents('https://script.googleusercontent.com/macros/echo?user_content_key=u3MPmWFsn7bm3GJPzLqzXa2bJ8GK6Iq2A7pRWlY4jH5rMVJFZj6u-Z4UYdXfieSfZjfwbxNsm1rLrK71oxvJDQkI6l5WuVCKm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCfC5AkYNYU535nKZ-vyjxLaYhl4YtVo3XUdHlxYs3uZeljbCKRFTNIBBwINVBIVAjwj2fMfTjaIHunQVyD6GjTwZams4Dja-d24D7ghrsYgnRMvSrRweQw&lib=MTT_G-6P_TeeXHK2lekWiEBJS-FelNKUK');
       $data = json_decode($response)->records;
       dump('Sedang Mengambil Data. Proses ini memerlukan waktu beberapa saat. Mohon tunggu sebentar.');
       dump('Loading ....');
@@ -298,7 +299,7 @@ class ImportDataController extends Controller
         dump('Saham '. $stock->ticker .' ke => ' . ($key +1));
 
         $stock_id = Stock::where('code_issuers',$stock->ticker)->get()->first()->id;
-        $periode_id = PeriodeReport::where('year' , '2020')->get()->first()->id;
+        $periode_id = PeriodeReport::where('year' , '2021')->get()->first()->id;
         $report = FinanceReport::where('stock_id' , $stock_id)
                                 ->where('periode_id' , $periode_id);
         if($report->get()->count() === 0){

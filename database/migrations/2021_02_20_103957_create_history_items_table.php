@@ -32,9 +32,6 @@ class CreateHistoryItemsTable extends Migration
      */
     public function down()
     {
-        Schema::table('history_items' , function(Blueprint $table) {
-            $table->dropForeign(['history_id' , 'stock_id']);
-        });
         Schema::dropIfExists('history_items');
     }
 }

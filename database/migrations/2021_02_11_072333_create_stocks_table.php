@@ -39,9 +39,6 @@ class CreateStocksTable extends Migration
      */
     public function down()
     {
-        Schema::table('stocks' , function(Blueprint $table) {
-            $table->dropForeign(['sector_id' , 'industry_id']);
-        });
         Schema::dropIfExists('stocks');
     }
 }
