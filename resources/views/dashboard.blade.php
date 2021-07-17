@@ -6,11 +6,21 @@
     <div class="py-12">
         <div class="max-w-7xl px-4 sm:px-6 lg:px-8 pb-10">
 
-            <div class="bg-white rounded-lg shadow-lg p-4 mb-5 w-full md:w-1/2 lg:w-1/3">
+            <div class="bg-white rounded-lg shadow-lg p-4 mb-5 w-full md:w-1/2">
                 <h3 class="font-semibold text-base lg:text-lg">Hai, {{ Auth::user()->name }}!</h3>
                 <div class="text-sm md:text-base mb-2">
+                    @php
+                        $package_name = Auth::user()->member->package->name;
+                    @endphp
                     <p>Saat ini kamu sedang berlangganan paket: <span class="text-teal-400 font-bold">{{ Auth::user()->member->package->name }}</span></p>
-                    <p>Berlaku hingga : <span class="text-teal-400 text-italic">22 Februari 2022</span></p>
+
+                    <p>Berlaku hingga : 
+                        @if($package_name === 'FREE!' || $package_name === 'Expert')
+                            <span class="text-teal-400 text-italic">Selamanya!</span>
+                        @else
+                            <span class="text-teal-400 text-italic">{{ Auth::user()->member->finish_date }}</span>
+                        @endif
+                    </p>
                 </div>
                 <a href="{{ url('/member/package') }}" class="btn">Lihat Paket</a>
             </div>
