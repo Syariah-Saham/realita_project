@@ -2,10 +2,20 @@
 
     @include('vendor.member.components.modal' , ['session' => 'sorry'])
 
+
     <div class="py-12">
         <div class="max-w-7xl px-4 sm:px-6 lg:px-8 pb-10">
 
-        	<h1 class="text-2xl font-bold text-gray-600">Fitur Kami</h1>
+            <div class="bg-white rounded-lg shadow-lg p-4 mb-5 w-full md:w-1/2 lg:w-1/3">
+                <h3 class="font-semibold text-base lg:text-lg">Hai, {{ Auth::user()->name }}!</h3>
+                <div class="text-sm md:text-base mb-2">
+                    <p>Saat ini kamu sedang berlangganan paket: <span class="text-teal-400 font-bold">{{ Auth::user()->member->package->name }}</span></p>
+                    <p>Berlaku hingga : <span class="text-teal-400 text-italic">22 Februari 2022</span></p>
+                </div>
+                <a href="{{ url('/member/package') }}" class="btn">Lihat Paket</a>
+            </div>
+            
+        	<h1 class="text-2xl font-bold text-gray-600">Fitur Utama</h1>
         	<div class="flex flex-col md:flex-row gap-8 mt-4 mb-8">
                 <a href="{{ url('member/report') }}" class="w-full transition duration-300 transform hover:translate-y-1 ease-in-out md:w-1/3">
                     <div style="background-image: linear-gradient(136deg , #de11fd 0%, #35e49c 100%);" class="bg-gr shadow-md rounded-3xl flex flex-row items-center py-3 px-8  text-white">
@@ -34,7 +44,7 @@
         	</div>
 
             <h1 class="text-2xl font-bold text-gray-600 mt-5">Watchlist Saham</h1>
-            <form action="{{ url('member/dashboard') }}" method="post" class="bg-white rounded-lg shadow-lg p-4 my-3 w-full md:w-1/2 lg:w-1/3 flex flex-row">
+            <form action="{{ url('member/dashboard') }}" method="post" class="bg-white rounded-lg shadow-lg p-4 my-3 w-full md:w-1/2 lg:w-1/3 flex flex-row justify-center">
                 @csrf
                 <div >
                     <input type="text" id="watchlist" class="form-input @error('code') is-invalid @enderror" name="code" placeholder="Ketik Kode Emiten" value="{{ old('code') }}">
@@ -66,7 +76,7 @@
                     @endforeach
                 </div>
             @empty
-                <h1>Tidak ada Watchlist</h1>
+                <h1 class="font-semibold text-red-400 text-center my-6 w-full md:w-1/2 lg:w-1/3">Belum ada Watchlist!</h1>
             @endforelse
                 
         </div>

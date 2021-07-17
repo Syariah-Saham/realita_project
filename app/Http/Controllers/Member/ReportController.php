@@ -122,9 +122,9 @@ class ReportController extends Controller
 
     foreach ($array as $data) {
       array_push($revenue, $this->number($data->revenue));
-      array_push($revenue_growth, $data->revenue_growth . '%');
+      array_push($revenue_growth, $this->percent($data->revenue_growth));
       array_push($net_profit, $this->number($data->net_profit));
-      array_push($net_profit_growth, $data->net_profit_growth . '%');
+      array_push($net_profit_growth, $this->percent($data->net_profit_growth));
       array_push($json, $data->revenue);
       array_push($jsonnp, $data->net_profit);
     }
