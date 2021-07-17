@@ -101,6 +101,9 @@
 	    let status = window.sessionStorage.getItem('sidebar');
 	    
 	    if(!status) { window.sessionStorage.setItem('sidebar' , 'active') }
+		if(window.innerWidth <= 600) {
+			window.sessionStorage.setItem('sidebar' , 'nonactive');
+		}
 	    status = window.sessionStorage.getItem('sidebar');
 	    if(status === 'nonactive') {
 	        smallSidebar.style.transitionDelay = '1.2s';
