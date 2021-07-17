@@ -2,17 +2,28 @@
 @section('title'  , 'Import Data')
 @section('body')
 
-<h1>Import Data</h1>
+<form action="{{ url('admin/import/report') }}" method="post" class="md:w-1/3 bg-white p-4 rounded-lg shadow-md my-4">
+	@csrf
+	<h3 class="font-semibold">Import Laporan Keuangan</h3>
+	<div class="form-group">
+		<label for="url" class="form-label">URL Data</label>
+		<input type="url" class="form-input" value="{{ old('url') }}" name="url">
+		@include('vendor.components.error' , ['name' => 'url'])
+	</div>
+	<div class="form-group">
+		<label for="tahun" class="form-label">Tahun Laporan Keuangan</label>
+		<input type="number" name="periode" class="form-input" value="{{ old('periode') }}">
+		@include('vendor.components.error' , ['name' => 'periode'])
+		<span><a href="{{ url('/admin/periode/create') }}" class="text-xs text-gray-400 hover:underline">lihat daftar periode</a></span>
+	</div>
+	<button class="btn">Import Laporan Keuangan</button>
+</form>
 
 <form action="{{ url('admin/import/stock') }}" method="post">
 	@csrf
-	<button class="btn">Import Data Saham</button>
+	<button class="btn">Import Daftar Saham</button>
 </form>
 
-<form action="{{ url('admin/import/report') }}" method="post">
-	@csrf
-	<button class="btn">Import Laporan Keuangan</button>
-</form>
 
 <form action="{{ url('admin/import/maintenance') }}" method="post">
 	@csrf

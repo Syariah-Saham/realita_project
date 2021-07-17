@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Stock;
 use App\Models\Member;
+use App\Models\PeriodeReport;
 use Auth;
 
 class CompareController extends Controller
@@ -72,7 +73,9 @@ class CompareController extends Controller
         if(!$stock) {
           return redirect(url()->previous());
         }
-        $ratio = $stock->report->where('periode_id' , '!=' , 20)->last()->ratio;
+
+        $last_periode_id = PeriodeReport::where('year' , 2021)->first()->id;
+        $ratio = $stock->report->where('periode_id' , '!=' , $last_periode_id)->last()->ratio;
         $item = [
           'ticker' => $stock->code_issuers,
           'sharia' => $stock->sharia,

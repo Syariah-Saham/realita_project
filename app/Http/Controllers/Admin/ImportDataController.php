@@ -293,18 +293,40 @@ class ImportDataController extends Controller
         * this method will request api for get data report
       * @return : @var redirect
     */
-    public function financeReport () 
+    public function financeReport (Request $request) 
     {
-      ini_set('max_execution_time', 1000);
-      $response = file_get_contents('https://script.googleusercontent.com/macros/echo?user_content_key=u3MPmWFsn7bm3GJPzLqzXa2bJ8GK6Iq2A7pRWlY4jH5rMVJFZj6u-Z4UYdXfieSfZjfwbxNsm1rLrK71oxvJDQkI6l5WuVCKm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCfC5AkYNYU535nKZ-vyjxLaYhl4YtVo3XUdHlxYs3uZeljbCKRFTNIBBwINVBIVAjwj2fMfTjaIHunQVyD6GjTwZams4Dja-d24D7ghrsYgnRMvSrRweQw&lib=MTT_G-6P_TeeXHK2lekWiEBJS-FelNKUK');
+      $request->validate([
+        'url' => 'required|string',
+        'periode' => 'required|numeric',
+      ]);
+
+      /* check data periode is exist or not */
+      $check_periode = PeriodeReport::where('year' , $request->periode)->count();
+      if(!$check_periode) {
+        PeriodeReport::create(['year' => $request->periode]);
+      }
+
+      ini_set('max_execution_time', 2000);
+
+      /* 
+        url sheet before 
+      
+        https://script.googleusercontent.com/macros/echo?user_content_key=u3MPmWFsn7bm3GJPzLqzXa2bJ8GK6Iq2A7pRWlY4jH5rMVJFZj6u-Z4UYdXfieSfZjfwbxNsm1rLrK71oxvJDQkI6l5WuVCKm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCfC5AkYNYU535nKZ-vyjxLaYhl4YtVo3XUdHlxYs3uZeljbCKRFTNIBBwINVBIVAjwj2fMfTjaIHunQVyD6GjTwZams4Dja-d24D7ghrsYgnRMvSrRweQw&lib=MTT_G-6P_TeeXHK2lekWiEBJS-FelNKUK
+      */
+      
+      /* get data form sheet */
+      $response = file_get_contents($request->url);
       $data = json_decode($response)->records;
       dump('Sedang Mengambil Data. Proses ini memerlukan waktu beberapa saat. Mohon tunggu sebentar.');
       dump('Loading ....');
+
+      /* foreach data from sheet */
       foreach($data as $key => $stock) {
         dump('Saham '. $stock->ticker .' ke => ' . ($key +1));
 
+        /* find stock, periode and report. if not exist create new data. */
         $stock_id = Stock::where('code_issuers',$stock->ticker)->get()->first()->id;
-        $periode_id = PeriodeReport::where('year' , '2021')->get()->first()->id;
+        $periode_id = PeriodeReport::where('year' , $request->periode)->get()->first()->id;
         $report = FinanceReport::where('stock_id' , $stock_id)
                                 ->where('periode_id' , $periode_id);
         if($report->get()->count() === 0){
@@ -315,12 +337,15 @@ class ImportDataController extends Controller
         }
         $report_id = $report->first()->id;
 
+        /* check balance sheet is exists or not */
         $balance = BalanceSheet::where('report_id' , $report_id);
         if($balance->get()->count() === 0) {
             BalanceSheet::create(['report_id' => $report_id]);
         }
         $balance_id = $balance->first()->id;
 
+
+        /* get data from each stock */
         $asset      = collect([]);
         $liabilitas = collect([]);
         $equitas    = collect([]);
@@ -350,6 +375,8 @@ class ImportDataController extends Controller
           }
         }
 
+
+        /* insert data from sheet to database */
         $this->setAsset($balance_id , $asset);
         $this->setLiabilitas($balance_id , $liabilitas);
         $this->setEquity($balance_id , $equitas);

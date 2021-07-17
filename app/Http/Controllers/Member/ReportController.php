@@ -8,6 +8,7 @@ use App\Models\Stock;
 use App\Models\Member;
 use App\Models\HistoryReport;
 use App\Models\HistoryItem;
+use App\Models\PeriodeReport;
 use Auth;
 
 class ReportController extends Controller
@@ -44,7 +45,7 @@ class ReportController extends Controller
       array_push($current, $this->number($data->current));
       array_push($ncurrent, $this->number($data->n_current));
       array_push($total, $this->number($data->total));
-      array_push($growth, $data->growth . '%');
+      array_push($growth, $this->percent($data->growth));
       array_push($json, $data->total);
     }
 
@@ -70,7 +71,7 @@ class ReportController extends Controller
       array_push($current, $this->number($data->current));
       array_push($ncurrent, $this->number($data->n_current));
       array_push($total, $this->number($data->total));
-      array_push($growth, $data->growth . '%');
+      array_push($growth, $this->percent($data->growth));
       array_push($json, $data->total);
     }
 
@@ -96,7 +97,7 @@ class ReportController extends Controller
       array_push($parent, $this->number($data->parent));
       array_push($not_controller, $this->number($data->not_controller));
       array_push($total, $this->number($data->total));
-      array_push($growth, $data->growth . '%');
+      array_push($growth, $this->percent($data->growth));
       array_push($json, $data->total);
     }
 
@@ -295,7 +296,8 @@ class ReportController extends Controller
         
 
         /* manage financial reports */
-        $reports = $stock->report->where('periode_id' , '!=' , 20)->reverse()->take(5);
+        $last_periode_id = PeriodeReport::where('year' , 2021)->first()->id;
+        $reports = $stock->report->where('periode_id' , '!=' , $last_periode_id)->reverse()->take(5);
         $reports = $reports->reverse();
 
         $assets      = collect([]);
