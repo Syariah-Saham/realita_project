@@ -66,7 +66,7 @@
                     @endforeach
                 </div>
             @empty
-                <h1>Tidak ada Wathclist</h1>
+                <h1>Tidak ada Watchlist</h1>
             @endforelse
                 
         </div>

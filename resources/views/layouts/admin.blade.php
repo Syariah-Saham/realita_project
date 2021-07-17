@@ -29,11 +29,11 @@
 	
         @include('vendor.admin.components.sidebar')
 
-	<div id="content" class="min-h-screen right-0 fixed bg-gray-100" >
+	<div id="content" class="min-h-screen right-0 fixed bg-gray-100 w-full" >
 	    @livewire('navigation-dropdown')
 
 	    <!-- Page Content -->
-	    <main class="overflow-y-auto h-screen pl-10 pt-5 pb-20 lg:pb-10 w-full">
+	    <main class="overflow-y-auto h-screen px-3 md:px-0 md:pl-10 pt-5 pb-20 lg:pb-10 w-full">
 			@yield('body')
 	    </main>
 	</div>

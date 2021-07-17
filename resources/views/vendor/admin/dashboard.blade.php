@@ -5,7 +5,7 @@
 
 <div class="px-1 md:px-6 lg:px-8 my-4 mb-8">
 	<h1 class="text-2xl font-bold text-gray-600 mb-2 mt-6">Dashboard</h1>
-	<div class="flex flex-col md:flex-row gap-8 mt-4 mb-8">
+	<div class="flex flex-col md:flex-row gap-3 md:gap-8 mt-4 mb-8">
         <a href="{{ url('admin/package/5') }}" class="w-full transition duration-300 transform hover:translate-y-1 ease-in-out md:w-1/4">
             <div style="background-image: linear-gradient(136deg , #de11fd 0%, #35e49c 100%);" class="bg-gr shadow-md rounded-3xl flex flex-row items-center p-3 justify-between  text-white gap-3">
                 <svg class="w-2/5 max-h-20 justify-center"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
