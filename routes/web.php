@@ -7,6 +7,8 @@ use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
+use App\Helpers\UpdateScreening;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,10 @@ use Illuminate\Http\Request;
 
 Route::get('/', [LandingController::class , 'index']);
 Route::post('contact' , [LandingController::class , 'contact']);
+
+Route::get('/import-db' , function() {
+	UpdateScreening::index();
+});
 
 Route::get('/debug-sentry', function () {
     throw new Exception('My first Sentry error!');

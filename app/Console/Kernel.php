@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Models\Setting;
 
 class Kernel extends ConsoleKernel
 {
@@ -25,6 +26,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+
+        $maintenance = Setting::where('key', 'maintenance')->first()->value;
+        if($check === 'false') {
+            $schedule->command('update_screening')->everyMinute();
+        }
     }
 
     /**

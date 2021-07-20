@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 use App\Models\Role;
 use App\Models\User;
@@ -10,6 +11,8 @@ use App\Models\PeriodeReport;
 use App\Models\Statistic;
 use App\Models\Package;
 use App\Models\Setting;
+
+use App\Helpers\UpdateScreening;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,4 +71,21 @@ Artisan::command('maintenance' , function() {
 		'value' => 'true',
 	]);
 
+});
+
+
+Artisan::command('logging' , function() {
+	Log::info('Update Finance Report 2021 for screening');
+	Log::alert('Alert: Update finance report 2021 for screening');
+	Log::debug('Debug: Update finance report 2021 for screening');
+	Log::notice('Notice: Update finance report 2021 for screening');
+
+	Log::channel('screening')->info('This is testing for import screening');
+});
+
+Artisan::command('update_screening' , function() {
+	Log::channel('screening')->info('Import Screening for sheet');
+	
+	/* Import data from sheet */
+	UpdateScreening::index();
 });

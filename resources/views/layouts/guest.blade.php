@@ -22,9 +22,10 @@
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.js" defer></script>
     </head>
+    <h1 style="display: none">Realita adalah Rekap Laporan Keuangan Lima Tahunan.</h1>
         <div class="flex flex-col md:flex-row items-center h-screen">
             <div class="w-full hidden md:w-3/5 md:h-screen md:flex items-center" style="background: #ecfeff;">
-                <img src="{{ asset('asset/auth/auth-illustration.svg') }}" alt="illustrasi" class="w-3/4 mx-auto">
+                <img src="{{ asset('asset/auth/auth-illustration.svg') }}" alt="Realita Syariah Saham" class="w-3/4 mx-auto">
             </div>
 
             <div class="font-sans pt-6 md:pt-2 text-gray-900 antialiased w-full md:w-2/5 md:h-screen">
