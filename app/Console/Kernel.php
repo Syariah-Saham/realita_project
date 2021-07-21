@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
 
         $maintenance = Setting::where('key', 'maintenance')->first()->value;
-        if($check === 'false') {
+        if($maintenance === 'false') {
             $schedule->command('update_screening')->everyMinute();
         }
     }
