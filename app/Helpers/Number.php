@@ -21,4 +21,14 @@ class Number
     	}
     	return $number;
     }
+
+	public static function float($number)
+	{
+      return round($number * 100) / 100;
+	}
+
+	public static function percent($number)
+	{
+      return ($number * 100) . '%'; 
+	}
 }

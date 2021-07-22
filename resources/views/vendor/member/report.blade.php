@@ -363,30 +363,32 @@
                     <div class="col-span-3 md:col-span-1 rounded-lg shadow-md bg-white w-full p-2">
                         <canvas style="height: 250px" id="chartPERPBV" ></canvas>
                     </div>
-                    <table class="col-span-3 md:col-span-2 rounded-lg shadow-md overflow-auto md:overflow-hidden bg-white p-2">
-                        <thead class="text-white text-right text-base" style="background-image: linear-gradient(136deg, #009efd 0%, #f900fd 100%);">
-                            <tr>
-                                <th class="p-2 text-center">Harga & Jumlah Saham</th>
-                                @foreach($periodes as $periode)
-                                <th class="pr-2">{{ $periode }}</th>
-                                @endforeach
-                            </tr>   
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="p-2">Harga</td>
-                                @foreach($costs['cost'] as $data)
-                                    <td class="text-right pr-2">{{ $data }}</td>
-                                @endforeach
-                            </tr>
-                            <tr>
-                                <td class="p-2">Jumlah Saham (Juta)</td>
-                                @foreach($costs['total_stock'] as $data)
-                                    <td class="text-right pr-2">{{ $data }}</td>
-                                @endforeach
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="col-span-3 md:col-span-2">
+                        <table class="w-full rounded-lg shadow-md overflow-auto md:overflow-hidden bg-white  p-2">
+                            <thead class="text-white text-right text-base" style="background-image: linear-gradient(136deg, #009efd 0%, #f900fd 100%);">
+                                <tr>
+                                    <th class="p-2 text-center">Harga & Jumlah Saham</th>
+                                    @foreach($periodes as $periode)
+                                    <th class="pr-2">{{ $periode }}</th>
+                                    @endforeach
+                                </tr>   
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-2">Harga</td>
+                                    @foreach($costs['cost'] as $data)
+                                        <td class="text-right pr-2">{{ $data }}</td>
+                                    @endforeach
+                                </tr>
+                                <tr>
+                                    <td class="p-2">Jumlah Saham (Juta)</td>
+                                    @foreach($costs['total_stock'] as $data)
+                                        <td class="text-right pr-2">{{ $data }}</td>
+                                    @endforeach
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
             </div>
 
 

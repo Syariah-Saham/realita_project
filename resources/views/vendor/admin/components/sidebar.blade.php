@@ -10,7 +10,7 @@
 	} else if(path('admin/admin')) {
 		$admin = true;
 	} else if(path('admin/stock')) {
-		$stock = true;
+		$stock_path = true;
 	} else if(path('admin/report')) {
 		$report = true;
 	} else if(path('admin/import')) {
@@ -43,7 +43,7 @@
 				</svg>
 				<span>Dashboard</span>
 			</a>
-			<a href="{{ url('admin/stock') }}" class="@if(isset($stock)) active @endif">
+			<a href="{{ url('admin/stock') }}" class="@if(isset($stock_path)) active @endif">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 				  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
 				</svg>
@@ -121,7 +121,7 @@
 			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
 			</svg>
 		</a>
-		<a href="{{ url('admin/stock') }}" class="px-2 @if(isset($stock)) active @endif">
+		<a href="{{ url('admin/stock') }}" class="px-2 @if(isset($stock_path)) active @endif">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
 			</svg>

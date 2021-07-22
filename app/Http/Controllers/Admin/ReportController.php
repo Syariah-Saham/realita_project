@@ -15,6 +15,7 @@ use App\Models\Equity;
 use App\Models\ProfitLoss;
 use App\Models\FinanceRatio;
 use App\Models\CostStock;
+use App\Helpers\Number;
 
 class ReportController extends Controller
 {
@@ -335,21 +336,21 @@ class ReportController extends Controller
       $jsonPBV = [];
 
       foreach ($array as $data) {
-        array_push($cr, $data->current_ratio);
-        array_push($dn, $data->dividend_nominal);
-        array_push($dy, $this->percent($data->dividend_yield));
-        array_push($dp, $this->percent($data->dividend_payout));
-        array_push($np, $data->net_profit);
-        array_push($bv, $data->book_value);
-        array_push($dar, $data->debt_asset_ratio);
-        array_push($der, $data->debt_equity_ratio);
-        array_push($roa, $this->percent($data->return_of_assets));
-        array_push($roe, $this->percent($data->return_of_equity));
-        array_push($npm, $this->percent($data->net_profit_margin));
-        array_push($per, $data->price_to_earning_ratio);
-        array_push($pbv, $data->price_to_book_value);
-        array_push($jsonPER, $data->price_to_earning_ratio);
-        array_push($jsonPBV, $data->price_to_book_value);
+        array_push($cr, Number::float($data->current_ratio));
+        array_push($dn, Number::float($data->dividend_nominal));
+        array_push($dy, Number::percent($data->dividend_yield));
+        array_push($dp, Number::percent($data->dividend_payout));
+        array_push($np, Number::float($data->net_profit));
+        array_push($bv, Number::float($data->book_value));
+        array_push($dar, Number::float($data->debt_asset_ratio));
+        array_push($der, Number::float($data->debt_equity_ratio));
+        array_push($roa, Number::percent($data->return_of_assets));
+        array_push($roe, Number::percent($data->return_of_equity));
+        array_push($npm, Number::percent($data->net_profit_margin));
+        array_push($per, Number::float($data->price_to_earning_ratio));
+        array_push($pbv, Number::float($data->price_to_book_value));
+        array_push($jsonPER, Number::float($data->price_to_earning_ratio));
+        array_push($jsonPBV, Number::float($data->price_to_book_value));
       }
 
       $this->per = $jsonPER;

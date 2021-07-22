@@ -662,7 +662,7 @@
 								@if($ratios->contains('cr'))
 									<div class="flex text-xs md:text-sm">
 										<div class="w-15">CR</div>
-										<div>Current Ratio</div>
+										<div>Current Ratio (x) </div>
 									</div>
 								@endif
 								@if($ratios->contains('ds'))
@@ -674,38 +674,38 @@
 								@if($ratios->contains('dy'))
 									<div class="flex text-xs md:text-sm">
 										<div class="w-15">DY</div>
-										<div>Dividen Yield</div>
+										<div>Dividen Yield (%) </div>
 									</div>
 								@endif
 								@if($ratios->contains('dp'))
 									<div class="flex text-xs md:text-sm">
 										<div class="w-15">DP</div>
-										<div>Dividen Payout</div>
+										<div>Dividen Payout (%) </div>
 									</div>
 								@endif
 								@if($ratios->contains('np'))
 									<div class="flex text-xs md:text-sm">
 										<div class="w-15">NP</div>
-										<div>Laba bersih / saham</div>
+										<div>Laba bersih / saham (Rp)</div>
 									</div>
 								@endif
 								@if($ratios->contains('bv'))
 									<div class="flex text-xs md:text-sm">
 										<div class="w-15">BV</div>
-										<div>Nilai Buku</div>
+										<div>Nilai Buku (Rp) </div>
 									</div>
 								@endif
 								@if($ratios->contains('dar'))
 									<div class="flex text-xs md:text-sm">
 										<div class="w-15">DAR</div>
-										<div>Debt to Asset Ratio (%)</div>
+										<div>Debt to Asset Ratio (x)</div>
 									</div>
 								@endif
 
 								@if($ratios->contains('der'))
 									<div class="flex text-xs md:text-sm">
 										<div class="w-15">DER</div>
-										<div>Debt to Equity Ratio (%)</div>
+										<div>Debt to Equity Ratio (x)</div>
 									</div>
 								@endif
 								@if($ratios->contains('roa'))
@@ -729,13 +729,13 @@
 								@if($ratios->contains('per'))
 									<div class="flex text-xs md:text-sm">
 										<div class="w-15">PER</div>
-										<div>Price to Earning Ratio (%)</div>
+										<div>Price to Earning Ratio (x)</div>
 									</div>
 								@endif
 								@if($ratios->contains('pbv'))
 									<div class="flex text-xs md:text-sm">
 										<div class="w-15">PBV</div>
-										<div>Price to Book Value (%)</div>
+										<div>Price to Book Value (x)</div>
 									</div>
 								@endif
 							</p>
