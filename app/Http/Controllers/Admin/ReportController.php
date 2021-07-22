@@ -31,9 +31,16 @@ class ReportController extends Controller
     */
     public function index () 
     {
+      $data   = Stock::select('code_issuers')->get();
+      $code = [];
+      foreach ($data as $value) {
+        array_push($code, $value->code_issuers);
+      }
+      
       $reports = FinanceReport::latest()->paginate(50);
     	return view('vendor.admin.report' , [
         'reports' => $reports,
+        'codes'       => json_encode($code),
       ]);
     }
 
@@ -403,7 +410,8 @@ class ReportController extends Controller
           return redirect(url()->previous())->with('failed' , 'Data tidak ditemukan!');
       }
 
-      $reports = $stock->report->where('periode_id' , '!=' , 20)->last()->reverse()->take(5);
+       /* manage financial reports */
+      $reports = $stock->report->reverse()->take(5);
         $reports = $reports->reverse();
 
         $assets      = collect([]);

@@ -8,7 +8,58 @@
 <div class="container pb-20">
 	<h1 class="text-2xl font-bold text-gray-600">Laporan Keuangan</h1>
 
-	<a href="{{ url('/admin/report/create') }}" class="btn">Tambah Laporan Keuangan</a>
+
+	<div class="flex flex-col md:flex-row items-center gap-2">
+		<form id="form" action="{{ url('admin/report/search') }}">
+			<div id="listStocks" data-json="{{ $codes }}"></div>
+			<div class="w-54">
+				<div class="inline-block">
+					<input autocomplete="off" autofocus="true" type="text" id="inputKeyword" name="keyword" class="form-input rounded-full px-8" placeholder="Ketik kode emiten...">
+				</div>
+				<button style="background-image: linear-gradient(136deg, #2af598 0%, #009efd 100%);" class="text-white py-2 px-4 rounded relative transform translate-y-2">
+					<svg class="h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z" />
+					</svg>
+				</button>
+			</div>
+			<ul id="listKeyword" class="absolute z-10 bg-white transform translate-y-3 rounded shadow-md">
+            </ul>
+		</form>
+
+		<script>
+            const form = document.getElementById('form');
+            const input       = document.getElementById('inputKeyword');
+            const listKeyword = document.getElementById('listKeyword');
+            let codes         = document.getElementById('listStocks').getAttribute('data-json');
+            codes             = JSON.parse(codes);
+
+            input.addEventListener('keyup' , () => {
+                input.value = input.value.toUpperCase();
+
+                let resultCode = codes.filter(code => code.includes(input.value));
+                if(resultCode.length > 5) { resultCode.length = 5; }
+                listKeyword.innerHTML = '';
+                resultCode.forEach(code => {
+                    let li = document.createElement('li');
+                    li.className = 'px-6 py-3  w-72 cursor-pointer hover:bg-green-100';
+                    li.innerText = code;
+                    listKeyword.append(li);
+
+                    li.addEventListener('click' , () => {
+                        input.value = li.innerText;
+                        listKeyword.innerHTML = '';
+                        form.submit();
+                    })
+                })
+            });
+        </script>
+		
+		
+		<div>
+			<a href="{{ url('/admin/report/create') }}" class="btn">Tambah Laporan Keuangan</a>
+		</div>
+	</div>
+	
 	<table class="rounded shadow-lg w-full mt-4 overflow-hidden">
 		<thead class="bg-green-400 text-white">
 			<tr>
