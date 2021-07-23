@@ -93,7 +93,8 @@ class ScreeningController extends Controller
               if($item === null) {
                 return null;
               } else {
-                if($key === 'roe') {
+                $percent = collect([ 'roa', 'roe' , 'dy' , 'dp' , 'npm']);
+                if($percent->contains($key)) {
                   return (int)$item / 100;
                 }
                 return $item;
