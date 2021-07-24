@@ -11,14 +11,17 @@
                 <div class="text-sm md:text-base mb-2">
                     @php
                         $package_name = Auth::user()->member->package->name;
+                        $finish_date = Auth::user()->member->finish_date;
                     @endphp
                     <p>Saat ini kamu sedang berlangganan paket: <span class="text-teal-400 font-bold">{{ Auth::user()->member->package->name }}</span></p>
 
                     <p>Berlaku hingga : 
-                        @if($package_name === 'FREE!' || $package_name === 'Expert')
+                        @if($package_name === 'Expert' && $finish_date !== 'unlimited')
+                            <span class="text-teal-400 text-italic">Selamanya!</span>
+                        @elseif($package_name === 'FREE!' || $package_name === 'Expert')
                             <span class="text-teal-400 text-italic">Selamanya!</span>
                         @else
-                            <span class="text-teal-400 text-italic">{{ Auth::user()->member->finish_date }}</span>
+                            <span class="text-teal-400 text-italic">{{ $finish_date }}</span>
                         @endif
                     </p>
                 </div>
