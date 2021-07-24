@@ -19,7 +19,10 @@ use App\Helpers\Number;
 
 class ReportController extends Controller
 {
-    
+    public function insertPercent($number)
+    {
+      return $number / 100;
+    }
     
     
     /**
@@ -485,6 +488,105 @@ class ReportController extends Controller
         'profit' => $profit,
         'ratio' => $ratio,
       ]);
+    }
+
+
+
+
+
+
+    public function update(Request $request , Stock $stock , $periode) {
+      $request->validate([
+        'asset_current'          => 'required',
+        'asset_n_current'        => 'required',
+        'asset_total'            => 'required',
+        'asset_growth'           => 'required',
+        'liability_current'      => 'required',
+        'liability_n_current'    => 'required',
+        'liability_total'        => 'required',
+        'liability_growth'       => 'required',
+        'equity_parent'          => 'required',
+        'equity_not_controller'  => 'required',
+        'equity_total'           => 'required',
+        'equity_growth'          => 'required',
+        'revenue_total'          => 'required',
+        'revenue_growth'         => 'required',
+        'net_profit_total'       => 'required',
+        'net_profit_growth'      => 'required',
+        'current_ratio'          => 'required',
+        'dividend_nominal'       => 'required',
+        'dividend_yield'         => 'required',
+        'dividend_payout'        => 'required',
+        'net_profit'             => 'required',
+        'book_value'             => 'required',
+        'debt_asset_ratio'       => 'required',
+        'debt_equity_ratio'      => 'required',
+        'return_of_assets'       => 'required',
+        'return_of_equity'       => 'required',
+        'net_profit_margin'      => 'required',
+        'price_to_earning_ratio' => 'required',
+        'price_to_book_value'    => 'required',
+      ]);
+
+      // get periode
+      $periode = PeriodeReport::where('year' , $periode)->first();
+
+      // Get report
+      $report = $stock->report->where('periode_id' , $periode->id)->first();
+      
+      // Update balance
+      $balance = $report->balance;
+      $balance->asset->update([
+        'current'    => $request->asset_current,
+        'n_current'  => $request->asset_n_current,
+        'total'      => $request->asset_total,
+        'growth'     => $this->insertPercent($request->asset_growth),
+      ]);
+
+      $balance->liability->update([
+        'current'    => $request->liability_current,
+        'n_current'  => $request->liability_n_current,
+        'total'      => $request->liability_total,
+        'growth'     => $this->insertPercent($request->liability_growth),
+      ]);
+
+      $balance->equity->update([
+        'parent'         => $request->equity_parent,
+        'not_controller' => $request->equity_not_controller,
+        'total'          => $request->equity_total,
+        'growth'         => $this->insertPercent($request->equity_growth),
+      ]);
+
+
+      // Update profit loss table
+      $profit_loss = $report->profit;
+      $profit_loss->update([
+        'revenue'           => $request->revenue_total,
+        'revenue_growth'    => $this->insertPercent($request->revenue_growth),
+        'net_profit'        => $request->net_profit_total,
+        'net_profit_growth' => $this->insertPercent($request->net_profit_growth),
+      ]);
+
+
+      // Finance Ratio update
+      $ratio = $report->ratio;
+      $ratio->update([
+        'current_ratio'          => $request->current_ratio,
+        'dividend_nominal'       => $request->dividend_nominal,
+        'dividend_yield'         => $this->insertPercent($request->dividend_yield),
+        'dividend_payout'        => $this->insertPercent($request->dividend_payout),
+        'net_profit'             => $request->net_profit,
+        'book_value'             => $request->book_value,
+        'debt_asset_ratio'       => $request->debt_asset_ratio,
+        'debt_equity_ratio'      => $request->debt_equity_ratio,
+        'return_of_assets'       => $this->insertPercent($request->return_of_assets),
+        'return_of_equity'       => $this->insertPercent($request->return_of_equity),
+        'net_profit_margin'      => $this->insertPercent($request->net_profit_margin),
+        'price_to_earning_ratio' => $request->price_to_earning_ratio,
+        'price_to_book_value'    => $request->price_to_book_value,
+      ]);
+      
+      return redirect('admin/report')->with('update' , 'Data berhasil diupdate!');
     }
     	
 

@@ -3,8 +3,9 @@
 @section('body')
 
 <div class="flex flex-row gap-4 pb-20">
-	<form action="{{ url('/admin/report/create') }}" method="post" class="w-full">
+	<form action="{{ url('/admin/report/' . $stock->id . '/' . $periode->year) }}" method="post" class="w-full">
 		@csrf
+		@method('put')
 		<div class="bg-white rounded-xl shadow-lg p-4">
 			<h1 class="text-2xl font-bold text-gray-600">Edit Laporan Keuangan</h1>
 			<div class="flex flex-row gap-2">
