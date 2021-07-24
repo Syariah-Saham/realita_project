@@ -221,7 +221,7 @@ class ReportController extends Controller
         array_push($current, $this->number($data->current));
         array_push($ncurrent, $this->number($data->n_current));
         array_push($total, $this->number($data->total));
-        array_push($growth, $data->growth . '%');
+        array_push($growth, $this->percent($data->growth));
         array_push($json, $data->total);
       }
 
@@ -247,7 +247,7 @@ class ReportController extends Controller
         array_push($current, $this->number($data->current));
         array_push($ncurrent, $this->number($data->n_current));
         array_push($total, $this->number($data->total));
-        array_push($growth, $data->growth . '%');
+        array_push($growth, $this->percent($data->growth));
         array_push($json, $data->total);
       }
 
@@ -273,7 +273,7 @@ class ReportController extends Controller
         array_push($parent, $this->number($data->parent));
         array_push($not_controller, $this->number($data->not_controller));
         array_push($total, $this->number($data->total));
-        array_push($growth, $data->growth . '%');
+        array_push($growth, $this->percent($data->growth));
         array_push($json, $data->total);
       }
 
@@ -298,9 +298,9 @@ class ReportController extends Controller
 
       foreach ($array as $data) {
         array_push($revenue, $this->number($data->revenue));
-        array_push($revenue_growth, $data->revenue_growth . '%');
+        array_push($revenue_growth, $this->percent($data->revenue_growth));
         array_push($net_profit, $this->number($data->net_profit));
-        array_push($net_profit_growth, $data->net_profit_growth . '%');
+        array_push($net_profit_growth, $this->percent($data->net_profit_growth));
         array_push($json, $data->revenue);
         array_push($jsonnp, $data->net_profit);
       }
@@ -463,6 +463,28 @@ class ReportController extends Controller
     {
       $report->delete();
       return redirect(url()->previous())->with('destroy' , 'Data berhasil dihapus!');
+    }
+
+
+    public function edit(Request $request , Stock $stock , $periode)
+    {
+      $periode = PeriodeReport::where('year' , $periode)->first();
+      
+      $report = FinanceReport::where('stock_id' , $stock->id)
+                              ->where('periode_id' , $periode->id)
+                              ->first();
+      
+      $balance = $report->balance;
+      $profit = $report->profit;
+      $ratio = $report->ratio;
+               
+      return view('vendor.admin.report-edit' , [
+        'stock' => $stock,
+        'periode' => $periode,
+        'balance' => $balance,
+        'profit' => $profit,
+        'ratio' => $ratio,
+      ]);
     }
     	
 

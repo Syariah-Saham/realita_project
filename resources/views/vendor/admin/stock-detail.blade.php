@@ -8,7 +8,18 @@
             @php
                 $style = ($stock->sharia === 'true')  ? ['text-green-400' , 'bg-gr'] : ['text-red-400' , 'bg-red-400'];
             @endphp
-            <h1 class="text-center font-bold text-2xl bg-white p-2 rounded shadow-lg block w-48 mx-auto">Kode Saham <span class="text-white block w-full rounded mt-2 text-4xl py-2 font-black {{ $style[1] }}">{{ $stock->code_issuers }}</span></h1>
+            <div class="flex flex-col md:flex-row justify-center">
+                <h1 class="text-center font-bold text-2xl bg-white p-2 rounded shadow-lg block w-48 mx-2">Kode Saham <span class="text-white block w-full rounded mt-2 text-4xl py-2 font-black {{ $style[1] }}">{{ $stock->code_issuers }}</span></h1>
+                <div class="bg-white p-2 rounded shadow-lg block mx-2">
+                    <h3 class="text-center font-bold text-2xl">Daftar Tahun Laporan</h3>
+                    <div class="mt-2 mt-2">
+                        <p>Klik untuk edit</p>
+                        @foreach($periodes as $periode)
+                            <a href="{{ url('/admin/report/' . $stock->id . '/' . $periode . '/edit') }}" class="inline-block rounded text-white font-bold px-3 py-1 hover:opacity-80 transition duration-200 {{ $style[1] }}">{{ $periode }}</a>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
             <div id="dataJson" data-json="{{ $json }}"></div>
             <div class="flex flex-col md:flex-row gap-2 shadow-md bg-white p-4 mt-4">
                 <div class="md:w-1/2">
