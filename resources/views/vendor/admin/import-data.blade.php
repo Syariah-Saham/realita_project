@@ -2,6 +2,8 @@
 @section('title'  , 'Import Data')
 @section('body')
 
+@include('vendor.components.modal-delete')
+
 <form action="{{ url('admin/import/report') }}" method="post" class="md:w-1/3 bg-white p-4 rounded-lg shadow-md my-4">
 	@csrf
 	<h3 class="font-semibold">Import Laporan Keuangan</h3>
@@ -23,6 +25,7 @@
 	@csrf
 	<button class="btn">Import Daftar Saham</button>
 </form>
+	<button data-action="{{ url('admin/import/stock') }}" class="btn badge-delete">Reset Saham</button>
 
 
 <form action="{{ url('admin/import/maintenance') }}" method="post">

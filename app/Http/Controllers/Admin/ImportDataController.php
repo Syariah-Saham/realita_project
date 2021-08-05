@@ -158,7 +158,8 @@ class ImportDataController extends Controller
     */
     public function stock () 
     {
-      $response = file_get_contents('https://script.googleusercontent.com/macros/echo?user_content_key=DQCj7M-8vhvir9CwxCHSxzmpJpBRI4WHUDifuYpn-fhItrJCoIUcd3uVLZI5-Vbh5WYodDXIjvPJ_s7I3MukYzg-2BB43sbAm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNRPRDWCFEUPUCAvv5zCSIUaSC79J_nQZRP62EpFUWzOk31tQAom9XS_oaFYNXVtNTI4M6Joi2cBOcojD0Vgt6GwPrhXE4h8vQ&lib=MTT_G-6P_TeeXHK2lekWiEBJS-FelNKUK');
+      ini_set('max_execution_time', 6000);
+      $response = file_get_contents('https://script.googleusercontent.com/macros/echo?user_content_key=vjcHP_xEENxBQFebxDyOTOIGtLmwa3j0FFxdhJxJb8H-tAdf1OICAYE1O8TrRGJD3cGj8BOo9xMSwRns4txcdz7oOdwzlWJ-m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnPK76bXwNsDtYRaNlFHrlf9-U43CXrvlLrAH9zEoHdSj0qbAyAPsHhfihs5eG06RTld8uduLYkiZIT9G1n9LQ_0Cp1XKia6Wyt24D7ghrsYgnRMvSrRweQw&lib=MTT_G-6P_TeeXHK2lekWiEBJS-FelNKUK');
       $data = json_decode($response)->records;
       dump('Jumlah Data diinput => ' . count($data));
       $this->stocks = $data;
@@ -169,6 +170,17 @@ class ImportDataController extends Controller
       $this->setStock();
 
       return redirect(url()->previous())->with('complete' , 'Data Saham sudah berhasil diimport ke database');
+    }
+
+
+    /* 
+      * route: admin/import/stock
+      * method: delete
+    */
+    public function stockReset()
+    {
+      Stock::whereNotNull('id')->delete();
+      return redirect(url()->previous())->with('delete' , 'Data saham berhasil direset!');
     }
 
 
