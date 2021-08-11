@@ -25,28 +25,28 @@
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
-            <div class="block mt-4">
+            <div class="block mt-4 flex justify-between">
                 <label for="remember_me" class="flex items-center">
                     <input id="remember_me" type="checkbox" class="form-checkbox" name="remember">
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
-            </div>
-
-            <div class="my-4 text-center text-sm text-gray-600">
-                <a href="{{ route('register') }}" class="hover:underline">Belum Punya Akun? Daftar Sekarang</a>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
+                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Lupa Password?') }}
                     </a>
                 @endif
+            </div>
 
+            <div class="flex items-center justify-end mt-4">
+                <div class="my-4 text-right text-sm text-gray-600">
+                    <a href="{{ route('register') }}" class="hover:underline">Belum Punya Akun? Daftar Sekarang</a>
+                </div>
                 <x-jet-button class="ml-4">
                     {{ __('Login') }}
                 </x-jet-button>
             </div>
+
+            
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
