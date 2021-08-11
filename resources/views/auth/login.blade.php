@@ -32,6 +32,10 @@
                 </label>
             </div>
 
+            <div class="my-4 text-center text-sm text-gray-600">
+                <a href="{{ route('register') }}" class="hover:underline">Belum Punya Akun? Daftar Sekarang</a>
+            </div>
+
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
