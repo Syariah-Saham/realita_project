@@ -22,6 +22,7 @@ Route::get('/package' , function() {
 });
 
 Route::post('/register', [AuthControllerr::class , 'register']);
+Route::post('/login', [AuthControllerr::class , 'login']);
 
 Route::middleware(('auth:sanctum'))->group(function() {
     Route::post('/logout', [AuthControllerr::class, 'logout']);

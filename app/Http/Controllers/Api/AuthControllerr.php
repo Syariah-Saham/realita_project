@@ -32,6 +32,32 @@ class AuthControllerr extends Controller
         return $response;
     }
 
+    public function login(Request $request) {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
+
+        // check email
+        $user = User::where('email' , $request->email)->first();
+
+        // check pass
+        if(!$user || !Hash::check($request->password, $user->password)) {
+            return response([
+                'message' => 'Email or password invalid',
+            ] , 401);
+        }
+
+        $token = $user->createToken('syariahsaham')->plainTextToken;
+
+        $response = [
+            'user' => $user,
+            'token' => $token,
+        ];
+
+        return $response;
+    }
+
     public function logout(Request $request) {
         auth()->user()->tokens()->delete();
 
