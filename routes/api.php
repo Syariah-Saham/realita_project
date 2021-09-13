@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthControllerr;
+use App\Http\Controllers\Api\PackageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ Route::get('/package' , function() {
 
 Route::post('/register', [AuthControllerr::class , 'register']);
 Route::post('/login', [AuthControllerr::class , 'login']);
+ROute::get('/packages' , [PackageController::class , 'index']);
 
 Route::middleware(('auth:sanctum'))->group(function() {
     Route::post('/logout', [AuthControllerr::class, 'logout']);
