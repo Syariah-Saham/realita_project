@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthControllerr;
+use App\Http\Controllers\Api\DictionaryController;
 use App\Http\Controllers\Api\PackageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,11 @@ ROute::get('/packages' , [PackageController::class , 'index']);
 
 Route::middleware(('auth:sanctum'))->group(function() {
     Route::post('/logout', [AuthControllerr::class, 'logout']);
+
+    Route::prefix('/dictionary')->group(function() {
+        Route::get('/' , [DictionaryController::class , 'index']);
+
+    });
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
