@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AnnualReportController;
 use App\Http\Controllers\Api\AuthControllerr;
 use App\Http\Controllers\Api\DictionaryController;
 use App\Http\Controllers\Api\PackageController;
@@ -32,7 +33,10 @@ Route::middleware(('auth:sanctum'))->group(function() {
 
     Route::prefix('/dictionary')->group(function() {
         Route::get('/' , [DictionaryController::class , 'index']);
+    });
 
+    Route::prefix('/reports')->group(function() {
+        Route::get('/' , [AnnualReportController::class , 'index']);
     });
 });
 
