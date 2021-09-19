@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AnnualReportController;
 use App\Http\Controllers\Api\AuthControllerr;
 use App\Http\Controllers\Api\DictionaryController;
 use App\Http\Controllers\Api\PackageController;
+use App\Models\Dictionary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,10 @@ Route::middleware(('auth:sanctum'))->group(function() {
 
     Route::prefix('/dictionary')->group(function() {
         Route::get('/' , [DictionaryController::class , 'index']);
+        Route::post('/' , [DictionaryController::class , 'store']);
+        Route::get('/{id}' , [DictionaryController::class , 'show']);
+        Route::delete('/{id}' , [DictionaryController::class , 'destroy']);
+        Route::put('/{id}' , [DictionaryController::class , 'update']);
     });
 
     Route::prefix('/reports')->group(function() {
