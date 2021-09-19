@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AdminController;
 use App\Http\Controllers\Api\AnnualReportController;
 use App\Http\Controllers\Api\AuthControllerr;
 use App\Http\Controllers\Api\DictionaryController;
+use App\Http\Controllers\Api\MemberController;
 use App\Http\Controllers\Api\PackageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,13 @@ Route::middleware(('auth:sanctum'))->group(function() {
         Route::post('/' , [AdminController::class , 'store']);
         Route::get('/{id}' , [AdminController::class , 'show']);
         Route::delete('/{id}', [AdminController::class , 'destroy']);
+    });
+
+    Route::prefix('/members')->group(function(){
+        Route::get('/' , [MemberController::class , 'index']);
+        Route::post('/' , [MemberController::class , 'store']);
+        Route::get('/{id}' , [MemberController::class , 'show']);
+        Route::delete('/{id}' , [MemberController::class , 'destroy']);
     });
 
     Route::prefix('/reports')->group(function() {
