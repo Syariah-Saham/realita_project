@@ -6,8 +6,10 @@ use App\Http\Controllers\Api\AuthControllerr;
 use App\Http\Controllers\Api\DictionaryController;
 use App\Http\Controllers\Api\MemberController;
 use App\Http\Controllers\Api\PackageController;
+use App\Http\Controllers\Api\ScreeningController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +59,10 @@ Route::middleware(('auth:sanctum'))->group(function() {
 
     Route::prefix('/reports')->group(function() {
         Route::get('/' , [AnnualReportController::class , 'index']);
+    });
+
+    Route::prefix('/screens')->group(function() {
+        Route::get('/' , [ScreeningController::class , 'screens']);
     });
 });
 
