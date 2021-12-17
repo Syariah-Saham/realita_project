@@ -157,8 +157,8 @@ class ScreeningController extends Controller
         if (!isset($_GET['page'])) {
             $_GET['page'] = 1;
         }
-        $items  = $collections->forPage($_GET['page'], 15);
-        $pages = ceil($collections->count() / 15);
+        $items  = $collections->forPage($_GET['page'], 25);
+        $pages = ceil($collections->count() / 25);
 
 
         return response([
