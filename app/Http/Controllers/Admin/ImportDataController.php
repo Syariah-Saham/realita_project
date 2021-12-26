@@ -47,7 +47,7 @@ class ImportDataController extends Controller
     ]);
   }
 
-  public function zero ($number) 
+  public function zero ($number)
   {
     if($number !== '#N/A' && $number !== '-' && $number !== '') {
       return $number;
@@ -56,11 +56,11 @@ class ImportDataController extends Controller
     }
   }
 
-  public function getSector () 
+  public function getSector ()
   {
     foreach ($this->stocks as $data) {
       $data = explode('.', $data->sector);
-      $sector = trim($data[1]); 
+      $sector = trim($data[1]);
       if(!$this->sectors->contains($sector)) {
         $this->sectors->push($sector);
       }
@@ -81,14 +81,14 @@ class ImportDataController extends Controller
   {
     foreach ($this->stocks as $data) {
       $data = explode('.', $data->industry);
-      $industry = trim($data[1]); 
+      $industry = trim($data[1]);
       if(!$this->industries->contains($industry)) {
         $this->industries->push($industry);
       }
     }
   }
 
-  public function setIndustry () 
+  public function setIndustry ()
   {
     foreach ($this->industries as $industry) {
       $status = Industry::where('industry' , $industry)->get()->count();
@@ -98,7 +98,7 @@ class ImportDataController extends Controller
     }
   }
 
-  public function setStock () 
+  public function setStock ()
   {
     foreach ($this->stocks as $key => $stock) {
       $sector = trim(explode('.', $stock->sector)[1]);
@@ -126,37 +126,37 @@ class ImportDataController extends Controller
     }
     dump('Complete insert stock');
   }
-    
-    
-    
+
+
+
     /**
       * route: admin/import
       * method: get
       * params: null
-      * description: 
+      * description:
         * this method will return view import
       * @return : @var view
     */
-    public function index () 
+    public function index ()
     {
       $maintenance_mode = Setting::where('key' , 'maintenance')->first()->value;
     	return view('vendor.admin.import-data' , [
         'maintenance_mode' => $maintenance_mode,
       ]);
     }
-    	
 
-    
-    
+
+
+
     /**
       * route: admin/import/stock
       * method: post
       * params: null
-      * description: 
+      * description:
         * this method will request api for get data stock
       * @return : @var api
     */
-    public function stock () 
+    public function stock ()
     {
       ini_set('max_execution_time', 6000);
       $response = file_get_contents('https://script.googleusercontent.com/macros/echo?user_content_key=vjcHP_xEENxBQFebxDyOTOIGtLmwa3j0FFxdhJxJb8H-tAdf1OICAYE1O8TrRGJD3cGj8BOo9xMSwRns4txcdz7oOdwzlWJ-m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnPK76bXwNsDtYRaNlFHrlf9-U43CXrvlLrAH9zEoHdSj0qbAyAPsHhfihs5eG06RTld8uduLYkiZIT9G1n9LQ_0Cp1XKia6Wyt24D7ghrsYgnRMvSrRweQw&lib=MTT_G-6P_TeeXHK2lekWiEBJS-FelNKUK');
@@ -173,7 +173,7 @@ class ImportDataController extends Controller
     }
 
 
-    /* 
+    /*
       * route: admin/import/stock
       * method: delete
     */
@@ -205,7 +205,7 @@ class ImportDataController extends Controller
 
 
 
-    public function setAsset ($balance_id , $data) 
+    public function setAsset ($balance_id , $data)
     {
         $status = Asset::where('balance_id',$balance_id)->get()->count();
         if(!$status) {
@@ -219,7 +219,7 @@ class ImportDataController extends Controller
         }
     }
 
-    public function setLiabilitas ($balance_id , $data) 
+    public function setLiabilitas ($balance_id , $data)
     {
         $status = Liability::where('balance_id',$balance_id)->get()->count();
         if(!$status) {
@@ -229,11 +229,11 @@ class ImportDataController extends Controller
                 'n_current'  => $data['libilitas_jkpj'],
                 'total'      => $data['total_liabilitas'],
                 'growth'     => $data['growth_lia'],
-            ]);   
+            ]);
         }
     }
-    
-    public function setEquity ($balance_id , $data) 
+
+    public function setEquity ($balance_id , $data)
     {
         $status = Equity::where('balance_id',$balance_id)->get()->count();
         if(!$status) {
@@ -247,7 +247,7 @@ class ImportDataController extends Controller
         }
     }
 
-    public function setProfit ($report_id , $data) 
+    public function setProfit ($report_id , $data)
     {
         $status = ProfitLoss::where('report_id' , $report_id)->get()->count();
         if(!$status) {
@@ -261,7 +261,7 @@ class ImportDataController extends Controller
         }
     }
 
-    public function setCostStock ($report_id , $data) 
+    public function setCostStock ($report_id , $data)
     {
         $status = CostStock::where('report_id' , $report_id)->get()->count();
         if(!$status) {
@@ -273,7 +273,7 @@ class ImportDataController extends Controller
         }
     }
 
-    public function setRatio ($report_id , $data) 
+    public function setRatio ($report_id , $data)
     {
         $status = FinanceRatio::where('report_id' , $report_id)->get()->count();
 
@@ -296,16 +296,16 @@ class ImportDataController extends Controller
             ]);
         }
     }
-    
+
     /**
       * route: admin/import/report
       * method: post
       * params: null
-      * description: 
+      * description:
         * this method will request api for get data report
       * @return : @var redirect
     */
-    public function financeReport (Request $request) 
+    public function financeReport (Request $request)
     {
       $request->validate([
         'url' => 'required|string',
@@ -320,12 +320,12 @@ class ImportDataController extends Controller
 
       ini_set('max_execution_time', 2000);
 
-      /* 
-        url sheet before 
-      
+      /*
+        url sheet before
+
         https://script.googleusercontent.com/macros/echo?user_content_key=u3MPmWFsn7bm3GJPzLqzXa2bJ8GK6Iq2A7pRWlY4jH5rMVJFZj6u-Z4UYdXfieSfZjfwbxNsm1rLrK71oxvJDQkI6l5WuVCKm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCfC5AkYNYU535nKZ-vyjxLaYhl4YtVo3XUdHlxYs3uZeljbCKRFTNIBBwINVBIVAjwj2fMfTjaIHunQVyD6GjTwZams4Dja-d24D7ghrsYgnRMvSrRweQw&lib=MTT_G-6P_TeeXHK2lekWiEBJS-FelNKUK
       */
-      
+
       /* get data form sheet */
       $response = file_get_contents($request->url);
       $data = json_decode($response)->records;
@@ -413,6 +413,23 @@ class ImportDataController extends Controller
       Setting::where('key' , 'maintenance')->update(['value' => $request->mode]);
       return redirect(url()->previous())->with('switch mode' , 'Mode Maintenance berhasil diubah!');
     }
-      
-      
+
+    public function updateIndex()
+    {
+        ini_set('max_execution_time', 6000);
+        $response = file_get_contents('https://script.googleusercontent.com/macros/echo?user_content_key=z4mOkA5RtS80EI0TSQN7oet3Aob0hgFdeT7OjgAZsXj2IV9D5bCLJ0Da3_af5zxktn4Stp4iYEuXJdxycRG-BqLqFDMorG7Mm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnO1Nw2YT4KvNnb_Qp4YwFKXhpK6hZ7ztPR_P5Ua7jlRH3VQ07BvPzPxPvqPvg3YAxAmmqSHvsFy9aRP8VK4bj74sdKH3jn5bn924D7ghrsYgnRMvSrRweQw&lib=MTT_G-6P_TeeXHK2lekWiEBJS-FelNKUK');
+        $data = json_decode($response)->records;
+        foreach($data as $k =>  $d) {
+            if($d->sharia === "Yes") {
+                Stock::where('code_issuers', $d->Ticker)->update(['sharia' => "true"]);
+            } else {
+                Stock::where('code_issuers', $d->Ticker)->update(['sharia' => "false"]);
+            }
+            dump($k . " " . $d->Ticker);
+        }
+
+        return redirect(url()->previous())->with('complete' , "Index berhasil diupdate!");
+    }
+
+
 }

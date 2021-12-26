@@ -40,6 +40,11 @@
 	@endif
 </form>
 
+<form action="{{ url('/admin/import/issi') }}" method="post">
+    @csrf
+    @method('put')
+    <button class="btn">Update Index</button>
+</form>
+
 
 @endsection
-	

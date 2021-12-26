@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use App\Http\Controllers\Admin\ImportDataController;
 
@@ -8,4 +8,5 @@ Route::prefix('import')->group(function() {
 	Route::delete('/stock' , [ImportDataController::class , 'stockReset']);
 	Route::post('report' , [ImportDataController::class , 'financeReport']);
 	Route::put('maintenance' , [ImportDataController::class , 'maintenance']);
+    Route::put('/issi' , [ImportDataController::class , 'updateIndex']);
 });
